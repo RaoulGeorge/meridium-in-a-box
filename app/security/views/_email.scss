@@ -1,0 +1,17 @@
+$button-panel-width: 40px;
+
+.email-settings {
+    padding: 14px;
+    .panel-heading {
+        .heading-title {
+            width: calc(100% - #{$button-panel-width});
+        }
+        .button-panel {
+            width: $button-panel-width;
+
+            //i {
+            //    font-size: 1.3em;
+            //}
+        }
+    }
+}

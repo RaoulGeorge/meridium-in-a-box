@@ -1,0 +1,6 @@
+﻿Changes to polymer files done by Meridium
+=========================================
+
+CustomElements/src/boot.js
+--------------------------
+* modified CustomEvent shim to allow for passing of parameters to event.detail

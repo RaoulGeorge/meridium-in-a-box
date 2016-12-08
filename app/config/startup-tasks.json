@@ -1,0 +1,17 @@
+{
+    "pre-login": {
+        "tasks": []
+    },
+
+    "post-login" :{
+        "tasks": []
+    },
+
+    "dom-events": {
+        "tasks": []
+    },
+
+    "scheduled": {
+        "tasks": []
+    }
+}

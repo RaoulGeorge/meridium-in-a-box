@@ -1,0 +1,29 @@
+﻿
+<div id="login-screen" class="block-group">
+    <section class="login-wrapper">
+        <div class="login-opacity-background">
+            <!-- ko if: showLogonForm-->
+            <div class="welcome-text-container">
+                <div class="login-logo"></div>
+                <label class="secondary-text block">Select your datasource to access Meridium</label>
+            </div>
+            <form class="login-form">
+                <div class="datasource-container block-group">
+                    <div class="form-group block">
+                        <select tabindex="3" class="form-control"
+                                data-bind="options: datasources, value: datasource, optionsText: 'shortDisplayName'"></select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" data-bind="click: login, text: loginCaption"></button>
+                </div>
+            </form>
+           
+            <!-- /ko -->
+            <!-- ko ifnot: showLogonForm -->
+            <div><h1>You are logged out.. peace!!!</h1></div>
+            <!-- /ko -->
+          
+        </div>
+    </section>
+</div>

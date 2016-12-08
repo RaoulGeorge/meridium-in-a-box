@@ -1,0 +1,16 @@
+﻿.sub-title-container{
+	//padding-left: 59px;
+	//margin-top: -17px;
+	//padding-bottom: 10px;
+	//width: calc(60% - 40px);
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	h3{
+		margin: 0px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 15px;
+	}
+}

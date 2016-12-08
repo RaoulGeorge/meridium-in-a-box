@@ -1,0 +1,7 @@
+﻿<script id="mi-radio-tmpl" type="text/html">
+    <div class="radio-container" tabindex="0">
+        <input type="radio" data-bind="checked: $root.checked,disable: $root.disable,value:$root.value, attr:{id:$data.id , name:$root.name, required:$root.required} " />
+        <label data-bind="attr:{for:$data.id}"></label>
+        <span class="radio-text" data-bind="text: $root.text, click: $data.textClick"></span>
+    </div>
+</script>

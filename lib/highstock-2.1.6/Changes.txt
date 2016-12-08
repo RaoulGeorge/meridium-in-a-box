@@ -1,0 +1,11 @@
+﻿As of 6/23/2105, Highcharts 2.1.6 still hasn't fixed the issue regarding pointer events and IE11 and touch
+For more details on the issue, see:
+http://forum.highcharts.com/highcharts-usage/issue-with-highcharts-ie-and-surface-t32521/
+
+Meridium changelog:
+Highstock.js
+	Line 10349 was changed from:
+		if ((e.pointerType === 'touch' || e.pointerType === e.MSPOINTER_TYPE_TOUCH) && charts[hoverChartIndex]) {
+	to:
+		if (false) {
+All changes were also performed to both the minified code and the library code unless otherwise noted.

@@ -1,0 +1,34 @@
+﻿<div class="risk-action-card" data-bind="css: { 'risk-action-card__header--with-expand': showExpand }">
+    <button class="btn btn-icon risk-action-card__expand" data-bind="click: expandClicked, visible: showExpand, attr: { title: maximizeText }">
+        <i class="icon-fit"></i>
+    </button>
+    <div class="risk-action-card__header" data-bind="css: { 'risk-action-card-text--with-expand': headerClass() === 'expand', 'risk-action-card-text--with-risk-bar': headerClass() === 'bar', 'risk-action-card-text--with-expand-and-risk-bar': headerClass() === 'expandAndBar' }">
+        <i class="icon-consolidate" data-bind="visible: consolidated"></i>
+        <i class="icon-mandatory" data-bind="visible: mandatory"></i>
+        <i data-bind="css: statusIconClass, visible: showStatus"></i>
+        <div class="risk-action-card__name" data-bind="text: name, attr: { title: name }"></div>
+    </div>
+
+    <div class="js-card-fields-list" data-bind="foreach: fields, css: { 'risk-action-card-text--with-expand': headerClass() === 'expand', 'risk-action-card-text--with-risk-bar': headerClass() === 'bar', 'risk-action-card-text--with-expand-and-risk-bar': headerClass() === 'expandAndBar' }">
+        <div class="risk-action-card__field-block">
+            <div class="risk-action-card__field">
+                <div class="risk-action-card__field-value" data-bind="visible: !hyperLink, text: value, style: { 'max-width': $parent.fieldValueMaxWidth }, attr: { title: value }"></div>
+                <div class="risk-action-card__field-value" data-bind="visible: hyperLink">
+                    <a href="#" data-bind="text: value, click: $parent.fieldHyperLinkClicked"></a>
+                </div>
+                <div class="risk-action-card__field-separator">:</div>
+                <div class="risk-action-card__field-caption" data-bind="text: caption, attr: { title: caption }"></div>
+            </div>
+        </div>
+    </div>
+    <div data-bind="visible: showRiskBar">
+        <mi-risk-bar class="risk-action-card__risk-bar" params="{
+            mitigated: mitigated,
+            unmitigated: unmitigated,
+            maxRiskRank: riskBarConfig.maxRiskRank,
+            isLogarithmic: riskBarConfig.isLogarithmic,
+            thresholds: riskBarConfig.thresholds}" data-bind="css: {'risk-action-card__risk-bar--with-expand': showExpand}" />
+    </div>
+    <!-- This is here to allow notification to the viewmodel when the component has been initialized. -->
+    <span data-bind="template: { afterRender: setFieldValueMaxWidth.bind($data) }"></span>
+</div>

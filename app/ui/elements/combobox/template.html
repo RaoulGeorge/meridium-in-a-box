@@ -1,0 +1,9 @@
+﻿
+<div class="mi-combobox-container" data-bind="visible:visible,css:{'disabled':disabled,'open':isOpen,'required': (!text()) && required}">
+   
+    <div data-bind="click:toggleOptions,css:{'active':isOpen}" class="mi-combobox-selector">
+        <input type="text" class="mi-combobox-value-text pull-left" 
+               data-bind="value: text, valueUpdate:'keyup', event: {keyup: function() {$root.showAllOptions(false); }}" /> <span class="icon-arrow pull-right"></span>
+    </div>
+
+</div>

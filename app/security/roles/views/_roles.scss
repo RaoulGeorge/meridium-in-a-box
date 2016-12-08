@@ -1,0 +1,158 @@
+$role-nav-width: 240px;
+$role-nav-width-collapsed: 40px;
+$upload-box-width: 115px;
+$upload-box-height: 120px;
+$role-image-column-width: 160px;
+$role-breadcrumb_height: 40px;
+.role-screen {
+    height: 100%;
+    width: 100%;
+
+    .role-nav {
+        width: $role-nav-width;
+        height: calc(100% - 40px);
+        
+        &.nav-collapsed {
+            width: $role-nav-width-collapsed;
+        }
+        
+        .rolePanel {
+            height: calc(100% - #{$role-breadcrumb_height});
+            width: $role-nav-width; // fixes bug in IE
+        }
+
+        .mi-searchbox {
+            &:before {
+                left: 8px;
+            }
+        }
+    }
+
+    .role-details {
+        padding: 10px 10px 4px 10px;
+        width: calc(100% - #{$role-nav-width}); // width of expanded list
+
+        &.nav-collapsed {
+            width: calc(100% - #{$role-nav-width-collapsed});
+        }
+
+        .panel-heading {
+            .role-title {
+                width: calc(100% - 100px);
+            }
+
+            .button-panel {
+                text-align: right;
+                height: 45px;
+                width: 100px;
+
+                &.loading {
+                    .loading-med {
+                        display: inline-block;
+                    }
+                }
+
+                //.btn {
+                //    cursor: pointer;
+                //    min-width: 6px;
+                //    padding-left: 2px;
+                //    padding-right: 2px;
+                //
+                //    i {
+                //        font-size: 2em;
+                //    }
+                //}
+            }
+        }
+
+        .panel-body {
+            height: calc(100% - 100px);
+        }
+
+        .role-groups-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .role-large-group {
+                width: 40%;
+                padding-right: 25px;
+            }
+
+            .role-small-group {
+                width: 15%;
+                padding-right: 25px;
+            }
+        }
+
+        .role-users-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .role-large-group {
+                width: 40%;
+                padding-right: 25px;
+            }
+
+            .role-small-group {
+                width: 10%;
+                padding-right: 25px;
+            }
+        }
+
+        .role-detail-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .form-column {
+                width: calc((100% - #{$role-image-column-width}) / 2);
+                padding-right: 25px;
+            }
+
+            .role-image-column {
+                width: $role-image-column-width;
+                padding-right: 25px;
+            }
+
+            .image-uploader-container {
+                height: $upload-box-height;
+                width: $upload-box-width;
+                border: 1px solid;
+            }
+        }
+    }
+}
+
+.role-popover-tables {
+    /*margin-left: 350px;*/
+    width: 500px;
+    height: 100%;
+    padding: 10px 40px;
+
+    .nav {
+        height: 400px;
+    }
+
+    .footer {
+        width: 80%;
+    }
+    /* Items in 5 columns (20% each) */
+    .item {
+        width: 20%;
+    }
+
+    .search-box {
+        display: inline-block;
+    }
+
+    .roleSearch {
+    }
+}

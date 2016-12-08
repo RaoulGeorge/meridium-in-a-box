@@ -1,0 +1,133 @@
+mi-asset-context {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+
+	div > button {
+		width: 100%;
+		 border: 1px solid rgb(192, 197, 197) !important;
+		i {
+			position: relative;
+			top: -2px;
+		}
+		span.context-id {
+			display: inline-block;
+			width: calc(100% - 14px);
+			top: 3px;
+			text-align: left;
+			position: relative;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-o-text-overflow: ellipsis;
+			-webkit-text-overflow: ellipsis;
+		}
+	}
+
+	div.region {
+		width: 100%;
+	}
+
+	.asset-context-selection {
+		display: none;
+		box-shadow:0 0 10px grey;
+		border: 1px solid black;
+
+		&.static {
+			display: block;
+			height: 100%;
+			width: 100%;
+			border: 0;
+			box-shadow: none;
+		}
+
+		position: absolute;
+		top: 0;
+		background: white;
+		height: 100%;
+		width: 400px;
+
+		.navigation {
+			height: 43px;
+            .nav-pills {
+                > li {
+                    > a {
+                        @include text-overflow;
+                    }
+                    &.active > a {
+                        &, &:hover, &:focus {
+                            @include text-overflow;
+                        }
+                    }
+                }
+            }
+		}
+
+		section.block-group.context-select {
+			height: calc(100% - 43px);
+			.asset-content {
+				height: 100%;
+				.asset-group-explorer {
+					height: 100%;
+                            mi-list-group {
+                                height: 100%;
+
+                                mi-tool-bar {
+                                	mi-searchbox {
+                                		i {
+                                			padding-top: 9px;
+                                		}
+                                	}
+                                }
+                            }
+					.asset-group-tree-control {
+						height: 100%;
+						.block-group {
+							height: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.dialog-content .asset-context-selection {
+	height: calc(100% - 10px);
+	width: 400px;
+
+	.navigation {
+		height: 43px;
+	}
+
+	&.static {
+		section.block-group.context-select {
+			height: calc(100% - 43px);
+		}
+	}
+
+	section.block-group.context-select {
+		height: calc(100% - 77px);
+		.asset-content {
+			height: 100%;
+			.asset-group-explorer {
+			    height: 100%;
+                            mi-list-group {
+                                height: 100%;
+                            }
+				.asset-group-tree-control {
+					height: 100%;
+					.block-group {
+						height: 100%;
+					}
+				}
+			}
+		}
+	}
+
+   .not-active {
+       pointer-events: none;
+       cursor: not-allowed;
+    }
+}

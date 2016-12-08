@@ -1,0 +1,14 @@
+﻿<div class="long-text-control">
+
+    <textarea class="form-control"
+              data-bind="textInput: value,
+                        disable: isDisabled,
+                        css: compositeCssClass, 
+                        attr: { placeholder: placeholderText }" />
+
+    <button class="btn btn-icon expand-icon" tabindex="-1" data-bind="click: enlarge">
+        <i class="icon-expand-text-area"></i>
+    </button>
+
+    <div class="clearfix"></div>
+</div>

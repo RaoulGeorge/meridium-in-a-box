@@ -1,0 +1,24 @@
+﻿
+<div class="dg-header">
+    <div data-bind="halt-bindings" class="dg-pager" >
+        <mi-select data-bind="miproperty:{
+                           options: listObjects,
+                           optionsText: 'displayName',
+                           optionsValue: optionsValue,
+                           value: selectedValue,
+                           editable: false
+                           }">
+        </mi-select>
+        <div class="totalCount">
+            <div data-bind="text: $root.translator.translate('OF')"></div>
+            <div data-bind="text: totalCount"></div> 
+            <div data-bind="text: $root.translator.translate('RECORDS')"></div>
+         </div>
+      </div>
+    </div>
+<div class="gridContainer" style="display:block;height:calc(100% - 46px);width:100%;"></div>
+<div class="dg-footer">
+    <div class="dg-controls" >
+        <span class="dxDataGridTotalCount pull-left" style="height: 25px;display:none;"></span>
+    </div>
+</div>

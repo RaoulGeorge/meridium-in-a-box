@@ -1,0 +1,25 @@
+﻿<div class="error-detail-wrapper">
+    <div class="block-group">
+        <div class="error-code error-header error-header-code block" data-bind="text: translate('ERROR_CODE')"></div>
+    </div>
+
+    <div class="block-group">
+        <div data-bind="text:code" class="error-code block"></div>
+    </div>
+
+    <div class="block-group error-message-group">
+        <div class="error-message error-header error-header-message block" data-bind="text: translate('MESSAGE')"></div>
+        <div data-bind="html:message" class="error-message block"></div>
+    </div>
+
+    <!-- ko if: detail -->
+    <div class="block-group error-message-detail">
+        <div class="error-url error-header error-header-url block" data-bind="text: translate('DETAILS')"></div>
+        <pre data-bind="html:detail" class="error-url error-body-url block"></pre>
+    </div>
+    <!-- /ko -->
+
+    <section class="button-align">
+        <div class="btn btn-primary error-dialog-close" data-bind="text: translate('OK')"></div>
+    </section>
+</div>

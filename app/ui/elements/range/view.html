@@ -1,0 +1,36 @@
+﻿
+<section class="mi-range-container" data-bind="css: { 'horizontal': landscape(), 'vertical': !landscape(), 'rtl': rtl() }">
+    <div class="mi-range-bar" data-bind="style: { 'background-image': barGradient }, click: onBarClicked.bind($data)"></div>
+    
+    <span class="mi-range-min h4" data-bind="text: formatValue(min())"></span>
+    <span class="mi-range-max h4" data-bind="text: formatValue(max())"></span>
+
+    <!-- ko foreach: points -->
+    <div class="mi-range-point" data-bind="css: cssClass,
+        style: {
+            'backgroundColor': color,
+            'transform': getTransform($parent.landscape()),
+            '-webkit-transform': getTransform($parent.landscape()),
+            'zIndex': zIndex
+        },
+        'mi-range-slider-point-drag': {
+            onmove: $parent.onPointMoved.bind($parent, $data),
+            ondragstart: $parent.onPointDragStart.bind($parent, $data),
+            ondragend: $parent.onPointDragEnd.bind($parent, $data)
+        }">
+    </div>
+    
+    <div class="mi-range-point-value popover" data-bind="
+        style: {
+            'transform': getLabelTransform($parent.landscape()),
+            '-webkit-transform': getLabelTransform($parent.landscape()),
+        }">
+        <h3 class="popover-title">
+            <!-- ko if: name -->
+            <span data-bind="text: name"></span>
+            <!-- /ko -->
+            <span data-bind="text: $parent.getDisplayValue(value())"></span>
+        </h3>
+    </div>
+    <!-- /ko -->
+</section>

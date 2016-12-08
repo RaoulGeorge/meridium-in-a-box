@@ -1,0 +1,25 @@
+﻿
+<div class="mi-table-filter-container" data-bind="visible:visible,css:{'disabled':disabled,'open':isOpen}">
+    <div data-bind="click:toggleOptions,css:{'active':isOpen}" class="mi-table-filter-handler">
+        <button class="btn btn-primary pull-right btn-icon">
+            <span class="mi-table-filter-icon icon-collection-filter" data-bind=""></span>
+        </button>
+    </div>
+
+    <div style="position:relative;">
+        <div data-bind="visible:isOpen()" class="mi-table-filter-options-container">
+            <span data-bind="text:title"></span>
+            <!-- ko foreach:_filterOptions -->
+            <p class="mi-table-filter-options-selector" data-bind="" style="max-width:150px;display:inline-block;">
+
+                <!--<select class="form-control" data-bind="options:$data.options,optionsText:'text',optionsValue:'value',value: $data.selected"></select>-->
+                <mi-select data-bind="miproperty:{options:$data.options, optionsText:'text', optionsValue:'value', value: $data.selected}"></mi-select>
+
+            </p>
+            <!-- /ko -->
+        </div>
+    </div>
+
+</div>
+
+

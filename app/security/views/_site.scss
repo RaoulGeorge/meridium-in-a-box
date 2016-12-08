@@ -1,0 +1,79 @@
+﻿$site-breadcrumb_height: 40px;
+$site-nav-width: 240px;
+
+.site-screen {
+    height: 100%;
+    width: 100%;
+ 
+
+    .site-list {
+        height: calc(100% - #{$site-breadcrumb_height});
+        width: $site-nav-width; // fixes bug in IE
+    }
+
+    .site-tab {
+		 width: 100%;
+    }
+    .site-tab-pages {
+		 width: 49%;
+    }
+
+    .site-details {
+        &.expanded {
+            width: calc(100% - 30px); // width of collapsed list
+        }
+
+        .panel-heading {
+            .site-title {
+                width: calc(100% - 100px);
+            }
+            .button-panel {
+                text-align: right;
+                height: 45px;
+                width: 100px;
+
+                &.loading {
+                    .loading-med {
+                        display: inline-block;
+                    }
+                }
+
+                .btn {
+                    cursor: pointer;
+                    min-width: 6px;
+                    padding-left: 2px;
+                    padding-right: 2px;
+
+                    //i {
+                    //    font-size: 2em;
+                    //}
+                }
+            }
+        }
+
+        padding: 10px 10px 4px 10px;
+        width: calc(100% - #{$site-nav-width}); // width of expanded list
+    }
+}
+.site-popover-tables{
+
+    /*margin-left: 350px;*/ 
+    width: 500px;
+	height: 100%;
+    padding: 10px 40px; 
+
+        .nav { 
+                height: 400px;
+        }
+        .footer { width: 80%; }
+        /* Items in 5 columns (20% each) */
+        .item { width: 20%; }
+
+        .search-box {
+            display: inline-block;
+        }
+
+        .siteSearch {
+        }
+
+}

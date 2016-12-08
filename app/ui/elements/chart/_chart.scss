@@ -1,0 +1,62 @@
+﻿mi-chart {
+    display: block;
+    height: 100%;
+
+    svg {
+        font-family: $font-family-base;
+    }
+
+    .chart-container {
+        height: calc(100% - 46px);
+        padding: 5px;
+        border: 1px solid $table-border-color;
+    }
+
+    .not-found-message{
+        font-size:12px;
+        font-weight:bold;
+        color:#60606a;
+        fill:#60606a;
+        text-align:center;
+        padding-top:20%;
+    }
+
+    .chart, mi-resultgrid {
+        height: 100%;
+    }
+
+    mi-resultgrid {
+        display: none;
+    }
+
+    &.show-grid {
+        .chart {
+            display: none;
+        }
+        mi-resultgrid {
+            display: block;
+            height: calc(100% - 65px);
+        }
+    }
+
+    &[hide-toolbar] {
+        .chart-container {
+            height: 100%;
+        }
+    }
+    .highcharts-data-labels
+    {
+         > div > span > .data-label
+            {
+                white-space: nowrap;
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                -o-text-overflow: ellipsis;
+                -webkit-text-overflow: ellipsis;
+            }
+    }
+    .highcharts-tooltip{
+        z-index: 20;
+    }
+}

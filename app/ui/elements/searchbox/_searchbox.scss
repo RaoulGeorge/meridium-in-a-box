@@ -1,0 +1,59 @@
+.mi-searchbox {
+	display: block;
+	position: relative;
+
+    input{
+        width:100%;
+		background: $dotted-divider left bottom repeat-x;
+
+		&:focus {
+			background: $input-bg;
+		}
+    }
+
+	i.icon-multiply {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		display: none;
+		cursor: pointer;
+                z-index: 1;
+	}
+	.search-list {
+		display: none;
+		position: absolute;
+		width: 100%;
+		div.list-group {
+			height: 100%;
+		}
+		mi-tool-bar {
+			display: none;
+			visibility: hidden;
+		}
+		&.open {
+			display: block;
+			visibility: visible;
+		}
+	}
+}
+
+mi-tree, mi-list-group{
+	background-color: #eaeaea;
+	z-index: 1;
+	.search-list {
+		div.list-group {
+			height: 100%;
+			.list-group-item {
+				background-color: #fcfcfc;
+			}
+		}
+		mi-tool-bar {
+			display: none;
+			visibility: hidden;
+		}
+		&.open {
+			display: block;
+			visibility: visible;
+		}
+	}
+}

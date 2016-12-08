@@ -1,0 +1,12 @@
+﻿<div>
+    <input type="file" id="fileopen" accept="image/*" style="display:none" data-bind="event: { 'change': fileChosen }">
+    <section class="file-drop-box" data-bind="click: chooseFile">
+
+        <!-- ko if: imgSrc -->
+        <img data-bind="attr: { src: imgSrc }" alt="User Photo" />
+        <!-- /ko -->
+
+        <section class="upload-placeholder" data-bind="hidden: imgSrc"><span data-bind="text: $root.translate('SEC_USERS_UPLOAD_PHOTO')"></span></section>
+    </section>
+</div>
+

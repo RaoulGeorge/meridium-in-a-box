@@ -1,0 +1,122 @@
+$nav-list-group-section-padding: 8px 0 8px 20px;
+$nav-list-title-height: 72px;
+$nav-list-title-button-width: 38px;
+$nav-list-sub-title-height: 50px;
+$nav-list-form-group-height: 40px;
+$nav-list-btn-group-height: 50px;
+$nav-list-group-bg: url(../images/backgrounds/border-right-menu.jpg) right top repeat-y #eaeaea;
+$path-hist-bg : url(../images/backgrounds/border-right-menu.jpg) right repeat-y #d3dfed;
+$divider-bg : url(../images/backgrounds/dotted-divider-menu.png) left bottom repeat-x;
+
+@mixin mi-collapsible {
+    display: inline-block;
+    position: relative;
+	height: 100%;
+	background: $nav-list-group-bg;
+	@include box-shadow(inset -10px 0px 15px -5px rgba(0,0,0,0.15));
+	min-width: 40px;
+	
+
+    section.expanded {
+        height: 100%;
+        width: 100%;
+		min-width: 240px;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        i.icon-collapse {
+			display: inline-block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: $collapsible-icon-z-index;
+            border: 1px solid #f7f7f7;
+            border-color: transparent;
+            padding-top: $icon-collapse-padding-normal;
+            padding-bottom: $icon-collapse-padding-normal;
+            
+            width: 30px;
+            font-weight: normal;
+            color: #007aff;
+            float: right;
+            text-align: center;
+            font-size: 18px;
+			cursor: pointer;
+        }
+
+		mi-tree.show-search-button .mi-searchbox:before, mi-list-group.show-search-button .mi-searchbox:before
+		{
+			left: 78px;
+		}
+		.title{
+			padding: 20px 15px;
+			cursor: pointer;
+			border-bottom: 1px solid #b5b5ba;       
+			font-size: 18px;
+			font-family: $font-family-light;
+			background: $nav-list-group-bg;
+			@include box-shadow(inset -10px 0px 15px -5px rgba(0,0,0,0.15));
+		}
+    }
+
+    section.collapsed {
+        display: none;
+        height: 100%;
+        width: 40px;
+        font-size: $font-size-h3;
+
+        &.active {
+            display: block;
+        }
+
+        div.block-group {
+			-webkit-transform: rotate(270deg) translate3d(0, 0, 0);
+			-moz-transform: rotate(270deg) translate3d(0, 0, 0);
+			-ms-transform: rotate(270deg) translate3d(0, 0, 0);
+			-o-transform: rotate(270deg) translate3d(0, 0, 0);
+			transform: rotate(270deg) translate3d(0, 0, 0);
+			-webkit-transform-origin: 34% 67% 0;
+			-moz-transform-origin: 34% 67% 0;
+			-ms-transform-origin: 34% 67% 0;
+			-o-transform-origin: 34% 67% 0;
+			transform-origin: 34% 67% 0;
+			overflow: visible;
+			white-space: nowrap;
+			font-size: 16px;
+			font-weight: normal;
+			margin: 0px 20px;
+
+			div.verticle-block-group{
+				position: absolute;
+				right: -100%;
+				top: -15px;
+				max-width: 360px;
+				overflow: hidden;
+
+				.title{
+					font-family: $font-family-light;
+				}
+			}
+
+        }
+
+        i.icon-expand {
+			display: inline-block;
+            position: relative;
+            color: #007aff;
+			right: 0px;
+			padding: 28px 11px;
+			border-bottom: 1px solid #9f9fa4;
+			margin-bottom: 20px;
+			font-size: 18px;
+			cursor: pointer;
+        }
+    }
+}
+
+mi-collapsible, .mi-collapsible {
+    @include mi-collapsible;
+}

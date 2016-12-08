@@ -1,0 +1,86 @@
+<div class="catalog-folder-privileges">
+    <mi-tool-bar>
+        <a class="btn btn-icon" data-bind="attr: {title: translator.translate('ADD_USERS')},click: onAddUser">
+            <i class="icon-user" />
+        </a>
+        <a class="btn btn-icon" data-bind="attr: {title: translator.translate('ADD_GROUPS')},click: onAddGroup">
+            <i class="icon-groups" />
+        </a>
+        <a class="btn btn-icon"
+           data-bind="attr: {title: translator.translate('CHECKALLTEXT')},click: $root.selectAll">
+            <i class="icon-select-all"></i>
+        </a>
+        <a class="btn btn-icon"
+           data-bind="attr: {title: translate('SAVE')},click: save,
+                              visible: canSave">
+            <i class="icon-save"></i>
+        </a>
+        <a class="btn btn-icon"
+           data-bind="attr: {title: translator.translate('DELETE')},click: $root.onDelete,
+                              visible: $root.canDelete">
+            <i class="icon-bin"></i>
+        </a>
+
+                <input type="checkbox"  autocomplete="off" data-bind="visible: $root.canShowParents,attr: {title: translator.translate('FAMILY_PRIVILEGE_SHOW_PARENTS')},checked: showParents">
+                <span class="permissions-header" data-bind="visible: $root.canShowParents,text:  translator.translate('FAMILY_PRIVILEGE_SHOW_PARENTS')"/>
+        <input type="checkbox"  data-bind="attr: {title: translator.translate('FAMILY_PRIVILEGE_SHOW_USERS')},checked: showUsers">
+        <span class="permissions-header" data-bind="text:  translator.translate('FAMILY_PRIVILEGE_SHOW_USERS')"/>
+        <input type="checkbox"  data-bind="attr: {title: translator.translate('FAMILY_PRIVILEGE_SHOW_GROUPS')},checked: showGroups">
+        <span class="permissions-header" data-bind="text:  translator.translate('FAMILY_PRIVILEGE_SHOW_GROUPS')"/>
+
+    </mi-tool-bar>
+    <div class="">
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    <div class="columnHeader">
+                        <div class="textHeader">
+                            <h4 data-bind="text: translate('FAMILY')" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="columnHeader" >
+                        <div class="textHeader">
+                            <h4 data-bind="text: translate('NAME')" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="columnHeader">
+                        <div class="textHeader">
+                            <h4 data-bind="text: translate('TYPE')" />
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <h4 data-bind="text: translate('PERMISSIONS')" />
+                </td>
+            </tr>
+            </thead>
+            <tbody class="" data-bind="foreach: familyPrivs">
+            <tr data-bind="css: style($root.familyCaption()),visible: $root.canShowPriv(isParent($root.familyCaption()),isGroup(),isDeleted())" >
+                <td><input class="priv-checkbox" type="checkbox" data-bind="checked: isSelected,enable:isEnabled($root.familyCaption())" /></td>
+                <td data-bind="text: displayName($root.familyCaption())" />
+                <td data-bind="text: name" />
+                <td data-bind="text: type" />
+                <td style="width:230px;">
+                    <label class="" data-bind="text: $root.translate('VIEW')"></label>
+                    <input class="" type="checkbox" data-bind="checked: vw,enable:isEnabled($root.familyCaption())" />
+                    <label class="" data-bind="text: $root.translate('INSERT')"></label>
+                    <input class="" type="checkbox" data-bind="checked: ins,enable:isEnabled($root.familyCaption())" />
+                    <label class="" data-bind="text: $root.translate('UPDATE')"></label>
+                    <input class="" type="checkbox" data-bind="checked: upd,enable:isEnabled($root.familyCaption())" />
+                    <label class="" data-bind="text: $root.translate('DELETE')"></label>
+                    <input class="" type="checkbox" data-bind="checked: del,enable:isEnabled($root.familyCaption())" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

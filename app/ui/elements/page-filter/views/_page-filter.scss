@@ -1,0 +1,70 @@
+$page-filter-height: 72px;
+$page-filter-left-margin: 46px;
+$page-filter-button-width: 36px;
+$page-filter-caption-left-margin: $page-filter-left-margin -$page-filter-button-width;
+
+mi-page-filter,
+.mi-page-filter {
+    display: block;
+    height: 100%;
+    position: relative;
+
+    .page-filter-root {
+        header {
+            border-bottom: 1px solid #999999;
+            height: $page-filter-height;
+            display: flex;
+            display: -webkit-flex;
+            flex-direction: column;
+            -webkit-flex-direction: column;
+            justify-content: center;
+            -webkit-justify-content: center;
+
+            button, h1, h2 {
+                margin: 0;
+                padding: 0;
+            }
+
+            h1 {
+                display: inline-block;
+                margin-left: $page-filter-caption-left-margin;
+                width:60%;
+            }
+
+            h2 {
+                margin-left: $page-filter-left-margin;
+            }
+
+            &.no-filter {
+                h1 {
+                    margin-left: 0;
+                }
+            }
+
+            &.asset {
+                :first-child {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+
+            &.no-asset {
+                button {
+                    margin-top: -4px;
+                }
+            }
+        }
+    }
+
+    .page-filter-tools {
+        position: absolute;
+        top: 16px !important;
+        right: 20px;
+    }
+}
+
+.mi-page-filter {
+    .page-filter-root {
+        height: 100%;
+    }
+}

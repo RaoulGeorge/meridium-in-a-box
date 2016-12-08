@@ -1,0 +1,63 @@
+$permissions-border: 1px dotted #cccccc;
+
+
+.permission-fixed-header{
+				margin-bottom: 20px;
+				padding-left: 0;
+				height: 100%;
+				margin: 0px;				
+	}
+#permission-details {
+	a {
+		cursor: pointer;
+	}
+
+	.folder-header {
+		width: 100%;
+
+		.folder-title {
+			display: inline-block;
+			width: 50%;
+
+			h2 {
+				text-align: left;
+			}
+		}
+
+		.folder-buttons {
+			display: inline-block;
+			float: right;
+			margin-top: 15px;
+
+			i {
+				padding: 5px;
+			}
+		}
+	}
+
+
+
+	//.permission-scrollable-items{
+	//	height: calc(100% - 90px);
+	//	overflow: auto;
+	//}
+	
+    .permission-item-group {
+        .details-container {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+        }
+	  .parentRow {
+		background-color:lightgray
+	  }
+	  
+	  .filterCheckbox {
+		margin-left: 25px;
+		margin-top: -5px;
+	  }
+    }
+
+    
+
+}

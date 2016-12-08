@@ -1,0 +1,39 @@
+﻿<mi-collapsible class="cat-collapsible">
+    <section class="expanded active">
+        <div >
+            <h1 data-bind="text: translate('SEC_SHELL_DATA_PERMISSIONS')"></h1>
+        </div>
+        <div class="block-group family-type-selection">
+            <mi-tab-group tabs="2">
+                <mi-tab value="entity-tab" data-bind="attr: {text:translator.translate('ENTITY'), selected: isFamilyVisisble}, click: showEntityFamilies"></mi-tab>
+                <mi-tab value="relationship-tab" data-bind="attr: {text:translator.translate('RELATIONSHIP'), selected: !isFamilyVisisble()}, click: showRelationshipFamilies"></mi-tab>
+            </mi-tab-group>
+        </div>
+        <div class="tab-content" data-bind="visible : isFamilyVisisble(), attr: { 'root-name':translator.translate('HOME') } ">
+            <mi-tree key="key"
+                     description="caption"
+                     page-size="25"
+                     allow-add="false">
+            </mi-tree>
+        </div>
+        <div class="relationship-tab-content" data-bind="visible : !isFamilyVisisble()">
+            <mi-list-group id="rel-list" selector="none"
+                           multiselect="false"
+                           key="key"
+                           description="caption"
+                           page-size="20"
+                           allow-add="false"
+                           custom-search="false"
+                           data-bind="event: { 'search-selected': setValue } ">
+            </mi-list-group>
+        </div>
+    </section>
+    <section class="collapsed">
+        <i class="icon-expand"></i>
+        <div class="block-group">
+            <div class="verticle-block-group">
+                <span class="title" data-bind="text: translate('SEC_SHELL_FMLY_PERMISSIONS')"></span>
+            </div>
+        </div>
+    </section>
+</mi-collapsible>﻿

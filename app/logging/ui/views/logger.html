@@ -1,0 +1,26 @@
+﻿
+<div style="float:left; height:100%">
+    <mi-panel title="Summary"
+              description="Id"
+              key="Key"
+              style="width:250px;" has-children="false">
+
+       
+
+
+        <ul data-bind="foreach: errorslog" class="nav nav-pills nav-stacked">
+            <mi-tool-bar>
+                <li>
+                    <a style="text-decoration: none" data-bind="html: errorCode + ' '+ number + '<br /> '+'(' + date + ' '+ time + ')', click:function() { $root.tabHandler($data, '#errorlog/') }"></a>
+                </li>
+            </mi-tool-bar>
+        </ul>
+
+
+           
+
+</mi-panel>
+</div>
+
+<div class="shell" style="float:left">
+</div>

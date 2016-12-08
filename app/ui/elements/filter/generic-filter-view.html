@@ -1,0 +1,54 @@
+﻿<div class="filter-container" data-bind="visible: visible,
+                                             css: {'right-filter-container': isRightOriented}">
+
+    <div class="filters" data-bind="css: {'has-tag': hasSelection}">
+        <!--<div class="clear-all" data-bind="css: {'clear-all-active': hasSelection}">
+            <a data-bind="click: $root.clearSelection,text:$root.translator.translate('MF_CLEAR_ALL')"></a>
+        </div>-->
+        <div class="tag-section tag-area " data-bind="css: {'filter-tag-active': hasSelection}">
+            <!-- ko foreach: filterOptions -->
+            <!-- ko foreach: options -->
+            <!-- ko if: $data.isSelected-->
+            <div class="tag tag-style">
+                <span>
+                    <span data-bind="text: text"></span>
+                </span>
+                <i class="icon-close-popup" data-bind="click: $root.removeFilter.bind($data)"></i>
+            </div>
+            <!-- /ko -->
+            <!-- /ko -->
+            <!-- /ko -->
+        </div>
+        <div class="filter-content">
+            <div class="sort-header <!--border-active-->">
+                <!--<header class="header-title"> Sort by: </header>-->
+                <div data-bind="visible: sortOptions().length > 0" class="mi-select">
+                    <mi-select data-bind="miproperty:{
+                               options:sortOptions,
+                               value:sortvalue,
+                               optionsCaption:sortcaption
+                            }"></mi-select>
+                </div>
+            </div>
+        </div>
+        <div class="filter-header">
+            <header data-bind="text: $root.translator.translate('FILTER_HEADER_CAPTION')"></header>
+            <header class="dotted-border"> </header>
+        </div>
+        <div class="filter-body" data-bind="foreach:filterOptions,css:{'no-select': !sortOptions().length}">
+            <div class="filter-section">
+                <header data-bind="text: caption"></header>
+                <div class="filter-item">
+                    <form class="form-item" data-bind="foreach:options">
+                        <div>
+                            <!--<input type="checkbox" data-bind="value: value, checked: isSelected" /> <span data-bind="text: text"></span>-->
+                            <mi-checkbox data-bind="miCheckboxProperty: {checked: isSelected, text: text}"></mi-checkbox>
+                        </div>
+                    </form>
+                    <div class="second-dotted-border"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

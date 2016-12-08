@@ -1,0 +1,13 @@
+﻿<footer>
+    <span class="left-footer" data-bind="visible: showOfflineStatus()">
+        <span class="offline-indicator"></span>
+        <span class="offline-caption" data-bind="text: getOfflineCaption()"></span>
+    </span>
+    <span class="right-footer">
+        <span data-bind="visible: !isSupportedBrowser(), text: getPlatformUnsupportedCaption()"></span>
+        <span data-bind="text: version()"></span>
+        <span data-bind="text: host()"></span>
+        <span data-bind="text: session().datasourceId"></span>
+        <span data-bind="text: user().id"></span>
+    </span>
+</footer>

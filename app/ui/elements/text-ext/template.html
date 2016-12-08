@@ -1,0 +1,18 @@
+﻿<div class="mi-multi-value-container" data-bind="visible:visible,css:{'disabled':disabled,'open':isOpen,'required': (options() && !options().length) && required}">
+    <div data-bind="click:toggleOptions,css:{'active':isOpen},clickBubble: false" class="mi-multi-value-selector">
+        <!--<input type="text" class="mi-multi-value-selected-value-text pull-left" data-bind="value:value" />-->
+        <span class="mi-multi-value-selected-value-text pull-left" data-bind="text:selectedValueText"></span>
+        <i class="icon-arrow pull-right" ></i>
+    </div>
+
+    <div data-bind="visible:isOpen()" class="mi-multi-value-options-container hide">
+
+        <!-- ko ifnot:(optionsCaption() === null) -->
+        <p class="mi-multi-value-option" data-bind="text:optionsCaption()"></p>
+        <!-- /ko -->
+        <!-- ko foreach:options -->
+        <p class="mi-multi-value-option" data-bind="text:$parent.getOptionText($data)"></p>
+        <!-- /ko -->
+    </div>
+
+</div>

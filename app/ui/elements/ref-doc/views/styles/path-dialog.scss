@@ -1,0 +1,51 @@
+﻿.refdoc-path-dialog {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .refdoc-form{
+        height: calc(100% - 25px);
+        overflow: auto;
+    }
+    
+    >.btn-toolbar {
+        position:absolute;
+        bottom:0;
+        right:0;
+        margin:20px; 
+    }   
+
+    #ref-doc-browse {
+        display: none;
+    }
+
+    .ref-doc-path {
+        display: inline-block;
+        width: 50%;
+        padding: 6px 12px;
+    }
+
+    .ref-doc-link-path {
+        width: 100%;
+    }
+
+    .ref-doc-browse-label {
+        display: inline-block;
+    }
+
+    .ref-btn-inactive {
+        color: #b2b2b2;
+        border-color: #b2b2b2;
+        background-color: transparent;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+    .ref-has-error {
+        background-color: #ffffff;
+        border: solid 1px #ff3b30;
+    }
+    .ref-text-danger{
+        color: #ff3b30;
+    }
+}

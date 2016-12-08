@@ -1,0 +1,92 @@
+﻿mi-risk-action-card {
+    .risk-action-card {
+        min-height: 50px;
+        line-height: normal;
+        position:relative;
+
+        &.risk-action-card__header--with-expand {
+            padding-top: 20px;
+        }
+
+
+        .risk-action-card__expand {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .risk-action-card__header {
+            display: inline-block;
+            max-width: 100%;
+
+            i {
+                float: right;
+                margin-top: 2px; // Centers the icon vertically with the text.
+                margin-left: 10px;
+                font-size: 16px;
+            }
+
+            .risk-action-card__name {
+                @include font-h2;
+                @include font-semi-bold;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .risk-action-card__field-block {
+            @include font-h3;
+        }
+
+        .risk-action-card__field {
+            display: inline-block;
+            max-width: 100%;
+
+            .risk-action-card__field-caption {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .risk-action-card__field-separator {
+                float: right;
+                width: 1ch;
+            }
+
+            .risk-action-card__field-value {
+                @include font-semi-bold;
+                float: right;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .risk-action-card-text--with-expand {
+            //  46px = 36px for button + 10px spacing. Total spacing is 20px, but 10px of this is inside the button.
+            max-width: calc(100% - 46px);
+        }
+
+        .risk-action-card-text--with-risk-bar {
+            //  170pxpx = 150px for risk bar + 20px spacing.
+            max-width: calc(100% - 170px);
+        }
+
+        .risk-action-card-text--with-expand-and-risk-bar {
+            //  206px = 36px for button + 150px for risk bar + 20px spacing.
+            max-width: calc(100% - 206px);
+        }
+
+        .risk-action-card__risk-bar {
+            position: absolute;
+            right: 0;
+            top: calc(50% - 16px);
+
+            &.risk-action-card__risk-bar--with-expand {
+                //  36px = 36px for button. Total spacing is 10px which is taken care of inside the button.
+                right: 36px;
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+﻿ <div class="smspA-screen">
+     <div class="title">
+         <mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+         <mi-title data-bind="attr : {title : translate('SEC_SHELL_DATA_SOURCES')}"></mi-title>
+     </div>
+    <section  >
+        <header>
+            <div class="nav-header" />
+            <div class="main-header">
+                <h3 data-bind="text: selectedDataSource().id" />
+            </div>
+            <div class="main-buttons"  data-bind="css: { loading: isLoading }">
+
+                <div class="loading-med"></div>
+
+                <a class="btn btn-icon" data-bind="click: newItem, attr: {title: translator.translate('ADD')}">
+                    <i class="icon-plus"></i>
+                </a>
+                <a class="btn btn-icon" data-bind="click: deleteItem, visible : !isInitial(), attr: {title: translator.translate('DELETE')}">
+                    <i class="icon-bin"></i>
+                </a>
+                <a class="btn btn-icon" data-bind="click: saveItem, visible : !isInitial(), attr: {title: translator.translate('SAVE')}">
+                    <i class="icon-save"></i>
+                </a>
+                <a class="btn btn-icon" data-bind="click: testItem, visible : !isInitial() && !isDirty(), attr: {title: translator.translate('TEST')}">
+                    <i class="icon-subscribe"></i>
+                </a>
+            </div>
+        </header>
+        <div class="content">
+            <nav class="nav-list-group ">
+                <ul class="list-group" data-bind="foreach: datasources">
+                    <li class="smspA-nav-item list-group-item"
+                        data-bind="click: $parent.datasourceSelected.bind($parent), css: { active : $data === $parent.selectedDataSourcedto() } ">
+                        <div data-bind="text: id " class="divlistItem">
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <main class="block-group " data-bind="css: { hidden : isInitial } ">
+                <section class="block">
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_ID')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().id,attr:{'readOnly': (isNew()==true? false :true)}" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DESCRIPTION')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().description,event: { change: onChanges }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_HOST')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().hostName,event: { change: onChanges }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DB_TYPE')">
+                        </label>
+                        <select class="form-control select" data-bind="textInput: selectedDataSource().databaseType, event: { change: selectedType } ">
+                            <option value="0">Oracle</option>
+                            <option value="1">SQL Server</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DB_USER_NAME')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().userId,event: { change: onChanges }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('PASSWORD')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().password,event: { change: onChanges }" type="password" />
+                    </div>
+                    <div class="checkbox">
+                        <label class="control-label">
+                            <input data-bind="checked: selectedDataSource().preloadcache,event: { change: onChanges }" type="checkbox" />
+                            <span data-bind="text: translate('SEC_DATASOURCE_DB_PRELOAD_CACHE')" />
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label class="control-label">
+                            <input data-bind="checked: selectedDataSource().isOffline,event: { change: onChanges }" type="checkbox" />
+                            <span data-bind="text: translate('SEC_DATASOURCE_IS_OFFLINE')" />
+                        </label>
+                    </div>
+                </section>
+                <section class="block">
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DB_SERVER')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().serverName, attr:{'readOnly': !isSqlServer()},event: { change: onChanges }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DB_NAME')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().databaseName, attr:{'readOnly': !isSqlServer()},event: { change: onChanges }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_DB_ALIAS')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().alias, attr:{ 'readOnly': !isOracle() || isManaged() }, event: { change: onAliasChanged }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_ORACLE_HOST')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().oraclehost, attr:{ 'readOnly': !isOracle() || isAlias() }, event: { change: onManagedChanged }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_ORACLE_PORT')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().oracleport, attr:{ 'readOnly': !isOracle() || isAlias() }, event: { change: onManagedChanged }" type="text" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"
+                               data-bind="text: translate('SEC_DATASOURCE_ORACLE_SERVICE')">
+                        </label>
+                        <input class="form-control text-box" data-bind="textInput: selectedDataSource().oracleservice, attr:{ 'readOnly': !isOracle() || isAlias() }, event: { change: onManagedChanged }" type="text" />
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+</div>

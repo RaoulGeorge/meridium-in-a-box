@@ -1,0 +1,12 @@
+﻿<div class="dialog-message-box">
+    <div class="message-text-container">
+        <i class="message-icon" data-bind="css:icon"></i>
+        <div class="main-message" data-bind="html:message"></div>
+    </div>    
+    <section class="button-align message-box-button-container" data-bind="foreach: buttons">
+        <div class="btn btn-primary" data-bind="text: name,
+            css: $parent.buttonStyle,
+            event: { 'keydown': $parent.buttonKeyDown.bind($parent) },
+            click: $parent.buttonClicked.bind($parent, $index())"></div>
+    </section>
+</div>

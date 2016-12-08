@@ -1,0 +1,19 @@
+﻿<ul class="more-options-content" data-bind="visible: visible,foreach:options">
+    <!-- ko if: type == "select"-->
+    <li data-bind="click: $root.selectClicked.bind($parent)">
+        <span data-bind="attr: {class: icon}"></span>
+        <select data-bind="options: options,
+                           optionsText: 'displayName',
+                           optionsValue: 'val',
+                           value: value,
+                           "></select>
+    </li>
+    <!-- /ko -->
+    <!-- ko if: type != "select"-->
+    <li data-bind="click: $root.optionClicked.bind($parent),css: { 'disabled': $data.disabled}">
+        <span data-bind="attr: {class: icon}"></span>
+        <span data-bind="text: text"></span>
+    </li>
+    <!-- /ko -->
+</ul>
+

@@ -1,0 +1,32 @@
+﻿<mi-collapsible class="cat-collapsible">
+    <section class="expanded active">
+        <div class="list-group-item group-root">
+            <span data-bind="text: translate('GROUPS')"></span>
+        </div>
+
+        <mi-tree key="key"
+                 description="caption"
+                 root-name="Home"
+                 page-size="25"
+                 custom-search="true"
+                 allow-add="false">
+            <mi-tool-bar>
+             
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('ADD')},
+                            click: onGroupAdding, visible: canAdd">
+                    <i class="icon-plus"></i>
+                </a>
+                <mi-searchbox custom-search="true" delay=500 data-bind="visible: canSearch"> </mi-searchbox>
+            </mi-tool-bar>
+        </mi-tree>
+    </section>
+    <section class="collapsed">
+        <i class="icon-expand"></i>
+        <div class="block-group">
+            <div class="verticle-block-group">
+                <span class="title" data-bind="text: translate('GROUPS')"></span>
+            </div>
+        </div>
+    </section>
+</mi-collapsible>﻿

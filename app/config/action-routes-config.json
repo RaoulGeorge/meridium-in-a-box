@@ -1,0 +1,20 @@
+[
+    { "url": "foo", "module":  "sandbox/action-routes/test-action-route" },
+    { "url": "bar", "module":  "system/ui/dialog-action-route" },
+    { "url": "baz", "module":  "sandbox/action-routes/test-loading-route" },
+    { "url": "actionsubroutetest/*", "module":  "sandbox/action-routes/action-subroute-screen-example" },
+    { "url": "catalogitem", "module":  "spa/action-routes/routes/catalog-path/catalog-path-action-route"},
+    { "url": "datasheet-dialog/@entitykey", "module":  "spa/action-routes/routes/datasheet-dialog/datasheet-dialog-action-route"},
+    { "url": "customer/*", "module":  "customer/config/customer-action-subroute-screen"},
+    { "url": "webmacros/macrorunner", "module": "spa/action-routes/routes/macro/macro-action-route" },
+    { "url": "popupiframe", "module":  "spa/action-routes/routes/iframe/iframe-action-route"},
+    { "url": "apmmonitoring/config/agents/@id", "module":  "apmsm/ui/configuration/agentconfig-action-route"},
+  {
+    "url": "apmmonitoring/config/tasks/@id",
+    "module": "apmsm/ui/configuration/taskconfig-action-route"
+  },
+  {
+    "url": "apmmonitoring/config/alerts/@id",
+    "module": "apmsm/ui/configuration/alertconfig-action-route"
+  }
+]

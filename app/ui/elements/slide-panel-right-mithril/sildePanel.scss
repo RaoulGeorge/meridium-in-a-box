@@ -1,0 +1,85 @@
+﻿//tongue refer div.slide-tab
+$tongue-bgcolor: #303240;
+$tongue-height: 52px;
+$tongue-width: 29px;
+$tongue-shadow-color : #9e9e9e;
+//$tongue-i stands for i element inside tongue
+$tongue-i-color:#fff;
+//$tongue-i-size refers to same value for font-size, width, height.
+$tongue-i-size:16px;
+
+mi-slidepanelright-m {
+        -ms-touch-action: none;
+		float: right;
+		height: 0;
+		position: absolute;
+		right: 0;
+		white-space: nowrap;
+		width: 30px;
+		z-index: $slide-right-panel-z-index;
+
+		div.slide-tab {
+			background: $tongue-bgcolor;
+			border-radius: $tongue-height*2 0 0 $tongue-height*2;
+			box-shadow: 0 0 5px 0 $tongue-shadow-color;
+			cursor: pointer;
+			float: left;
+			height: $tongue-height;
+			line-height: 56px;
+			position: relative;
+			text-align: center;
+			vertical-align: middle;
+			width: $tongue-width;
+
+			i {
+				color: $tongue-i-color;
+				display: inline-block;
+				font-size: $tongue-i-size;
+				height: $tongue-i-size;
+				width: $tongue-i-size;
+			 }
+			 div.notificationCount{
+				color: white;
+				display: inline;
+				padding: 5px 10px;
+				background-color: green;
+				margin: 15%;
+				border-radius: 15px;
+				display:none;
+			 }
+		}
+
+		div.slide-content {
+			background-color: white;
+			border-right: none;
+			border: 1px solid lightgray;
+			float: left;
+			height: 100%;
+			overflow: hidden;
+			width: calc(100% - 30px);
+		 }
+ 
+		div.slide-panel-opacity {
+			-moz-opacity: 0.5;
+			-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+			-webkit-opacity: 0.5;
+			background-color: black;
+			display: none;
+			filter: alpha(opacity=50);
+			height: 100%;
+			left: 0;
+			opacity: 0.5;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: -1;
+		 }
+ 
+		button.expand-button {
+			background-color: white !important;
+			display: none;
+			position: absolute;
+			right: 20px;
+			top: 17px;
+		 }
+}

@@ -1,0 +1,359 @@
+﻿<div class="left-nav-main-menu" data-bind=" clickBubble: false">
+    <div class="left-nav-risk app-folder" data-bind="attr: { title: translate('RISK') }, click: toggleMenu.bind($root, 'risk'), css: { selected: isRiskMenuVisible }">
+        <i class="icon-risk ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('RISK')"></a>
+    </div>
+    <div class="left-nav-strategy app-folder" data-bind="attr: { title: translate('STRATEGY') }, click: toggleMenu.bind($root, 'strategy'), css: { selected: isStrategyMenuVisible }">
+        <i class="icon-strategy-nav ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('STRATEGY')"></a>
+    </div>
+    <div class="left-nav-performance app-folder" data-bind="attr: { title: translate('PERFORMANCE') }, click: toggleMenu.bind($root, 'performance'), css: { selected: isPerformanceMenuVisible }">
+        <i class="icon-performance ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('PERFORMANCE')"></a>
+    </div>
+    <div class="left-nav-operations app-folder" data-bind="attr: { title: translate('OPERATIONS') }, click: toggleMenu.bind($root, 'operations'), css: { selected: isOperationalToolsMenuVisible }">
+        <i class="icon-plus ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('OPERATIONS')"></a>
+    </div>
+    <div class="left-nav-tools app-folder" data-bind="attr: { title: translate('ANALYTICS') }, click: toggleMenu.bind($root, 'analytics'), css: { selected: isAnalyticsMenuVisible }">
+        <i class="icon-graph-view ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('ANALYTICS')"></a>
+    </div>
+    <div class="left-nav-tools app-folder" data-bind="attr: { title: translate('TOOLS') }, click: toggleMenu.bind($root, 'tools'), css: { selected: isToolsMenuVisible }">
+        <i class="icon-tools ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('TOOLS')"></a>
+    </div>  
+    <div class="left-nav-admin app-folder" data-bind="attr: { title: translate('ADMIN') }, click: toggleMenu.bind($root, 'admin'),
+                                                      css: { selected: isAdminMenuVisible },
+                                                      visible: !security.noAccess('ADMIN')">
+        <i class="icon-user-nav fa-lg ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('ADMIN')"></a>
+    </div>
+    <div class="left-nav-signout app-folder" data-bind="attr: { title: translate('SIGN_OUT') }, click: signOut">
+        <i class="icon-signout ic-nav"></i>
+        <a class="text-style" data-bind="text: translate('SIGN_OUT')"></a>
+    </div>
+</div>
+<div class="apps-list" data-bind="visible: isRiskMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li data-bind="css: { 'no-access': security.noAccess('ASSET_CRITICALITY_ANALYSIS') }">
+                <a href="#aca/overview" target="tab">
+                    <i class="sprite-ic ic-r-aca"></i>
+                    <span data-bind="text: translate('ASSET_CRITICALITY_ANALYSIS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('FAILURE_MODES_AND_EFFECTS_ANALYSIS') }">
+                <a href="#fmea/overview" target="tab">
+                    <i class="sprite-ic ic-r-rca"></i>
+                    <span data-bind="text: translate('FAILURE_MODES_AND_EFFECTS_ANALYSIS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('HAZARDS_ANALYSIS') }">
+                <a href="#asset-safety/hazards/overview" target="tab">
+                    <i class="sprite-ic ic-r-ha"></i>
+                    <span data-bind="text: translate('HAZARDS_ANALYSIS_LEFT')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('RELIABILITY_CENTERED_MAINTENANCE') }">
+                <a href="#rcm/overview" target="tab">
+                    <i class="sprite-ic ic-r-rcm"></i>
+                    <span data-bind="text: translate('RELIABILITY_CENTERED_MAINTENANCE')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('RISK_BASED_INSPECTION') }">
+                <a href="#rbi/unit" target="tab">
+                    <i class="sprite-ic ic-r-rbi"></i>
+                    <span data-bind="text: translate('RISK_BASED_INSPECTION')"></span>
+                </a>
+            </li>        
+
+            <li data-bind="css: { 'no-access': security.noAccess('SIS_MANAGEMENT') }">
+                <a href="#asset-safety/sis/overview" target="tab">
+                    <i class="sprite-ic ic-r-sism"></i>
+                    <span data-bind="text: translate('SIS_MANAGEMENT')"></span>
+                </a>
+            </li>  
+            <li data-bind="css: { 'no-access': security.noAccess('LOPA') }">
+                <a href="#asset-safety/lopa/overview" target="tab">
+                    <i class="icon-lopa"></i>
+                    <span data-bind="text: translate('LOPA')"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="apps-list strat-list" data-bind="visible: isStrategyMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li data-bind="css: { 'no-access': security.noAccess('ASSET_STRATEGY_IMPLEMENTATION') }">
+                <a href="#asi/overview" target="tab">
+                    <i class="sprite-ic ic-s-asi"></i>
+                    <span data-bind="text: translate('ASSET_STRATEGY_IMPLEMENTATION')">Asset Strategy Implementation</span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('ASSET_STRATEGY_MANAGEMENT') }">
+                <a href="#strategy/overview" target="tab">
+                    <i class="sprite-ic ic-s-asm"></i>
+                    <span data-bind="text: translate('ASSET_STRATEGY_MANAGEMENT')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('CALIBRATION_MANAGEMENT') }">
+                <a href="#asset-safety/calibration/calibration-mgmt" target="tab">
+                    <i class="sprite-ic ic-s-cm"></i>
+                    <span data-bind="text: translate('CALIBRATION_MANAGEMENT')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('INSPECTION_MANAGEMENT') }">
+                <a href="#im/offline/overview" target="tab">
+                    <i class="icon-inspection-field-data-collection"></i>
+                    <span data-bind="text: translate('INSPECTION_FIELD_DATA_COLLECTION')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('INSPECTION_MANAGEMENT') }">
+                <a href="#im/functionallocation/0/overview" target="tab">
+                    <i class="sprite-ic ic-s-im"></i>
+                    <span data-bind="text: translate('INSPECTION_MANAGEMENT')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('MOBILE_PROOF_TEST_DATA_COLLECTION') }">
+                <a href="#asset-safety/sis/overview/offline" target="tab">
+                    <i class="sprite-ic ic-r-sism"></i>
+                    <span data-bind="text: translate('MOBILE_PROOF_TEST_DATA_COLLECTION')"></span>
+                </a>
+            </li>            
+            <li data-bind="css: { 'no-access': security.noAccess('AC_DATA_COLLECTION') }">
+                <a href="#rounds/dashboard/user" target="tab">
+                    <i class="icon-rounds-new"></i>
+                    <span data-bind="text: translate('AC_DATA_COLLECTION')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('AC_DESIGNER') }">
+                <a href="#rounds/dashboard/admin" target="tab">
+                    <i class="icon-route-designer-new"></i>
+                    <span data-bind="text: translate('AC_DESIGNER')"></span>
+                </a>
+            </li>            
+            <li data-bind="css: { 'no-access': security.noAccess('THICKNESS_MONITORING') }">
+                <a href="#tm/unit" target="tab">
+                    <i class="sprite-ic ic-s-tm"></i>
+                    <span data-bind="text: translate('THICKNESS_MONITORING')"></span>
+                </a>
+            </li>           
+        </ul>
+    </div>
+</div>
+<div class="apps-list performance-list" data-bind="visible: isPerformanceMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li data-bind="css: { 'no-access': security.noAccess('AMS_ANALYTICS') }">
+                <a href="#ams/overview" target="tab">
+                    <i class="icon-ams-analytics"></i>
+                    <span data-bind="text: translate('AMS_ANALYTICS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('ASSET_HEALTH_MANAGER') }">
+                <a href="#health/overview" target="tab">
+                    <i class="ic-p-ahm"></i>
+                    <span data-bind="text: translate('ASSET_HEALTH_MANAGER')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('GE_ANALYTICS') }">
+                <a href="#ge/overview" target="tab">
+                    <i class="icon-ge-analytics"></i>
+                    <span data-bind="text: translate('GE_ANALYTICS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('GENERATION_AVAILABILITY_ANALYSIS') }">
+                <a href="#gaa/dashboard/0" target="tab">
+                    <i class="icon-gaa-module"></i>
+                    <span data-bind="text: translate('GENERATION_AVAILABILITY_ANALYSIS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('LIFE_CYCLE_COST_ANALYSIS') }">
+                <a href="#lcc/dashboard/0" target="tab">
+                    <i class="icon-lcc"></i>
+                    <span data-bind="text: translate('LIFE_CYCLE_COST_ANALYSIS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('PRODUCTION_LOSS_ANALYSIS') }">
+                <a href="#failure-elimination/pla/dashboard/0" target="tab">
+                    <i class="sprite-ic ic-p-pla"></i>
+                    <span data-bind="text: translate('PRODUCTION_LOSS_ANALYSIS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#recommendation-management" target="tab">
+                    <i class="icon-recommendation-manager"></i>
+                    <span data-bind="text: translate('RECOMMENDATION_MANAGEMENT')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('RELIABILITY_ANALYTICS') }">
+                <a href="#reliability/dashboard/0" target="tab">
+                    <i class="sprite-ic ic-p-ra"></i>
+                    <span data-bind="text: translate('RELIABILITY_ANALYTICS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('ROOT_CAUSE_ANALYSIS') }">
+                <a href="#failure-elimination/rca/dashboard/0" target="tab">
+                    <i class="sprite-ic ic-p-rca"></i>
+                    <span data-bind="text: translate('ROOT_CAUSE_ANALYSIS')"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="apps-list analytics-list" data-bind="visible: isAnalyticsMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            
+            <li data-bind="css: { 'no-access': security.noAccess('COGNITIVE_ANALYTICS') }">
+                <a href="#cognitive/overview" target="tab">
+                    <i class="icon-cognitive-analytics"></i>
+                    <span data-bind="text: translate('COGNITIVE_ANALYTICS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#dashboard" target="tab">
+                    <i class="ic-dashboard"></i>
+                    <span data-bind="text: translate('DASHBOARDS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#graph" target="tab">
+                    <i class="sprite-ic ic-t-gra"></i>
+                    <span data-bind="text: translate('GRAPHS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('METRICS_AND_SCORECARDS') }">
+                <a href="#metrics/home" target="tab">
+                    <i class="sprite-ic ic-p-mas"></i>
+                    <span data-bind="text: translate('METRICS_AND_SCORECARDS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#ssrs" target="tab">
+                    <i class="sprite-ic ic-t-rep"></i>
+                    <span data-bind="text: translate('REPORTS')"></span>
+                </a>
+            </li>
+            <!--<li data-bind="css: { 'no-access': security.noAccess('DATA_HUB') }">
+                <a href="#data-hub/overview" target="tab">
+                    <i class="icon-data-hub"></i>
+                    <span data-bind="text: translate('DATA_HUB')"></span>
+                </a>
+            </li>-->          
+        </ul>
+    </div>
+</div>
+<div class="apps-list tools-list" data-bind="visible: isToolsMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li>
+                <a href="#catalog" target="tab">
+                    <i class="sprite-ic ic-t-cat"></i>
+                    <span data-bind="text: translate('CATALOG')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('DATA_LOADERS') }">
+                <a href="#connect-data-import" target="tab">
+                    <i class="icon-data-loaders"></i>
+                    <span data-bind="text: translate('DATA_LOADERS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('DATASET') }">
+                <a href="#dataset/overview" target="tab">
+                    <i class="sprite-ic ic-t-dat"></i>
+                    <span data-bind="text: translate('DATASETS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#log" target="tab">
+                    <i class="sprite-ic ic-t-err"></i>
+                    <span data-bind="text: translate('ERRORS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-bind="click: hyperlinkUtility">
+                    <i class="icons-hyperlink-utility-icon"></i>
+                    <span data-bind="text: translate('HYPERLINK_UTILITY')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#maps" target="tab">
+                    <i class="icon-map-module"></i>
+                    <span data-bind="text: translate('MAPS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('POLICY_MANAGER') }">
+                <a href="#policy/overview" target="tab">
+                    <i class="icon-policy-new"> </i>
+                    <span data-bind="text: translate('POLICY_MANAGER')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#query" target="tab">
+                    <i class="sprite-ic ic-t-que"></i>
+                    <span data-bind="text: translate('QUERIES')"></span>
+                </a>
+            </li>         
+            <li>
+                <a href="#rscript" target="tab">
+                    <i class="icon-r-node"></i>
+                    <span data-bind="text: translate('R_SCRIPTS')"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#script" target="tab">
+                    <i class="icon-scripts"></i>
+                    <span data-bind="text: translate('SCRIPTS')"></span>
+                </a>
+            </li>          
+        </ul>
+    </div>
+</div>
+
+<div class="apps-list admin-list" data-bind="visible: isAdminMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li data-bind="css: { 'no-access': security.noAccess('APPLICATION_SETTINGS') }">
+                <a href="#admin-menu/application-settings" target="tab">
+                    <i class="sprite-ic ic-a-smfc"></i>
+                    <span data-bind="text: translate('APPLICATION_SETTINGS')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('CONFIGURATION_MANAGER') }">
+                <a href="#admin-menu/data-configuration" target="tab">
+                    <i class="sprite-ic ic-a-cm"></i>
+                    <span data-bind="text: translate('CONFIGURATION_MANAGER')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('OPERATIONS_MANAGER') }">
+                <a href="#admin-menu/operations-manager" target="tab">
+                    <i class="sprite-ic ic-a-om"></i>
+                    <span data-bind="text: translate('OPERATIONS_MANAGER'), title: translate('OPERATIONS_MANAGER')"></span>
+                </a>
+            </li>
+            <li data-bind="css: { 'no-access': security.noAccess('SECURITY_MANAGER') }">
+                <a href="#admin-menu/security-manager" target="tab">
+                    <i class="sprite-ic ic-a-sm"></i>
+                    <span data-bind="text: translate('SECURITY_MANAGER')"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="apps-list operation-list" data-bind="visible: isOperationalToolsMenuVisible">
+    <div class="left-subnav">
+        <ul>
+            <li>
+                <a href="#" target="tab">
+                    <i class="sprite-ic ic-a-smfc"></i>
+                    <span data-bind="text: translate('ELOG')"></span>
+                </a>
+            </li>
+         </ul>
+    </div>
+</div>
+

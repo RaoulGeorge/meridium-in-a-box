@@ -1,0 +1,73 @@
+$role-breadcrumb_height: 40px;
+$role-nav-width: 240px;
+
+.role-screen {
+    height: 100%;
+    width: 100%;   
+   
+
+    .role-list {
+        height: calc(100% - #{$role-breadcrumb_height});
+        width: $role-nav-width; // fixes bug in IE
+    }
+
+    .role-details {
+        &.expanded {
+            width: calc(100% - 30px); // width of collapsed list
+        }
+
+        .panel-heading {
+            .role-title {
+                width: calc(100% - 100px);
+            }
+            .button-panel {
+                text-align: right;
+                height: 45px;
+                width: 100px;
+
+                &.loading {
+                    .loading-med {
+                        display: inline-block;
+                    }
+                }
+
+                .btn {
+                    cursor: pointer;
+                    min-width: 6px;
+                    padding-left: 2px;
+                    padding-right: 2px;
+
+                    //i {
+                    //    font-size: 2em;
+                    //}
+                }
+            }
+        }
+
+        padding: 10px 10px 4px 10px;
+
+        width: calc(100% - #{$role-nav-width}); // width of expanded list
+    }
+}
+.role-popover-tables{
+
+    /*margin-left: 350px;*/ 
+    width: 500px;
+	height: 100%;
+    padding: 10px 40px; 
+
+        .nav { 
+                height: 400px;
+        }
+        .footer { width: 80%; }
+        /* Items in 5 columns (20% each) */
+        .item { width: 20%; }
+
+        .search-box {
+            display: inline-block;
+        }
+
+        .roleSearch {
+        }
+
+}

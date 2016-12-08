@@ -1,0 +1,32 @@
+﻿<div class="refdoc-container" >
+    <div class="pull-left btn-back">
+        <button class="btn btn-default back" data-bind="attr: {title: 'Back'}"><i class="icon-header-back-arrow"></i> </button>
+    </div>
+    <div class="list-refdocs">
+        <div>
+            <div class="pull-right">
+                <mi-tool-bar>
+                    <mi-searchbox custom-search="true"></mi-searchbox>
+                    <button class="btn btn-default btn-icon add" data-bind="attr: {title: 'Add'}">
+                        <i class="icon-plus"></i>
+                    </button>
+                    <button class="btn btn-default btn-icon search-finder-btn" data-bind="attr: {title: 'Link'}">
+                        <i class="icon-link"></i>
+                    </button>
+                </mi-tool-bar>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div>
+            <section class="header block-group">
+                <div id="ref-doc-id" class="block col-15"></div>
+                <div id="ref-doc-desc" class="block col-25"></div>
+                <div id="ref-doc-stored" class="block col-10"></div>
+                <div id="ref-doc-size" class="block col-10"></div>
+            </section>
+        </div>
+    </div>
+    <br />
+    <div class="single-refdoc"></div>
+    <center class="loading-indicator" hidden><div class="loading-large loading-active"></div></center>
+</div>

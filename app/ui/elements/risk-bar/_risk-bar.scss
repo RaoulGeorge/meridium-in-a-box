@@ -1,0 +1,68 @@
+﻿$unmitigated-color: #ff0000;
+$mitigated-color: $brand-primary;
+
+mi-risk-bar {
+    .risk-bar-container {
+        position: relative;
+        height: 32px;
+        padding-top: 21px;
+
+        .threshold-container {
+            height: 8px;
+            position: relative;
+            overflow: hidden;
+
+            .threshold {
+                height: 100%;
+                position: absolute;
+            }
+        }
+
+        .risk-marker {
+            height: 13px;
+            width: 1px;
+            position: absolute;
+            top: 16px;
+            left: -0.5px;
+
+            i {
+                position: absolute;
+                margin-top: -16px;
+                margin-left: -7.5px;
+            }
+            
+            &.unmitigated {
+                z-index: 10;
+                background-color: $unmitigated-color;
+            }
+
+            &.mitigated {
+                z-index: 20;
+                background-color: $mitigated-color;
+            }
+        }          
+    }
+}
+
+//  This is put outside of the scope of the risk bar so it can be shared with anywhere that needs to show the just the icon (and not the bar).
+i.risk-icon {
+    //  NOTE: The icon seems to distort when in a container of the default "static" position. They work correctly when the container
+    //  has a position of relative (could use teh "block" class) or absolute.
+    border-radius: 50%;
+    padding: 1.5px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 11px;
+    background: #ffffff;
+    box-shadow: 0px 0px 3px #ccc;
+
+    &.risk-icon--unmitigated {
+        color: $unmitigated-color;
+        border-color: $unmitigated-color;
+    }
+
+    &.risk-icon--mitigated {
+        color: $mitigated-color;
+        border-color: $mitigated-color;
+    }
+}

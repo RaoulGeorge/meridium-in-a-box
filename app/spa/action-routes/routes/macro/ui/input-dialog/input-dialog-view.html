@@ -1,0 +1,33 @@
+﻿<div data-bind="foreach: fields" style="height: 90%; overflow: auto;">
+    <!--ko if: type() === 'text' -->
+    <div class="form-group">
+        <div class="layout-element-caption layout-label block" data-bind="text: caption()"></div>
+        <input type="text" class="form-control" data-bind="value: value" />
+    </div>
+    <!-- /ko -->
+    <!--ko if: type() === 'number' -->
+    <div class="form-group">
+        <div class="layout-element-caption layout-label block" data-bind="text: caption()"></div>
+        <input type="number" class="form-control" data-bind="value: value " />
+    </div>
+    <!-- /ko -->
+    <!--ko if: type() === 'date' -->
+    <div class="form-group">
+        <div class="layout-element-caption layout-label block" data-bind="text: caption()"></div>
+        <mi-date-time data-bind="value:value"></mi-date-time>
+    </div>
+    <!-- /ko -->
+    <!--ko if: type() === 'bool' -->
+    <div class="form-group">
+        <div class="layout-element-caption layout-label block" data-bind="text: caption()"></div>
+        <mi-checkbox data-bind="miCheckboxProperty:{ checked: value}"> </mi-checkbox>
+    </div>
+    <!-- /ko -->
+
+</div>
+
+
+<div style="padding: 5px;">
+    <button class="btn btn-primary" data-bind="text: 'OK', click: onOKClicked.bind($root)"></button>
+    <button class="btn btn-primary" data-bind="text: 'CANCEL', click: onCANCELClicked.bind($root)"></button>
+</div>

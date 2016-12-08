@@ -1,0 +1,15 @@
+﻿<div class="risk-bar-container" data-bind="style: { width: width }">
+    <div class="threshold-container" data-bind="foreach: { data: sizedThresholds }">
+        <div class="threshold" data-bind="style: { width: width, left: left, backgroundColor: color }"></div>
+    </div>
+
+    <div class="risk-marker mitigated"
+         data-bind="style: { marginLeft: mitigatedRiskMarginLeft }, visible: showMitigated">
+        <i class="risk-icon risk-icon--mitigated icon-riskmatrix-tick"></i>
+    </div>
+
+    <div class="risk-marker unmitigated"
+         data-bind="style: { marginLeft: unmitigatedRiskMarginLeft }, visible: showUnmitigated">
+        <i class="risk-icon risk-icon--unmitigated icon-riskmatrix-exclamation"></i>
+    </div>
+</div>

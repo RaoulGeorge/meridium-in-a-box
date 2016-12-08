@@ -1,0 +1,178 @@
+.two-lists-accum {
+
+    .title {
+       @include grid-block-group;
+       @include font-semi-bold;
+        font-size: $font-size-h4;
+        padding: 15px;
+    }
+
+    section.title {
+        @include font-semi-bold;
+        font-size: $font-size-h3;
+        padding: 20px 15px;
+        /*border-right: none;*/
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.05);
+
+        .chevron-border-style {
+            border: 1px solid #f7f7f7;
+            border-color: transparent;
+            top: 0px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            width: 30px;
+            right: 0px;
+            font-weight: normal;
+            color: $brand-primary;
+        }
+
+        .block-group .chevron-border-style:hover {
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            background-color: rgba(255, 255, 255, 0);
+            -webkit-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+            border: solid 1px #e6e6e6;
+        }
+
+        div {
+            span {
+                float: left;
+                width: 90%;
+            }
+
+            i {
+                float: left;
+                width: 10%;
+                position: absolute;
+                top: calc(50% - 9px);
+                text-align: center;
+            }
+        }
+    }
+
+    section.sub-title div {
+        height: 65px;
+        border-right: none;
+
+        span {
+            display: block;
+        }
+
+        span:nth-child(1) {
+            font-size: $font-size-h3;
+        }
+
+        span:nth-child(2) {
+            font-size: $font-size-h5;
+            margin-top: -7px;
+        }
+    }
+
+    mi-list-group.list {
+        height: calc(100% - 72px - 65px - 63px);
+        @include scroll(visible, auto);
+        display: none;
+
+        .list-group {
+            .list-group-item {
+                border-left: 6px solid transparent;
+                cursor: pointer;
+                height: 50px;
+                background-color: rgba(0, 0, 0, 0.05);
+                .block-group div{
+                    height:0;
+                }
+                &:hover {
+                    background-color: rgba(0, 122, 255, 0.1);
+                }
+                &.active {
+                    border-right-color: $brand-primary;
+                    border-right-width: 6px;
+                    background-color: rgba(0, 122, 255, 0.1);
+                    border-left-color: transparent;
+                }
+            }
+
+            .list-group-item.active {
+                border-right-color: $brand-primary;
+            }
+        }
+    }
+
+    mi-tool-bar {
+        border-right: none;
+        background-color: rgba(255, 255, 255, 0.4);
+        position: relative;
+        display: block;
+        i {
+            color: $brand-primary;
+        }
+
+        .btn-default {
+          background-color: rgba(255, 255, 255, 0.4);
+          border: solid 1px #e6e6e6;
+        }
+
+        .btn-default:hover {
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          background-color: rgba(255, 255, 255, 0);
+          -webkit-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          -moz-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          border: solid 1px #e6e6e6;
+        }
+
+        .btn-icon {
+          border: 1px solid rgba(255, 255, 255, 0);
+          background-color: transparent;
+          font-weight: normal;
+          min-width: 0;
+        }
+
+        .btn-primary {
+          background-color: rgba(255, 255, 255, 0.4);
+          border: 1px solid rgba(255, 255, 255, 0);
+          background-color: transparent;
+          font-weight: normal;
+          min-width: 0;
+        }
+        .btn-primary:hover {
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          background-color: rgba(255, 255, 255, 0);
+          -webkit-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          -moz-box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 1px 2px 4px rgba(0, 0, 0, 0.05);
+          border: solid 1px #e6e6e6;
+        }
+
+         .filter-color {
+          color: $brand-primary;
+        }
+
+    }
+
+     section.list-group-left {
+        width: 35%;
+        float: left;
+        background-color: gainsboro;
+        .list-group-item{
+            background-color: gainsboro;
+        }
+        .btn-icon {
+            background-color: transparent;
+        }
+    }
+
+    section.nav-list-group {       
+        height: 600px;
+        @include scroll(visible, auto);
+    }
+}

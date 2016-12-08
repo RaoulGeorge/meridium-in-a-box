@@ -1,0 +1,79 @@
+﻿<div class="role-screen block-group">
+    <mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+    <mi-panel class="role-list block"
+              selctor="none"
+              multiselect="false"
+              key="key"
+              description="caption"
+              page="1"
+              page-size="25"
+              scroll-percent="0.75"
+              custom-filter="false"
+              custom-search="false"
+              allow-add="true"
+              data-bind="attr: { title: translate('ROLES') },
+                         event: {
+                           
+                            selected: onRoleSelected,
+                            'add-item': onRoleAdding
+                         }">
+        <mi-tool-bar>
+            <a class="btn btn-icon"
+               data-bind="attr: {title: translate('ADD')},
+                click: onRoleAdding, visible: canAdd">
+                <i class="icon-plus"></i>
+            </a>
+
+        </mi-tool-bar>
+    </mi-panel>
+   
+    <!-- ko if: selectedRole -->
+    <div class="role-details panel block">
+        <div class="panel-heading block-group">
+            <div class="role-title block">
+                <h2 data-bind="text: selectedRole().caption"></h2>
+            </div>
+            <div class="button-panel pull-right"
+                 data-bind="css: { loading: isLoading }">
+                <div class="loading-med"></div>
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('SAVE')},click: save,
+                              visible: canSave">
+                    <i class="icon-save"></i>
+                </a>
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('DELETE')},click: $root.delete,
+                              visible: canDelete">
+                    <i class="icon-bin"></i>
+                </a>
+            </div>
+        </div>
+        <div class="panel-body" data-bind="with: selectedRole">
+            <div class="form-group">
+                <label data-bind="text: $root.translate('ID')"></label>
+                <input type="text"
+                       class="form-control"
+                       data-bind="textInput: id" />
+            </div>
+            <div class="form-group">
+                <label data-bind="text: $root.translate('CAPTION')"></label>
+                <input type="text"
+                       class="form-control"
+                       data-bind="textInput: caption" />
+            </div>
+            <div class="form-group">
+                <label data-bind="text: $root.translate('DESCRIPTION')"></label>
+                <textarea class="form-control"
+                          data-bind="textInput: description" />
+            </div>
+            <div class="form-group">
+                <div class="role-user-container block">&nbsp;</div>
+               
+            </div>
+            <div class="form-group">
+                <div class="role-group-container block">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>

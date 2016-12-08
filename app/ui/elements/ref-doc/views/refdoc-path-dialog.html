@@ -1,0 +1,35 @@
+﻿<div class="refdoc-path-dialog">
+    <form enctype="multipart/form-data" class="refdoc-form" method="post">
+        <div class="block-group form-group">
+            <mi-radio class="ref-upload" data-bind="miRadioProperty: {
+                        name: 'documentPath',
+                        checked: docType,
+                        disable: false,
+                        value: 'upload',
+                        text: translator.translate('REFDOCS_UPLOAD_DOC')}">
+            </mi-radio><br />
+
+            <input id="ref-doc-browse" name="file" type="file" data-bind="enable: docType() === 'upload', value: browsePath">
+            <input class="ref-doc-path form-control" name="file" type="text" data-bind="value: fileName" disabled="disabled">
+            <label for="ref-doc-browse" class="btn btn-text" data-bind="text: translator.translate('BROWSE'), css: { 'ref-btn-inactive': docType() !== 'upload'}"></label><br />
+
+            <mi-radio class="ref-link" data-bind="miRadioProperty: {
+                        name: 'documentPath',
+                        checked: docType,
+                        disable: false,
+                        value: 'link',
+                        text: translator.translate('REFDOCS_LINK_EXTERNAL_DOC')}">
+            </mi-radio><br />
+
+            <div class="block">
+                <input class="block ref-doc-link-path" name="file" type="text"
+                       data-bind="enable: docType() === 'link', value: linkPath, textInput: linkPath, css: { 'ref-has-error': linkPath.invalid}"><br />
+                <span class="ref-text-danger" data-bind="visible: linkPath.invalid, text: validationMessage"></span>
+            </div>
+        </div>
+    </form>
+    <div class="btn-toolbar pull-right">
+        <button class="btn btn-text" data-bind="click: onCancelClicked, text: translator.translate('CANCEL')"></button>
+        <button class="btn btn-text" data-bind="click: onSaveClicked, text: translator.translate('SAVE'), enable: canSave"></button>
+    </div>
+</div>

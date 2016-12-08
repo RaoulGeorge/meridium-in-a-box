@@ -1,0 +1,20 @@
+<div class="asset-context-selection static">
+  <div class="navigation">
+    <ul class="nav nav-pills assetMenu pull-left" data-bind="click: menuClick">
+      <li data-bind="css: {active: activePill() === hierarchy.url }">
+        <a data-bind="attr: { 'data-menu-item': hierarchy.url, href: hierarchy.href, title: translator.translate('ASSET_HIERARCHY') }, text: translator.translate('ASSET_HIERARCHY')">
+        </a>
+      </li>
+      <li data-bind="css: {active: activePill() === group.url }">
+        <a data-bind="attr: { href: group.href, 'data-menu-item': group.url, title: translator.translate('ASSET_GROUP') }, text: translator.translate('ASSET_GROUP')">
+        </a>
+      </li>
+    </ul>          
+  </div>
+  <section class="block-group context-select">
+    <section class="asset-content">
+      <section class="asset-hierarchy-control" data-bind="visible: $root.activePill() === 'hierarchy'"></section>
+      <section class="asset-group-explorer" data-bind="visible: $root.activePill() === 'group'"></section>
+    </section>
+  </section>
+</div>

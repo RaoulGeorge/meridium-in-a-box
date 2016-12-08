@@ -1,0 +1,93 @@
+$group-border: 1px dotted #cccccc;
+
+.group-fixed-header{
+				margin-bottom: 20px;
+				padding-left: 0;
+				height: 100%;
+				margin: 0px;				
+	}
+#group-details {
+	a {
+		cursor: pointer;
+	}
+
+	.folder-header {
+		width: 100%;
+
+		.folder-title {
+			display: inline-block;
+			width: 50%;
+
+			h2 {
+				text-align: left;
+			}
+		}
+
+		.folder-buttons {
+			display: inline-block;
+			float: right;
+			margin-top: 15px;
+
+			//i {
+			//	padding: 5px;
+			//}
+		}
+	}	
+
+	
+	.group-scrollable-items{
+		height: calc(100% - 90px);
+		overflow: auto;
+	}
+	
+    .group-item-group {
+        .group-detail-users-container {
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+
+           .group-large-group {
+            width:40%;
+            padding-right: 25px;
+         }
+            .group-small-group {
+            width:15%;
+            padding-right: 25px;
+         }
+
+             .group-detail-roles-container {
+            overflow-x: hidden;
+            overflow-y: auto;
+
+           .group-large-group {
+            width:40%;
+            padding-right: 25px;
+         }
+            .group-small-group {
+            width:10%;
+            padding-right: 25px;
+         }
+           
+        }
+
+              .group-detail-container{
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+
+           .group-large-group {
+            width:40%;
+            padding-right: 25px;
+         }
+            .group-small-group {
+            width:10%;
+            padding-right: 25px;
+         }
+        }
+           
+        }
+    }
+
+    
+
+}

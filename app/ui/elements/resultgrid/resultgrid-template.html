@@ -1,0 +1,29 @@
+﻿
+<div class="rg-header">
+    <div data-bind="halt-bindings" class="rg-pager" >
+        <mi-select data-bind="miproperty:{
+                           options: listObjects,
+                           optionsText: 'displayName',
+                           optionsValue: optionsValue,
+                           value: selectedValue,
+                           editable: false
+                           }">
+        </mi-select>
+        <div class="totalCount">
+            <div data-bind="text: $root.translator.translate('OF')"></div>
+            <div data-bind="text: customTotalCount"></div> 
+            <div data-bind="text: $root.translator.translate('RECORDS')"></div>
+         </div>
+      </div>
+   
+        <!--<button class="btn btn-icon pull-right rg-filter" data-bind="attr: {title : 'Filter'}">
+            <i class="icon-collection-filter" ></i>
+        </button>-->
+    </div>
+<div class="gridContainer" style="display:block;height:100%;width:100%;"></div>
+<div class="rg-footer">
+    <div class="rg-controls" >
+        <span class="dxDataGridTotalCount pull-left" style="height: 25px;display:none;"></span>
+    </div>
+
+</div>

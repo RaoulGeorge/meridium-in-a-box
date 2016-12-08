@@ -1,0 +1,90 @@
+$ldap-nav-width: 200px;
+$breadcrumb-height: 40px;
+
+.ldap {
+    height: 100%;
+
+    .ldap-nav-container {
+        height: calc(100% - #{$breadcrumb-height});
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: $ldap-nav-width;
+    }    
+
+    .ldap-details-container {
+        height: calc(100% - #{$breadcrumb-height});
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-left: 25px;
+        width: calc(100% - #{$ldap-nav-width});
+
+       
+        .panel-heading {
+            .ldap-title {
+                width: calc(100% - 100px);
+            }
+            .button-panel {
+                text-align: right;
+                height: 45px;
+                width: 100px;
+
+                &.loading {
+                    .loading-med {
+                        display: inline-block;
+                    }
+                }
+
+                .btn {
+                    cursor: pointer;
+                    min-width: 6px;
+                    padding-left: 2px;
+                    padding-right: 2px;
+
+                    //i {
+                    //    font-size: 2em;
+                    //}
+                }
+            }
+        }
+
+         .ldap-half-group {
+            width:50%;
+         }
+         
+         .ldap-indented {
+            padding-left: 25px;
+         }
+    }
+
+
+}
+
+  .ldap-list {
+        width: 220px;
+
+         .ldap-list-btn {
+            min-width:0px;
+        }
+    }
+
+.ldap-group-mapping-popover-tables {
+
+    margin-left: 350px; 
+    width: 500px;
+	height: 100%;
+    border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    border-radius: 25px;
+
+        .nav { 
+                height: 200px;
+        }
+.main { width: 80%; }
+/* Items in 5 columns (20% each) */
+.item { width: 20%; }
+
+}
+
+
+

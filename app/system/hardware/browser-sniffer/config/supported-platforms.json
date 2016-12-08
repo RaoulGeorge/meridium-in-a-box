@@ -1,0 +1,39 @@
+﻿{
+    "platforms": [
+        {
+            "platform": "chrome",
+            "version": "42",
+            "isMobile": false
+        },
+        {
+            "platform": "ie",
+            "version": "11",
+            "isMobile": false
+        },
+        {
+            "platform": "safari",
+            "version": "8",
+            "isMobile": false
+        },
+        {
+            "platform": "ios",
+            "version": "8",
+            "isMobile": true
+        },
+        {
+            "platform": "windows",
+            "version": "8.1",
+            "isMobile": true
+        },
+        {
+            "platform": "android",
+            "version": "4.4",
+            "isMobile": true
+        },
+        {
+            "platform": "Mobile Safari",
+            "version": "7",
+            "isMobile": true
+        }
+    ]
+}

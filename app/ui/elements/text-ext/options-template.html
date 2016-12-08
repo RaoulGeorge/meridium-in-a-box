@@ -1,0 +1,19 @@
+﻿<div data-bind="visible:isOpen()" class="mi-text-ext-options-container">
+    <p class="mi-multi-value-option" data-bind="clickBubble: false, click:function(data,event){event.preventDefault();}">
+        <input type="text" data-bind="attr:{ placeholder: $root.translator.translate('MULTI_VALUE_ADD_OPTION_PLACEHOLDER') }, value:addValue,event:{'keyup':addValueUpdate}" />
+    </p>
+
+    <!-- ko ifnot:(optionsCaption() === null) -->
+    <p class="mi-multi-value-option" data-bind="text:optionsCaption()"></p>
+    <!-- /ko -->
+    <!-- ko foreach:options -->
+    <p class="mi-multi-value-option">
+        <span data-bind="text:$parent.getOptionText($data)"></span>
+        <span class="ds ds-cross pull-right" data-bind="click:function(data,event){$parent.removeOption(data,event);}"></span> 
+
+    </p>
+    <!-- /ko -->
+
+  
+
+</div>

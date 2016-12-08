@@ -1,0 +1,36 @@
+﻿<mi-header>
+    <mi-title title="Error Logs"></mi-title>
+    <mi-sub-title subtitle="Last updated On 25/09/14"></mi-sub-title>
+</mi-header>
+
+    <div style="height:100%">
+        <div class="sandbox-content" style="height:100%; overflow:auto;">
+
+            <h2 style="padding-left:20px"><strong>Error Details</strong></h2>
+            
+            <table class="table table-striped">
+                <tbody data-bind="foreach: errorDetails">
+                    <tr>
+                        <td><strong>Error Message</strong></td>
+                        <td data-bind="text: errorMessage"></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Status</strong></td>
+                        <td data-bind="text: errorCode"></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Date</strong></td>
+                        <td data-bind="text: date"></td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Time</strong></td>
+                        <td data-bind="text: time"></td>
+                    </tr>
+                    </tbody>
+
+            </table>
+        </div>
+    </div>

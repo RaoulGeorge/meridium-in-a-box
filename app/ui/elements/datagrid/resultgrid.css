@@ -1,0 +1,22 @@
+﻿.search-container {
+  width: 100%;
+  /* Common to smartphone, tablet and desktop */
+  /* 2 columns */
+  /* Tablet version:
+   items are displayed in 4 columns (25% each) 
+@media (min-width: 40em) {
+  .item { width: 10%; }  
+}
+*/
+  /* Desktop version:
+   items are displayed in 5 columns (20% each) 
+@media (min-width: 60em) {
+  .item { width: 20%; } 
+} */ }
+  .search-container .nav {
+    width: 20%;
+    height: 200px; }
+  .search-container .item {
+    width: 15%; }
+
+/*# sourceMappingURL=search.css.map */

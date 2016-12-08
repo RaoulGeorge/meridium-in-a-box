@@ -1,0 +1,35 @@
+﻿<div class="block-group">
+        <div data-bind="with: selectedGroup">
+            <div class="block user-large-group">
+                <div class="form-group">
+                    <label data-bind="text: $root.translate('SEC_GROUP_ID')"></label>
+                    <input type="text"
+                           class="form-control"
+                           data-bind="value: id" required maxlength="50" />
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label class="control-label">
+                            <input data-bind="checked: isActive" type="checkbox" />
+                            <span data-bind="text: $root.translate('ACTIVE')"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="block user-large-group">
+                <div class="form-group">
+                    <label data-bind="text: $root.translate('CAPTION')"></label>
+                    <input type="text"
+                           class="form-control"
+                           data-bind="value: caption" />
+                </div>
+                <div class="form-group">
+                    <label data-bind="text: $root.translate('DESCRIPTION')"></label>
+                    <input type="text"
+                           class="form-control"
+                           data-bind="value: description" />
+                </div>
+           
+        </div>
+    </div>
+</div>

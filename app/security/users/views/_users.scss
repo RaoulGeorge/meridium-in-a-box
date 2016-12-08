@@ -1,0 +1,174 @@
+$user-nav-width: 240px;
+$user-nav-width-collapsed: 40px;
+$upload-box-width: 115px;
+$upload-box-height: 120px;
+$user-image-column-width: 160px;
+$user-breadcrumb_height: 40px;
+.user-screen {
+    height: 100%;
+    width: 100%;
+
+    .user-nav {
+        width: $user-nav-width;
+        height:100%;
+        
+        &.nav-collapsed {
+            width: $user-nav-width-collapsed;
+        }
+        
+        .userPanel {
+            height: calc(100% - #{$user-breadcrumb_height});
+            width: $user-nav-width; // fixes bug in IE
+        }
+
+        .mi-searchbox {
+            &:before {
+                left: 8px;
+            }
+        }
+    }
+
+    .user-details {
+        padding: 10px 10px 4px 10px;
+        width: calc(100% - #{$user-nav-width}); // width of expanded list
+
+        &.nav-collapsed {
+            width: calc(100% - #{$user-nav-width-collapsed});
+        }
+
+        .panel-heading {
+            .user-title {
+                width: calc(100% - 100px);
+            }
+
+            .button-panel {
+                text-align: right;
+                height: 45px;
+                width: 100px;
+
+                &.loading {
+                    .loading-med {
+                        display: inline-block;
+                    }
+                }
+
+                //.btn {
+                //    cursor: pointer;
+                //    min-width: 6px;
+                //    padding-left: 2px;
+                //    padding-right: 2px;
+                //
+                //    i {
+                //        font-size: 2em;
+                //    }
+                //}
+            }
+        }
+
+        .user-detail-groups-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .user-large-group {
+                width: 40%;
+                padding-right: 25px;
+            }
+
+            .user-small-group {
+                width: 15%;
+                padding-right: 25px;
+            }
+        }
+
+        .user-detail-roles-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .user-large-group {
+                width: 40%;
+                padding-right: 25px;
+            }
+
+            .user-small-group {
+                width: 10%;
+                padding-right: 25px;
+            }
+        }
+
+        .user-detail-sites-container {
+            height: 100%;
+            /*
+            overflow-x: hidden;
+            overflow-y: auto;
+            */
+            padding-left: 25px;
+            width: 100%;
+
+            .user-large-group {
+                width: 40%;
+                padding-right: 25px;
+            }
+
+            .user-small-group {
+                width: 10%;
+                padding-right: 25px;
+            }
+        }
+
+        .user-detail-container {
+            height: 100%;
+            overflow-x: hidden;
+            overflow-y: auto;
+            padding-left: 25px;
+            width: 100%;
+
+            .form-column {
+                width: calc((100% - #{$user-image-column-width}) / 2);
+                padding-right: 25px;
+            }
+
+            .user-image-column {
+                width: $user-image-column-width;
+                padding-right: 25px;
+            }
+
+            .image-uploader-container {
+                height: $upload-box-height;
+                width: $upload-box-width;
+                border: 1px solid;
+            }
+        }
+    }
+}
+
+.user-popover-tables {
+    /*margin-left: 350px;*/
+    width: 500px;
+    height: 100%;
+    padding: 10px 40px;
+
+    .nav {
+        height: 400px;
+    }
+
+    .footer {
+        width: 80%;
+    }
+    /* Items in 5 columns (20% each) */
+    .item {
+        width: 20%;
+    }
+
+    .search-box {
+        display: inline-block;
+    }
+
+    .userSearch {
+    }
+}

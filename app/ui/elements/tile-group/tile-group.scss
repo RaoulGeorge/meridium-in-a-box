@@ -1,0 +1,121 @@
+﻿mi-tile-group {
+	padding:20px;
+	display: block;
+
+	.resultgrid-placeholder {
+		height: 450px;
+		padding-top: 5px;
+		border:1px solid ButtonFace;    
+		@include box-shadow(0 0 3px 0 ButtonFace);
+		/*@include double-box-shadow(3px 0 3px -3px ButtonFace, -3px 0 3px -3px ButtonFace); */
+		background-color: white;
+		box-sizing:border-box;
+		min-height:200px;
+	}
+
+    .tile-group {
+        width: 100%;
+        height: 95px;  
+        margin: 0;
+
+        /* flexbox specific properties */
+        @include display-flex;        
+        @include justify-content($justify-content: space-between);
+
+    }
+
+    /* media query for Mobile*/
+     @media #{$media-query-small-mobile} {
+         position:relative;
+         padding:0px;
+         .tiles-popup{
+             position:absolute;
+             top:50px;
+             left:10%;
+            width: 80%;
+            background: #fff;
+            border: 1px solid #ccc;
+            -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+            padding: 5px;
+            border-top: 2px solid $brand-primary;
+            z-index:2;
+            &:before{
+                content: '';
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                width: 0;
+                height: 0;
+                position: absolute;
+                outline: 0;
+                border-bottom: 10px solid $brand-primary;
+                bottom: 100%;
+                right: 3px;
+            }
+
+            .popup-tile{
+                height:40px;
+                line-height:40px;
+                background: url(../images/backgrounds/dotted-divider-menu.png) 0 100% repeat-x;
+                 .number{               
+                    vertical-align: middle;
+                    font-size: 20px;
+                    line-height: 20px;
+                    padding-left:10px;
+                }
+                .text{
+                    font-size:14px;
+                    padding-left:10px;
+                }
+                &:last-child{
+                    background:transparent;
+                }
+            }
+         }
+          .tile-group {
+              display:block;
+              height:40px;
+              mi-tile .rectangle-box{
+                  display:none;
+                  height:40px;
+                  line-height:40px;
+                  &:after{
+                      background:transparent;                 
+                      content:"\e69e" !important;
+                    font-family: 'mi-icomoon';
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    vertical-align:middle;                    
+                    position:relative;
+                  }
+                  &.active{
+                     box-shadow: none;
+                    display: block;
+                    background: transparent;
+                    margin-bottom: 10px;
+                    border: none;
+                    text-align: center;
+                      .number{
+                              display: inline;
+                            vertical-align: middle;
+                            font-size: 24px;
+                            line-height: 24px;
+                            padding-right: 0px;
+                      }
+                      .text{
+                          display: inline;
+                        vertical-align: middle;
+                      }
+                  }
+              }
+          }
+     }
+
+ }

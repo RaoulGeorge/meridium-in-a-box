@@ -1,0 +1,32 @@
+$groups-nav-width: 240px;
+$groups-nav-width-collapsed: 40px;
+$breadcrumb-height: 40px;
+
+.groups {
+    height: calc(100% - #{$breadcrumb-height});
+    
+    .groups-nav-container {
+        height: 100%;
+        width: $groups-nav-width;
+
+        &.collapsed {
+            width: $groups-nav-width-collapsed;
+        }
+
+        @import "groups-nav";
+    }
+
+    .groups-details-container {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 14px;
+        width: calc(100% - #{$groups-nav-width});
+
+        &.collapsed-nav {
+            width: calc(100% - #{$groups-nav-width-collapsed})
+        }
+
+        @import "groups-detail";
+    }
+}

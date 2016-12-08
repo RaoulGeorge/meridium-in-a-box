@@ -1,0 +1,191 @@
+﻿@import '../../../../styles/variables';
+
+$range-bar-thickness: 6px;
+$slide-handle-size: 24px;
+
+$slide-margin: floor($slide-handle-size / 2);
+$slide-handle-position: ($slide-margin - floor($range-bar-thickness / 2)) * -1;
+
+$shadow-box-default: 1px 1px 3px #888;
+$shadow-box-small: 0 2px 1px 0 rgba(0, 0, 0, 0.3);
+$shadow-box-large: 1px 3px 10px #5c5b5b;
+
+@mixin noselect() {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@mixin box-shadow($shadow) {
+    -moz-box-shadow: $shadow;
+    -webkit-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+@mixin default-box-shadow() {
+    @include box-shadow($shadow-box-default);
+}
+
+@mixin small-box-shadow() {
+    @include box-shadow($shadow-box-small);
+}
+
+@mixin large-box-shadow() {
+    @include box-shadow($shadow-box-large);
+}
+
+@mixin border-radius($size) {
+    -moz-border-radius: $size;
+    -webkit-border-radius: $size;
+    border-radius: $size;
+}
+
+.mi-range-container {
+    -ms-touch-action: none;
+        touch-action: none;
+    @include noselect();
+    position: relative;
+    height: 100%;
+    width: 100%;
+    
+    .popover {
+        overflow-y: visible;
+    }
+
+    .mi-range-bar {
+        @include border-radius(10px 10px);
+        @include small-box-shadow();
+        background-color: $gray-light;
+    }
+
+    .mi-range-point {
+        @include border-radius(20px 20px);
+        @include large-box-shadow();
+        background-color: $gray;
+        cursor: pointer;
+        display: inline-block;
+        height: $slide-handle-size;
+        position: absolute;
+        width: $slide-handle-size;
+        z-index: 1;
+        
+        &:hover + .mi-range-point-value,
+        &:active + .mi-range-point-value {
+            visibility: visible;
+        }
+
+        &.target {
+            background-image: radial-gradient(
+                circle,
+                #F00, 
+                #F00 10%, 
+                #FFF 13%,
+                #FFF 20%,
+                #F00 23%,
+                #F00 35%,
+                #FFF 38%,
+                #FFF 50%,
+                #F00 53%,
+                #F00 75%,
+                #FFF 78%,
+                #FFF 90%,
+                #F00 93%,
+                #F00                
+            )
+        }
+    }
+
+    .mi-range-point-value {
+        display: inline-block;
+        position: absolute;
+        visibility: hidden;
+        white-space: nowrap;
+    }
+
+    .mi-range-min,
+    .mi-range-max {
+        color: $gray-light;
+        margin-top: 15px;
+        white-space: nowrap;
+    }
+
+    &.horizontal {
+        .mi-range-bar {
+            height: $range-bar-thickness;
+            width: 100%;
+        }
+
+        .mi-range-point {
+            left: 0;
+            top: $slide-handle-position;
+        }
+
+        .mi-range-point-value {
+            left: 0;
+            top: $slide-handle-size;
+        }
+
+        &:not(.rtl) {
+            .mi-range-max {
+                float: right;
+            }
+
+            .mi-range-min {
+                float: left;
+            }
+        }
+
+        &.rtl {
+            .mi-range-max {
+                float: left;
+            }
+
+            .mi-range-min {
+                float: right;
+            }
+        }
+    }
+
+    &.vertical {
+        .mi-range-bar {
+            height: 100%;
+            width: $range-bar-thickness;
+        }
+
+        .mi-range-point {
+            left: $slide-handle-position;
+            top: 0;
+        }
+
+        .mi-range-point-value {
+            left: $slide-handle-size;
+            top: 0;
+        }
+
+        &:not(.rtl) {
+            .mi-range-min {
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+            }
+            .mi-range-max {
+                position: absolute;
+                top: 0;
+                left: 20px;
+            }
+        }
+        &.rtl {
+            .mi-range-min {
+                position: absolute;
+                top: 0;
+                left: 20px;
+            }
+            .mi-range-max {
+                position: absolute;
+                bottom: 0;
+                left: 20px;
+            }
+        }
+    }
+}

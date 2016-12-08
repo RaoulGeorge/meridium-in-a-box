@@ -1,0 +1,40 @@
+﻿<div class="user-group-list">
+
+    <div class="user-group-tab">
+        <mi-tab-group tabs="2" size="large">
+            <mi-tab value="user" data-bind="attr: {text: $root.translator.translate('USER'),selected: true}, value: type, click: $root.selectuser"></mi-tab>
+            <mi-tab value="group" data-bind="attr: {text: $root.translator.translate('GROUP')}, value: type, click: $root.selectgroup"></mi-tab>
+        </mi-tab-group>
+    </div>
+
+
+    <div class="user-group-content">
+
+        <div class="user user-group-list" data-bind="visible: showUser">
+                <mi-list-group selector="toggle"
+                               multiselect="true"
+                               key="key"
+                               description="fullName"
+                               page="1"
+                               page-size="25"
+                               scroll-percent="0.75"
+                           custom-search="false"
+                           allow-add="false" class="custom-mi-list-group-height">
+                </mi-list-group>
+        </div>
+      
+        <div class="group user-group-list" data-bind="visible: showGroup">
+                <mi-list-group selector="toggle"
+                               multiselect="true"
+                               key="key"
+                               description="caption"
+                               page="1"
+                               page-size="25"
+                               scroll-percent="0.75"
+                           custom-search="false"
+                           allow-add="false" class="custom-mi-list-group-height">
+                </mi-list-group>
+        </div>
+      
+    </div>
+</div>

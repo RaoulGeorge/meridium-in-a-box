@@ -1,0 +1,42 @@
+﻿.error-detail-wrapper {
+    border-top: 1px solid silver;
+    padding: 20px;
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    height: 100%;
+    overflow: auto;
+}
+
+.error-code, .error-line-number, .error-header-line-number, .error-header-code {
+    width: 50%;
+}
+
+.error-message, .error-url, .error-header-message, .error-header-url {
+    width: 100%;
+}
+
+.error-message-group {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.error-message-detail {
+    height: calc(100% - 215px);
+    overflow: auto;
+    .error-body-url{
+        height: calc(100% - 30px);
+        overflow: auto;
+    }
+}
+
+.error-header {
+    font-weight: bold;
+}
+
+section.button-align {
+    text-align: center;
+    width: 100%;
+    float: left;
+    padding: 20px;
+}

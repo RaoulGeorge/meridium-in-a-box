@@ -1,0 +1,241 @@
+﻿.bulletinboard-container {
+    height: 1020px;
+    width: 35%;
+    background-color:ButtonFace;
+
+    .title {
+       @include grid-block-group;
+       @include font-semi-bold;
+        font-size: $font-size-h4;
+        padding: 20px 20px 0 20px;
+        text-indent: 3%;
+        height: 50px;
+    }
+    .square4_wrap {
+        width:48%;
+        padding-bottom:48%;
+        margin:1%;
+        box-shadow: 0 1px 0 rgba(255,255,255,0.2) inset, 0 0 4px rgba(0,0,0,0.2);
+    }
+    #outer_wrapper {  
+        overflow: hidden;  
+        width:100%;
+    }
+    #outer_wrapper #inner_wrapper {
+        width:400%; /* If you have more elements, increase the width accordingly */
+        background-color:ButtonFace;
+    }
+    #outer_wrapper #inner_wrapper div.box { /* Define the properties of inner block */
+        width: 100%;
+        height:50px;
+        float: left;
+        margin: 0 4px 0 0;
+        border:1px grey solid;
+    }
+
+    .scrollright {
+        @include clickable; 
+        float: right;
+        height: 50px;
+        color: black;
+    }
+
+    .scrollleft {
+        @include clickable; 
+        float: left;
+        width: 10%;
+        height: 50px;
+        padding: 15px 0 0 35px;
+    }
+
+    .scrollrightx {
+        @include clickable; 
+        margin-bottom: 5px;
+        margin-right: 10px;
+        width: 30px;
+        float: right;
+        position: absolute;
+        z-index: 2;
+        left: 35%;
+        top: 140px;
+    }
+
+    .scrollleftx {
+        @include clickable; 
+        margin-top: 15px;
+        margin-bottom: 5px; 
+        margin-left: 15px;
+        width: 50px;
+        position: absolute; 
+        z-index: 1;
+    }
+
+
+     .center-block {
+      @include grid-block-group;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      height: 350px;
+      padding: 1% 2% 1% 2%;
+      border: 1px;
+      border-color: black;
+      border-style: solid;
+    }
+
+     .center-block:before{
+	    content: "";
+	    display: block;
+	    padding-top: 100%; 	/* initial ratio of 1:1*/
+    }
+
+    .square_one { 
+        @include grid-block;
+        @include clickable;
+        width: 46%;
+        height: 46%;
+        padding: 1%;
+        margin: 2%;
+        //border-color: black;
+        //border-style: solid;
+        box-shadow: 5px 5px 0 0 ButtonFace;
+        -webkit-box-shadow: 5px 5px 0 0 ButtonFace;
+	    -moz-box-shadow: 5px 5px 0 0 ButtonFace;
+        border-right-style: solid;
+        border-right-width: 10px;
+        border-right-color: blue;
+        //box-shadow: 0 1px 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 4px rgba(0, 0, 0, 0.2);
+
+        &.red {
+			border-right-color: red;
+            color: red;
+		}
+		&.blue {
+			border-right-color: blue;
+            color: blue;
+		}
+		&.gold {
+			border-right-color: gold;
+            color: gold;
+		}
+		&.green {
+			border-right-color: green;
+            color: green;
+		}
+		&.gray {
+			border-right-color: gray;
+            color: gray;
+		}
+    }
+
+
+    .box-container {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+    }
+    .dummy {
+        margin-top: 100%; 
+    }
+    .box-element {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: whitesmoke;
+        padding-top: 1%;
+        padding-left: 1%;
+    }
+
+    .tab-group-default {
+        height:53px;
+	    box-shadow: none;
+	    -webkit-box-shadow: none;
+	    -moz-box-shadow: none;
+	    border-bottom: none;
+  	    border-top: none;
+    }
+
+    .tab-group-item {
+        bottom: 0;
+        //text-align: center;
+        border-bottom: hidden; 
+    }
+
+    .number {
+		font-size: 24px;     
+	}
+
+	.text {
+        margin-left: .5%;
+	}
+
+    .header {
+        width:100%;
+        background:whitesmoke;
+        height:50px;
+        font-size: $font-size-h5;
+    }
+
+    /*.table-container{
+        width:304px;
+        background:beige;
+        overflow:hidden
+    }*/
+
+    .b11 {
+        @include grid-block;
+        @include clickable; 
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+        padding: 0 3px;
+    }
+
+     .recent {
+        width: 100%;
+        background: whitesmoke;
+        height: 50px;
+        text-indent: 3%;
+    }
+
+    .table-container {
+        width: 100%;
+        background: whitesmoke;
+        height: 50px;
+        overflow: hidden;
+    }
+    .table-container2 {
+        width: 100%;
+        background: whitesmoke;
+        height: 50px;
+        overflow: hidden;
+    }
+	.sliding-window {
+        width: 400%
+	}
+    .sliding-window2 {
+        width: 400%
+	}
+	.sliding-windowz>div{
+        @include grid-block;
+        min-width: 100%;
+        padding: .5%;
+        text-indent: 3%;
+	}
+
+    .scroll_one {
+        float: left;
+        width: 20%;
+        padding: .5%;
+        text-indent: 3%;
+    }
+    .notification-area {
+        float: left;
+        width: 25%;
+        padding: .5%;
+        text-indent: 3%;
+    }
+}
+   

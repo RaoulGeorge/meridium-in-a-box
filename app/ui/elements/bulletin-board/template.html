@@ -1,0 +1,100 @@
+﻿<div class="bulletinboard-container">
+
+    <div>
+        <span class="title">Bulletin Board</span>
+    </div>
+
+    <section class="tiles-section" data-bind="visible: true">
+        <div class="box-container">
+            <div class="dummy"></div>
+            <div class="box-element">
+                <div class="square_one b1" data-bind="attr: { index: 0 }"></div>
+                <div class="square_one b2" data-bind="attr: { index: 1 }"></div>
+                <div class="square_one b3" data-bind="attr: { index: 2 }"></div>
+                <div class="square_one b4" data-bind="attr: { index: 3 }"></div>
+            </div>
+        </div>
+        <div class="recent">
+            <span class="title">Recent Activity</span>
+        </div>
+    </section>
+
+    <section class="details" data-bind="visible: false">
+        <div id="outer_wrapper">
+            <div id="inner_wrapper">
+            </div>
+        </div>
+
+        <div class="table-container">
+            <div id="scrollbar" style="width:3040px;height:50px;overflow-y:hidden;overflow-x:hidden;position:relative;background-color:ButtonFace;">
+                <mi-tab-group tabs="4">
+                    <mi-tab number="234" text="Reference Documents"></mi-tab>
+                    <mi-tab number="2" text="Linked Assets"></mi-tab>
+                    <mi-tab number="999" text="Team Members"></mi-tab>
+                    <mi-tab number="34" text="Analyses"></mi-tab>
+                </mi-tab-group>
+            </div>
+        </div>
+        <div class="scrollright">
+            <i class="icon-right-arrow"></i>
+        </div>
+        <div class="scrollleft">
+            <i class="icon-back-arrow"></i>
+        </div>
+
+        <br />
+        <h3>Notifications</h3>
+        <div class="tabs-notification-area well">
+        </div>
+    </section>
+
+    <section class="scroll-section" data-bind="visible: false">
+
+        <div class="table-container">
+            <div class="scrollleft">
+                <i class="icon-back-arrow"></i>
+            </div>
+            <div class="sliding-window">
+                <!--<div class="scroll_one col-1">
+                    <span class="number">234</span>
+                    <span class="text">Reference Documents (col-1)</span>
+                </div>
+                <div class="scroll_one col-2">
+                    <span class="number">2</span>
+                    <span class="text">Linked Assets (col-2)</span>
+                </div>
+                <div class="scroll_one col-3">
+                    <span class="number">999</span>
+                    <span class="text">Team Members (col-3)</span>
+                </div>
+                <div class="scroll_one col-4">
+                    <span class="number">34</span>
+                    <span class="text">Analyses (col-4)</span>
+                </div>-->
+            </div>
+            <div class="scrollright">
+                <i class="icon-right-arrow"></i>
+            </div>
+        </div>
+
+        <br />
+        <mi-tool-bar class="block-group">
+            <mi-searchbox custom-search="true"></mi-searchbox>
+            <button class="btn btn-default btn-icon">
+                <i class="icon-plus"></i>
+            </button>
+            <button class="btn btn-default btn-icon">
+                <i class="icon-table-sort">
+                </i>
+            </button>
+            <mi-filter class="block"></mi-filter>
+        </mi-tool-bar>
+        <div class="table-container2">
+            <div class="sliding-window2">
+                <!--<div class="notification-area">
+                </div>-->
+            </div>
+        </div>
+</section>
+</div>
+

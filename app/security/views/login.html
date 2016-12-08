@@ -1,0 +1,95 @@
+﻿<div id="login-screen" class="block-group" data-bind="visible: showLogon">
+    <section class="login-wrapper">
+        <div class="login-opacity-background">
+            <div class="welcome-text-container">
+                <div class="login-logo"></div>
+                <label class="secondary-text block">Asset Performance Management</label>
+            </div>
+            <form class="login-form" data-bind="visible: showLogonForm">
+                <div class="form-group">
+                    <input id="userid" type="text" class="form-control" tabindex="1"
+                           data-bind="value: userId, valueUpdate: 'keyup', attr: { placeholder: userNameCaption }">
+                </div>
+                <div class="form-group">
+                    <input id="password" type="password" class="form-control" tabindex="2"
+                           data-bind="value: password, attr: { placeholder: passwordCaption }">
+                </div>
+                <div class="login-error" id="login-error"></div>
+                <div class="advanced-options">
+                    <div class="form-group">
+                        <!-- ko if: allowServerInput-->
+                        <input id="appserver" type="text" class="form-control" tabindex="3"
+                               data-bind="value: apiServer, attr: { placeholder: 'Server' }">
+                        <!-- /ko -->
+                    </div>
+                    <div class="datasource-container block-group">
+                        <div class="form-group block"
+                             data-bind="css: { 'enable-add': canAddDatasource }">
+                            <!-- ko if: areDatasourcesLoaded-->
+                            <select tabindex="3" class="form-control"
+                                data-bind="options: datasources, value: datasource, optionsText: 'shortDisplayName'"></select>
+                            <!-- /ko -->
+                            <!-- ko ifnot: areDatasourcesLoaded-->
+                            <div class="form-control noDatasource"></div>
+                            <!-- /ko -->
+                        </div>
+                        <!-- ko if: canAddDatasource -->
+                        <div class="form-group add-button block">
+                            <button type="button"
+                                    class="btn btn-default"
+                                    data-bind="click: addDatasource,
+                                           text: addDatasourceCaption">
+                            </button>
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </div>
+                <div class="form-group login-footer">
+                    <!-- ko if: areDatasourcesLoaded-->
+                    <button type="submit" class="btn btn-primary" data-bind="click: login,
+                                                                             enable: showLoginInput,
+                                                                             css:{ disabled: !areDatasourcesLoaded() }">
+                        <span data-bind="text: loginCaption"></span>
+                        <div class="loading-med" data-bind="visible: busy"></div>
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko ifnot: areDatasourcesLoaded-->
+                    <div class="btn btn-primary disabled" data-bind="text: loginCaption"></div>
+                    <!-- /ko -->
+                </div>
+            </form>
+            <form class="change-password-form" data-bind="visible: showChangePasswordForm">
+                <h1 data-bind="text: changePasswordHeader"></h1>
+                <div class="form-group">
+                    <input type="password" class="form-control new-password" tabindex="1"
+                           data-bind="value: newPassword, attr: { placeholder: newPasswordCaption }">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control retype-password" tabindex="1"
+                           data-bind="value: retypeNewPassword, attr: { placeholder: retypeNewPasswordCaption }">
+                </div>
+                <div class="form-group login-footer">
+                    <button type="submit" class="btn btn-primary"
+                            data-bind="click: changePassword, disable: busy">
+                        <span data-bind="text: changePasswordCaption"></span>
+                        <div class="loading-med" data-bind="visible: busy"></div>
+                    </button>
+                </div>
+            </form>
+            <div class="form-group trademark">
+                <div class="mi-tm">
+                    Meridium APM 
+                </div>
+                <div class="mi-tm">
+                    <span data-bind="text: versionCaption"></span>
+                    <span data-bind="text: versionNum"></span>
+                </div>
+                <div class="mi-tm">
+                    Meridium <sup>&reg;</sup><br />
+                    <span class="meridium-tm-line">Enterprise APM <sup>&trade;</sup></span>  
+                </div>
+            </div>          
+        </div>
+    </section>
+    <div class="version-container main-version">4</div>
+</div>

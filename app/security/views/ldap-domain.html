@@ -1,0 +1,124 @@
+﻿        <!-- ko if: selectedDomain -->
+<div class="panel-heading block-group">
+    <div class="ldap-title block">
+        <h2 data-bind="text: selectedDomain().domainName"></h2>
+    </div>
+    <div class="button-panel pull-right" data-bind="css: { loading: isLoading }">
+        <div class="loading-med"></div>
+        <a class="btn btn-icon"
+           data-bind="click: save, visible: canSave , attr: {title: translator.translate('SAVE')}">
+            <i class="icon-save"></i>
+        </a>
+        <a class="btn btn-icon" data-bind="click: deleteDomain, visible: canDelete, attr: {title: translator.translate('DELETE')}">
+            <i class="icon-bin"></i>
+        </a>
+    </div>
+</div>
+<div class="panel-body" data-bind="with: selectedDomain">
+    <div class="block-group">
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label class="control-label" data-bind="text: $root.translate('NAME')"></label>
+                <input type="text" class="form-control" data-bind="value: domainName" />
+            </div>
+            <div class="ldap-half-group form-group">
+                <label class="control-label" data-bind="text: $root.translate('LDAP_DOMAIN_ROOT')"></label>
+                <input type="text" class="form-control" data-bind="value: rootCaption" />
+            </div>
+                    </div>
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label class="control-label" data-bind="text: $root.translate('CAPTION')"></label>
+                <input type="text" class="form-control" data-bind="value: domainCaption" />
+            </div>
+            <div class="ldap-half-group form-group">
+                <label class="control-label" data-bind="text: $root.translate('LDAP_SUPER_USER_GROUP')"></label>
+                <select class="form-control"  data-bind="options:$root.roleList,value:domainNetBiosName,placeholder:$root.translate('SELECT_ROLE')">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" data-bind="text: $root.translate('LDAP_DOMAIN_USER_FILTER')"></label>
+        <textarea rows="10"  class="form-control" data-bind="value: allUserFilter" />
+    </div>
+    <mi-tab-group tabs="2" size="small">
+        <mi-tab value="fieldMappings" data-bind="click: $root.showFieldMappings,attr: {text:$root.translate('LDAP_FIELD_MAPPINGS')}" selected="true"></mi-tab>
+        <mi-tab value="domainUsers"  data-bind="click: $root.showUsers,attr: {text:$root.translate('USERS')}"></mi-tab>
+    </mi-tab-group>
+    <!-- ko if: $root.canShowFieldMappings -->
+    <div class="panel-heading block-group">
+        <div class="ldap-title block">
+            <h2><span data-bind="text: $root.translate('LDAP_FIELD_MAPPINGS_FOR')"></span> <span data-bind="text: domainName"></span></h2>
+        </div>
+        <div class="button-panel pull-right" data-bind="css: { loading: $root.isLoading }">
+            <div class="loading-med"></div>
+            <a class="btn btn-icon"
+               data-bind="click: $root.addMappings, visible: $root.canAddMapping , attr: {title: $root.translator.translate('ADD')}">
+                <i class="icon-add-alt"></i>
+            </a>
+        </div>
+    </div>
+    <div data-bind="visible: $root.canShowAddMappingFields">
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label control-label data-bind="text: $root.translate('LDAP_PROPERTY_LDAP_FIELD')"></label>
+                <input type="text" class="form-control" data-bind="value: $root.newLdapName" />
+            </div>
+        </div>
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label control-label data-bind="text: $root.translate('LDAP_PROPERTY_MERIDIUM_FIELD')"></label>
+                <input type="text"
+                       class="form-control"
+                       data-bind="value: $root.newApmName" />
+             
+            </div>
+        </div>
+        <div class="block-group">
+            <button class="btn btn-text" data-bind="attr: {title: $root.translator.translate('SAVE')},click: $root.saveNewMapping">Save</button>
+            <button class="btn btn-text" data-bind="attr: {title: $root.translator.translate('CANCEL')},click: $root.cancelNewMapping">Cancel</button>
+        </div>
+    </div>
+    <div data-bind="foreach: propertyMappings">
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label control-label data-bind="text: $root.translate('LDAP_PROPERTY_LDAP_FIELD')"></label>
+                <input type="text" class="form-control" data-bind="value: ldapName" />
+            </div>
+        </div>
+        <div class="block ldap-half-group">
+            <div class="ldap-half-group form-group">
+                <label control-label data-bind="text: $root.translate('LDAP_PROPERTY_MERIDIUM_FIELD')"></label>
+                <div class="input-group">
+                    <input type="text"
+                           class="form-control"
+                           data-bind="value: apmName" readonly />
+                    <span class="input-group-addon">
+                        <button class="btn btn-icon" data-bind="attr: { title: $root.translate('DELETE') },click: $root.deleteMapping">
+                            <i class="icon-bin"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: $root.canShowUsers -->
+    <div class="panel-heading block-group">
+        <div class="ldap-title block">
+            <h2><span data-bind="text: $root.translate('LDAP_SECURITY_USERS_FOR')"></span> <span data-bind="text: domainName"></span></h2>
+        </div>
+    </div>
+    <table class="table table-bordered">
+        <tbody data-bind="foreach: users">
+            <tr>
+                <td><span data-bind="text: displayName" /></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- /ko -->
+
+</div>
+        <!-- /ko -->

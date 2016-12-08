@@ -1,0 +1,44 @@
+﻿.long-text-control {
+
+    position: relative;
+
+    textarea.form-control {
+        display: block;
+        height: auto;
+        resize: vertical;
+        max-width: 100% !important;
+        min-height: 57px;
+    }
+
+    .expand-icon {        
+        bottom: -2px;
+        border: 1px;
+        cursor: pointer;
+        font-size: 8.5px;
+        min-height: 16px;
+        min-width: 16px;
+        padding: 2px;
+        position: absolute;
+        right: 0;
+        z-index: 2;
+        
+        &:hover {
+            border: none;
+        }
+    }
+    
+    .invalid {
+        background-color: #ffffff;
+        border: solid 1px #ff3b30;
+    }
+
+
+    &.popup-editor {
+        height: 100%;
+
+        textarea.form-control {
+            height: 100%;
+            resize: none;
+        }
+    }
+}

@@ -1,0 +1,123 @@
+﻿<mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+<div class="site-screen block-group">
+
+    <mi-panel class="site-list block"
+              selctor="none"
+              multiselect="false"
+              key="key"
+              description="name"
+              page="1"
+              page-size="25"
+              scroll-percent="0.75"
+              custom-filter="false"
+              custom-search="false"
+              allow-add="true"
+              data-bind="attr: { title: translate('SITES') },
+                         event: { selecting: onSelectSite }">
+        <mi-tool-bar>
+            <a class="btn btn-icon"
+               data-bind="attr: {title: translate('ADD')},
+                click: onAddSite, visible: canAdd">
+                <i class="icon-plus"></i>
+            </a>
+        </mi-tool-bar>
+    </mi-panel>
+
+    <div class="site-details panel block" data-bind="visible: selectedSite">
+
+        <div class="panel-heading block-group">
+            <div class="site-title block">
+                <h2 data-bind="text: selectedSite() && selectedSite().name"></h2>
+            </div>
+
+            <div class="button-panel pull-right"
+                 data-bind="css: { loading: isLoading }">
+                <div class="loading-med"></div>
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('SAVE')},click: save,
+                              visible: selectedSite() && canSave()">
+                    <i class="icon-save"></i>
+                </a>
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('DELETE')},click: $root.delete,
+                              visible: selectedSite() && canDelete">
+                    <i class="icon-bin"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group" data-bind="">
+                <label data-bind="text: $root.translate('NAME')"></label>
+                <input type="text"
+                       class="form-control"
+                       data-bind="value: selectedSite() && selectedSite().name" />
+            </div>
+
+            <div class="usersite">
+                <div class="usersite-toolbar">
+                    <button class="btn btn-default btn-icon" data-bind="attr: {title: translator.translate('NEWITEM')}, click: onAddClick">
+                        <i class="icon-plus" />
+                    </button>
+                    <a class="btn btn-icon" data-bind="attr: {title: translator.translate('CHECKALLTEXT')}, click: $root.onSelectAllClick" title="Select All">
+                        <i class="icon-select-all" />
+                    </a>
+                    <a class="btn btn-icon" data-bind="attr: {title: translator.translate('DELETE')},
+                                           click: $root.onDeleteClick,
+                                           visible: $root.canDeleteUser" title="Delete">
+                        <i class="icon-bin" />
+                    </a>
+                </div>
+
+                <div class="usersite-div-table">
+                    <table class="usersite-table">
+                        <tbody data-bind="foreach: userSites">
+                            <tr class="usersite-tr">
+                                <td class="selector-td">
+                                    <span class="custom-checkbox" data-bind="css: { customcheckboxchecked : selected }, event: { click: $root.onSelectClick } "></span>
+                                    <input type="checkbox" />
+                                </td>
+                                <td class="usersite-td">
+                                    <label class="usersite-description" data-bind="text: userName" />
+                                    <!-- <span class="custom-checkbox" data-bind="event: { click: $root.onViewOnlyClick }"></span> -->
+                                    <!--<label class="usersite-label" data-bind="text: $root.translate('SEC_SITE_VIEW_ONLY')" />
+                                    <input type="checkbox" data-bind="checked: viewOnly" />-->
+                                <td />
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--
+            <div class="block">
+                <label data-bind="text: $root.translate('SEC_ROLE_USERS')"></label>
+                <mi-list-group selector="toggle" class="foo"
+                               multiselect="true"
+                               key="key"
+                               description="userName"
+                               page="1"
+                               page-size="25"
+                               scroll-percent="0.75"
+                               custom-filter="false"
+                               custom-search="false"
+                               allow-add="true"
+                               data-bind="event: {'add-item': $root.onAddUser, 'selected':$root.onSelectUser}">
+                    <mi-tool-bar>
+                        <a class="btn btn-icon"
+                           data-bind="attr: {title: $root.translate('CHECKALLTEXT')}, click: $root.onSelectUserAll">
+                            <i class="icon-select-all"></i>
+                        </a>
+                        <a class="btn btn-icon"
+                           data-bind="attr: {title: $root.translate('DELETE')}, click: $root.onDeleteUser,
+                                  visible: selectedSite() && $root.canDeleteUser">
+                            <i class="icon-bin"></i>
+                        </a>
+                    </mi-tool-bar>
+                </mi-list-group>
+            </div>
+            -->
+        </div>
+
+    </div>
+</div>

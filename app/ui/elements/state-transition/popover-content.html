@@ -1,0 +1,43 @@
+﻿<div class="state-transition">
+    <div class="form-group">
+        <!-- ko if: canDisplaySuccessors -->
+        <!--<label data-bind="text: translate('STATE_CHOOSE_OPERATION')"></label>-->
+        <ul class="successors-list list-group"
+            data-bind="foreach: availableSuccessors,
+                       click: selectOperation">
+            <li class="list-group-item"
+                data-bind="text:caption,
+                            css: { active: isSelected }">
+            </li>
+        </ul>
+        <!-- /ko -->
+        <!-- ko ifnot: canDisplaySuccessors -->
+        <label data-bind="text: translate('STATE_NO_SUCCESSORS')"></label>
+        <!-- /ko -->
+    </div>
+</div>
+<div class="state-assignment block-group">
+    <!-- ko if: successorAssignment -->
+    <div class="form-group">
+        <select data-bind="options: successorAssignment().eligibleUsers,
+                           optionsText: 'displayName',
+                           optionsCaption: 'Assignee'"></select>
+    </div>
+    <!-- /ko -->
+
+    <!-- ko ifnot: hideAssignments -->
+    <div class="assignment-dialog-link block">
+        <a data-bind="click: showAssignmentsDialog,
+                      text: translate('STATE_MGT_SHOW_ASSIGN_DLG')">
+        </a>
+    </div>
+    <!-- /ko -->
+
+    <div class="done-control block">
+        <button type="button"
+                class="btn btn-text"
+                data-bind="text: translate('DONE'),
+                           enable: canClickDone,
+                           click: done"></button>
+    </div>
+</div>

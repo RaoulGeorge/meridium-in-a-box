@@ -1,0 +1,34 @@
+$user-nav-width: 200px;
+$upload-box-width: 106px;
+$upload-box-height: 106px;
+$font-size-base: 14px !default;
+$line-height-base: 1.428571429 !default; // 20/14
+$line-height-computed: floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+
+
+.file-drop-box {
+    cursor: pointer;
+    border: 1px solid transparent;
+    min-height: $upload-box-height - 20px;
+    min-width: $upload-box-width;
+    max-height: $upload-box-height;
+    max-width: $upload-box-width;
+    margin: 10px auto;
+
+               
+    img {
+        max-height: $upload-box-height - 8px;
+        max-width: $upload-box-width - 6px;
+        display: block;
+        margin: 3px auto;
+    }
+
+    .upload-placeholder {
+        margin-top: ceil(($upload-box-height / 2) - ($line-height-computed / 2)) - 10px;
+        display: block;
+        text-align: center;
+
+    }
+}
+       

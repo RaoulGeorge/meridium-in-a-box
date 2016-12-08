@@ -1,0 +1,223 @@
+﻿<div id="group-screen" class="block-group">
+    <div class="group-hierarchy block-group">
+        <div class="group-list-column block">
+
+            <div class="group-list-header block-group">
+                <div class="group-go-back block">
+                    <button class="button"
+                            data-bind="click: groupGoBack,
+                                  visible: canGoBack">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <!-- The following <span> ensures the caption is centered even
+                        if the go-back button is not visible-->
+                    <span data-bind="visible: !canGoBack()">&nbsp;</span>
+                </div>
+                <div class="group-name block">
+                    <a data-bind="with: navigatedGroup,
+                              click: $root.selectGroup">
+                        <span data-bind="text: displayName" />
+                    </a>
+                </div>
+                <div class="group-show-path block">
+                    <button class="button"
+                            data-bind="click: groupShowPath,
+                                  visible: canShowPath">
+                        <i class="fa fa-caret-down larger"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ko if: isGroupPathVisible -->
+            <div class="group-path-list list-group"
+                 data-bind="click: selectPathGroup,
+                           template: {
+                                name: 'group-path-item-template',
+                                foreach: navigatedGroup().path() }"></div>
+            <!-- /ko -->
+
+            <div class="group-add-header">
+                <button data-bind="click: newGroup,
+                              enable: canAddGroup">
+                    <i class="fa fa-plus-circle group-add"></i>
+                    <span data-bind="text: translate('SEC_GROUP_CREATE_GROUP')"></span>
+                </button>
+            </div>
+
+            <ul class="group-list nav nav-pills nav-stacked"
+                data-bind="click: selectGroup,
+                           template: {
+                               name: 'group-list-item-template',
+                               foreach: listedGroups }"></ul>
+        </div>
+    </div>
+    <div class="panel group-detail block"
+         data-bind="with: selectedGroupDetails">
+
+        <div class="panel-heading group-detail-header block-group">
+            <h3 class="panel-title group-detail-header-title block"
+                data-bind="text: id"></h3>
+
+            <div class="group-detail-header-buttons block">
+                <!--<a data-bind="click: $parent.editSelected,
+                              visible: !$root.isDirty() && !$root.isEditPending()">
+                    <i class="fa fa-pencil-square-o fa-2x"></i>
+                </a>-->
+                <button class="button"
+                        data-bind="click: $parent.deleteGroup,
+                                   visible: $root.canDeleteGroup">
+                    <i class="fa fa-trash-o fa-2x"></i>
+                </button>
+                <button class="button"
+                        data-bind="click: $parent.saveGroup,
+                                   visible: $root.isDirty() && !$root.isEditPending()">
+                    <i class="fa fa-floppy-o fa-2x"></i>
+                </button>
+                <!--<button class="button"
+                            data-bind="click: $parent.revertItem,
+                                       visible: $root.isDirty() && !$root.isEditPending()">
+                    <i class="fa fa-times fa-2x"></i>
+                </button>-->
+                <i class="fa fa-spinner fa-spin fa-2x"
+                   data-bind="visible: $root.isEditPending"></i>
+            </div>
+        </div>
+        <div class="panel-body group-detail-content panel-group">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse"
+                           data-target=".group-details.panel-collapse.collapse"
+                           data-parent=".group-detail-content.panel-group"
+                           data-bind="text: $root.translate('SEC_GROUP_DETAILS')">
+                        </a>
+                    </h4>
+                </div>
+                <div class="group-details panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label data-bind="text: $root.translate('SEC_GROUP_ID')"></label>
+                            <input type="text"
+                                   onclick="this.setSelectionRange(0, this.value.length)"
+                                   class="form-control"
+                                   data-bind="value: id" required maxlength="50" />
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"
+                                       data-bind="checked: isActive" />
+                                <span data-bind="text: $root.translate('ACTIVE')"></span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label data-bind="text: $root.translate('CAPTION')"></label>
+                            <input type="text"
+                                   class="form-control"
+                                   data-bind="value: caption" required  maxlength="50" />
+                        </div>
+
+                        <div class="form-group">
+                            <label data-bind="text: $root.translate('DESCRIPTION')"></label>
+                            <textarea rows="4"
+                                      class="form-control"
+                                      data-bind="value: description" />
+                        </div>
+
+                        <!--<div class="form-group">
+                        <label>Parent Group</label>
+                        <select class="form-control"
+                                data-bind="options: $root.flatGroupsFiltered,
+                                            optionsText: 'id',
+                                            optionsValue: 'key',
+                                            value: parentKey,
+                                            optionsCaption: 'No Parent'" />
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="collapsed"
+                           data-toggle="collapse"
+                           data-target=".user-assignment.panel-collapse.collapse"
+                           data-parent=".group-detail-content.panel-group"
+                           data-bind="text: $root.translate('SEC_GROUP_USER_ASSIGNMENT')">
+                        </a>
+                    </h4>
+                </div>
+                <div class="user-assignment panel-collapse collapse">
+
+                    <div class="user-assignment panel-body form-group block-group">
+                        <div class="all-users block">
+                            <div data-bind="text: $root.translate('SEC_GROUP_UNASSIGNED_USERS')"></div>
+
+                            <input type="search"
+                                   class="form-control"
+                                   data-bind="value: $root.allUsersFilterText,
+                                              valueUpdate: 'afterkeydown',
+                                              attr: { placeholder: $root.translate('SEARCH') }" />
+
+                            <ul class="list-group"
+                                data-bind="foreach: $root.allUsersFiltered,
+                                                   click: $root.assignUser">
+
+                                <li class="list-group-item">
+                                    <a>
+                                        <i class="fa fa-plus"></i>
+                                    </a>&nbsp;&nbsp;
+                                    <span data-bind="text: displayName"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="assigned-users block">
+                            <div data-bind="text: $root.translate('SEC_GROUP_ASSIGNED_USERS')"></div>
+
+                            <input type="search"
+                                   class="form-control"
+                                   data-bind="value: $root.assignedUsersFilterText,
+                                              valueUpdate: 'afterkeydown',
+                                              attr: { placeholder: $root.translate('SEARCH') }" />
+
+                            <ul class="list-group"
+                                data-bind="foreach: $root.assignedUsersFiltered,
+                                                   click: $root.unassignUser">
+
+                                <li class="list-group-item">
+                                    <a>
+                                        <i class="fa fa-trash-o"></i>
+                                    </a>&nbsp;&nbsp;
+                                    <span data-bind="text: displayName"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="group-list-item-template" type="text/html">
+    <li class="group-list-item"
+        data-bind="css: { active: isSelected }">
+        <a>
+            <div class="block-group">
+                <div class="group-name block"
+                     data-bind="text: displayName"></div>
+                <div class="group-drill-down block">
+                    <i class="fa fa-caret-right fa-2x group-drill-down"></i>
+                </div>
+            </div>
+        </a>
+    </li>
+</script>
+
+<script id="group-path-item-template" type="text/html">
+    <a class="group-path-item list-group-item">
+        <span data-bind="text: displayName" />
+    </a>
+</script>

@@ -1,0 +1,17 @@
+.mi-collapsible {
+    $title-height: 71px;
+    $content-height: calc(100% - #{$title-height});
+    .list-group-item.title {
+        border: 0;
+        height: $title-height;
+
+        &.active {
+            background: url(/images/backgrounds/dotted-divider-menu.png) left bottom repeat-x #f8f8f8;
+            border-left: 6px solid $brand-primary;
+            @include box-shadow(0px 13px 20px -15px rgba(0,0,0,0.2));
+        }
+    }
+    .content {
+        height: calc(100% - $title-height);
+    }
+}

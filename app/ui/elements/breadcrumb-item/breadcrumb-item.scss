@@ -1,0 +1,7 @@
+﻿.breadcrumb-item {
+	cursor: pointer;
+
+	&:hover {
+		color: $brand-primary;
+	}
+}

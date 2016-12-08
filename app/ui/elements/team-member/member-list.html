@@ -1,0 +1,68 @@
+﻿<div class="teammember-container">
+    <button class="btn btn-default back"><i class="icon-back-arrow"></i> </button>
+    <div class="list-members">
+        <section class="nav-list-group team-members">            
+            <mi-list-group description="PopulateHTML"
+                           use-html="true"
+                           key="key"
+                           multiselect="false"
+                           page="1"
+                           page-size="15"
+                           scroll-percent="0.75"
+                           custom-search="true"
+                           allow-add="false">
+                <mi-tool-bar>
+                    <button class="btn btn-default btn-icon addExisting" title="Edit Team Members">
+                        <i class="icon-edit"></i>
+                    </button>
+                </mi-tool-bar>
+            </mi-list-group>
+            <div class="no-data0"></div>
+        </section>
+    </div>
+    <div class="edit-member"></div>
+    <div class="two-lists-members">
+        <section class="nav-list-group list-members-hr">         
+            <mi-list-group description="PopulateHTML"
+                           use-html="true"
+                           key="key"
+                           selector="toggle"
+                           multiselect="true"
+                           page="1"
+                           page-size="25"
+                           scroll-percent="0.75"
+                           custom-search="true"
+                           allow-add="false">
+                <mi-tool-bar>
+                    <button class="btn btn-default btn-icon link" disabled title="Add to Team">
+                        <i class="icon-team-member-shift-right"></i>
+                    </button>
+                    <button class="btn btn-default btn-icon prev" title="Previous Page">
+                        <i class="icon-back-arrow"></i>
+                    </button>
+                </mi-tool-bar>
+            </mi-list-group>
+            <div class="no-data1"></div>
+        </section>
+        <section class="nav-list-group list-members-tm">           
+            <mi-list-group description="PopulateHTML"
+                           use-html="true"
+                           key="key"
+                           selector="toggle"
+                           multiselect="true"
+                           custom-search="true"
+                           allow-add="false">
+                <mi-tool-bar>
+                    <button class="btn btn-default btn-icon unlink" disabled title="Remove from Team">
+                        <i class="icon-team-member-shift-left"></i>
+                    </button>
+                    <button class="btn btn-default btn-icon add" title="Add New Team Member">
+                        <i class="icon-plus"></i>
+                    </button>
+                </mi-tool-bar>
+            </mi-list-group>
+            <div class="no-data2"></div>
+        </section>
+        </div>
+    <div class="new-member"></div>
+    </div>

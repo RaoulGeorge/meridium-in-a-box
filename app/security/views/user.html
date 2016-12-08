@@ -1,0 +1,268 @@
+﻿<div id="user-screen">
+    <div class="sec-manager-block-group">
+        <mi-breadcrumb delimiter="\"></mi-breadcrumb>
+        <mi-panel delay="0" data-bind="attr: { title: $root.translate('USERS') }">
+            <mi-tool-bar>
+                <mi-searchbox custom-search="true" delay=500 no-auto-close></mi-searchbox>
+                <button class="btn btn-default btn-icon" data-bind="click: newUser,clickBubble: false">
+                    <i class="icon-plus" data-bind="attr: { title: 'New User' }"></i>
+                </button>
+                <mi-filter-no-ko custom-filter="true" data-bind="attr: { title: 'Filter User' }">
+                </mi-filter-no-ko>
+                <section class="btn-group filter-group filter-toggle-fix" id="filter" data-bind="attr: { title: 'Filter User' }">
+                    <button type="button" class="btn btn-primary btn-icon dropdown-toggle" data-toggle="dropdown" id="filterButton">
+                        <span class="ds ds-filter filter-color"></span>
+                    </button>
+                    <ul class="dropdown-menu overlap" role="menu">
+                        <li data-bind="css: {'active': ($root.activeOnly()===true ? true : false)}"><a id="activeonly" data-bind="event:{ click: $root.setFilter.bind($root)}">Active Only</a></li>
+                        <li data-bind="css: {'active':  ($root.activeOnly()===false ?true : false)}"><a id="all" data-bind="event:{click: $root.setFilter.bind($root)}">All</a></li>
+                    </ul>
+                </section>
+            </mi-tool-bar>
+        </mi-panel>
+
+        <div class="panel user-data-sheet-block">
+            <div class="panel-heading">
+                <div data-bind="visible:($root.selectedUserDetails()!=null)">
+                    <div class="text panel-title copy-icon-set" data-bind="with: selectedUserDetails">
+                        <span class="text panel-title" data-bind="text:displayName">UserName</span>
+                    </div>
+                    <div style="text-align:right ">
+                        <span data-bind="text: errMsg()"></span>
+                        <!-- ko if: ($root.selectedUserDetails()!=null) -->
+                        <!-- ko if: !($root.isSaving()) -->
+                        <a data-bind="click: $root.saveUser,visible:(($root.selectedUserDetails().isDirty()))" title="Save User" class="user-anchor">
+                            <i class="icon-save"></i>
+                        </a>
+                        <a data-bind="" title="Copy User" class="user-anchor">
+                            <i class="fa fa-copy fa-2x" data-bind="click: $root.copyUser, visible:(($root.selectedUserDetails().key !== '0' && !$root.selectedUserDetails().isDirty()))">
+                            </i>
+                        </a>
+                        <!-- /ko -->
+                        <i class="fa fa-spinner fa-spin fa-2x" data-bind="visible:$root.isSaving"></i>
+                        <!-- /ko -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-body user-detail-content panel-group" data-bind="visible:($root.selectedUserDetails()!=null)">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse"
+                               data-target=".user-details.panel-collapse.collapse"
+                               data-parent=".user-detail-content.panel-group"
+                               data-bind="text: translate('SEC_USER_DETAILS')">
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="user-details panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="block-group" data-bind="with: selectedUserDetails">
+                                <div class="block block-left">
+                                    <div class="">
+                                        <div id="imagePreview">
+                                            <img id="thumbnailPhoto" class="thumbnailPhoto" />
+                                        </div>
+                                        <div id="browsePhoto" class="fileUpload btn">
+                                            <span>Upload Photo</span>
+                                            <form id="photoUpload" enctype="multipart/form-data" method="post"
+                                                  data-bind="attr: { action: 'api/core/security/userphoto?sessionId='  + $root.sessionId() + '&key=' + $root.photoKey() } ">
+                                                <input id="uploadFile" type="file" name="image" class="upload" data-bind="event:{ change: $root.browsePhoto }" />
+                                            </form>
+                                        </div>
+                                        <div id="deletePhoto" class="fileUpload btn" data-bind="event:{ click: $root.deletePhoto }">
+                                            <span>Delete Photo</span>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="control-label">
+                                            <input data-bind="checked: (typeof(isActive())=== 'string')?  JSON.parse(isActive()) : isActive()   ,event:{change:$root.changeDetail}" type="checkbox" id="chkinactive"/>
+                                                <span data-bind="text: $root.translate('ACTIVE')"></span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="control-label">
+                                            <input data-bind="checked:isSuperUser()" type="checkbox" id="chksuperuser" />
+                                            <span data-bind="text: $root.translate('SUPER_USER')"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="block block-form">
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_FIRST_NAME')"></label>
+                                        <input class="form-control" data-bind="value: firstName,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_MI')"></label>
+                                        <input class="form-control middle-initial-size" data-bind="value: initial,event:{change:$root.changeDetail}" type="text" maxlength="1" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_LAST_NAME')"></label>
+                                        <input class="form-control" data-bind="value: lastName,event:{change:$root.changeDetail}" type="text" required />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_COMPANY')"></label>
+                                        <input class="form-control" data-bind="value: company,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_JOB_TITLE')"></label>
+                                        <input class="form-control" data-bind="value: title,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_ADDRESS_1')"></label>
+                                        <input class="form-control" data-bind="value: address1,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_ADDRESS_2')"></label>
+                                        <input class="form-control" data-bind="value: address2,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_CITY')"></label>
+                                        <input class="form-control" data-bind="value: city,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_STATE')"></label>
+                                        <input class="form-control" data-bind="value: state,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_POSTAL_CODE')"></label>
+                                        <input class="form-control" data-bind="value: postalCode,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_COUNTRY')"></label>
+                                        <input class="form-control" data-bind="value: country,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_PHONE_1')"></label>
+                                        <input class="form-control" data-bind="value: phoneNumber,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_PHONE_2')"></label>
+                                        <input class="form-control" data-bind="value: phoneNumber2,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_FAX')"></label>
+                                        <input class="form-control" data-bind="value: faxNumber,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                </div>
+                                <div class="block block-form">
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('USER_ID')"></label>
+                                        <input class="form-control" data-bind="value: id,event:{change:$root.changeDetail}" type="text" maxlength="50" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('PASSWORD')"></label>
+                                        <input class="form-control" data-bind="value: newPassword,event:{change:$root.changeDetail}" type="password" placeholder="***********" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('EMAIL')"></label>
+                                        <input class="form-control" data-bind="value: email,event:{change:$root.changeDetail}" type="email" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('DOMAIN')"></label>
+                                        <input class="form-control" data-bind="value: domain,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_DEFAULT_SITE')"></label>
+                                        <select class="form-control" data-bind="options: $root.sites, optionsText: 'name', optionsValue: 'key', value: defaultSiteKey,event:{change:$root.changeDetail}"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_UOM_CONV_SET')"></label>
+                                        <select class="form-control" data-bind="options: $root.uomConversionSets, optionsText: 'id', optionsValue: 'id', value: uomConversionSetId,event:{change:$root.changeDetail}"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('CULTURE')"></label>
+                                        <select class="form-control" data-bind="options: $root.cultures, optionsText: 'name', optionsValue: 'id', value: cultureId,event:{change:$root.changeDetail}"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_TIMEZONE')"></label>
+                                        <select class="form-control" data-bind="options: $root.timezones, optionsText: 'name', optionsValue: 'id', value: timezoneId,event:{change:$root.changeDetail}"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_QUERY_PRIVILEGE')"></label>
+                                        <select class="form-control"
+                                                data-bind="options: $root.queryPrivileges, optionsText: 'caption', optionsValue: 'value',
+                                                            value: queryPrivilege,event:{change:$root.changeDetail}, disable: isSuperUser"></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_FACILITY')"></label>
+                                        <input class="form-control" data-bind="value: facility,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_BUSINESS_UNIT')"></label>
+                                        <input class="form-control" data-bind="value: businessUnit,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('SEC_USER_AREA_OF_RESP')"></label>
+                                        <input class="form-control" data-bind="value: areaOfResponsibility,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('DEPARTMENT')"></label>
+                                        <input class="form-control" data-bind="value: department,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" data-bind="text: $root.translate('COMMENT')"></label>
+                                        <input class="form-control" data-bind="value: comments,event:{change:$root.changeDetail}" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse"
+                               data-target=".group-assignment.panel-collapse.collapse"
+                               data-parent=".user-detail-content.panel-group"
+                               data-bind="text: translate('SEC_USER_GROUP_ASSIGNMENT')">
+                            </a>
+                        </h4>
+                    </div>
+                    <div class="group-assignment panel-collapse collapse">
+                        <div class="panel-body">
+                            <div class="block-group group-nav">
+                                <div class="block unassigned-groups">
+                                    <div data-bind="text: translate('SEC_USER_UNASSIGNED_GROUPS')"></div>
+                                    <div class="unassigned-groups-list">
+                                        <ul class="unassigned-list list-group nav nav-pills nav-stacked" data-bind="foreach: unassignedGroups">
+                                            <li class="group-nav-item list-group-item" data-bind="click: $parent.unassignedSelected.bind($parent) ">
+                                                <i class="fa fa-plus"></i>&nbsp;
+                                                <span data-bind="text: caption"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="block assigned-groups">
+                                    <div data-bind="text: translate('SEC_USER_ASSIGNED_GROUPS')"></div>
+                                    <div class="assigned-groups-list">
+                                        <ul class="assigned-list list-group nav nav-pills nav-stacked" data-bind="foreach: assignedGroups">
+                                            <li class="group-nav-item list-group-item" data-bind="click: $parent.assignedSelected.bind($parent) ">
+                                                <i class="fa fa-trash-o"></i>
+                                                <span data-bind="text: caption"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="user-list-item-template" type="text/html">
+    <li class="list-group-item" data-bind="css: { selected: (isSelected()===true) }">
+        <a href="#" class="user-anchor"
+           data-bind="text: displayName,css: { selected: (isSelected()===true) }">
+        </a>
+    </li>
+</script>

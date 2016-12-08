@@ -1,0 +1,29 @@
+﻿<div class="mi-select-container" data-bind="event:{click:toggleOptions,
+                                                    mousedown:handleMouseDown},
+    css:{'disabled':disabled,'open':isOpen,'required': isRequired }">
+    <div data-bind="css:{'active':isOpen}" class="mi-dropdown-selector">
+        <div data-bind="visible:multiple,
+    event:{click:toggleSelectAll},
+    css:{'dx-checkbox-indeterminate':selectedOptions().length && selectedOptions().length !== options().length ,
+        'dx-checkbox-checked':selectedOptions().length === options().length}" 
+             class="pull-left dx-select-checkbox dx-datagrid-checkbox-size dx-widget dx-checkbox" tabindex="0" onclick="void(0)">
+            <div class="dx-checkbox-container">
+                <span class="dx-checkbox-icon"></span>
+            </div>
+        </div>
+        <input type="text" class="mi-selected-value-text pull-left"
+               data-bind="value:text,
+    valueUpdate:'keyup',
+    attr:{'readonly':(!editable() || disabled() || multiple() || isMobile),
+           'title': text},
+    css:{'multi':multiple},
+    event: {keyup: handleKeyUpOnTextInput,
+            keydown:handleKeyDownOnTextInput,
+            click:handleKeyUpOnTextInput,
+            mousedown:handleKeyUpOnTextInput},
+    hasFocus:textFocus" /> 
+        <i class="icon-arrow pull-right"></i>
+        <!--disable:(!editable() || disabled() || multiple())<span class="mi-selected-value-text pull-left" data-bind="text:selectedValueText()"></span> <span class="fa fa-angle-down pull-right"></span>-->
+    </div>
+
+</div>

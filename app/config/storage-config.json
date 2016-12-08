@@ -1,0 +1,175 @@
+﻿[
+    {
+        "description": "Logging Framework",
+        "version": 1,
+        "objectStores": [
+            { "action": "add", "name": "log-meta-data", "options": { "keyPath": "id" } },
+            { "action": "add", "name": "log-messages", "options": { "autoIncrement": true }}
+        ],
+        "indexes": [
+            { "action": "add", "name": "timestamp", "objectStore": "log-messages", "keyPath": "timestamp" }
+        ]
+    },
+    {
+        "description": "Client Preferences",
+        "version": 2,
+        "objectStores": [
+            { "action": "add", "name": "preferences", "options": {"keyPath": "id"} }
+        ]
+    },
+    {
+        "description": "Rounds Offline Routes",
+        "version": 3,
+        "objectStores": [
+            { "action": "add", "name": "asset-care-routes", "options": {"keyPath": "key"} },
+            { "action": "add", "name": "asset-care-measurement-locations", "options": { "keyPath": "entityKey" } }
+        ],
+        "indexes": [
+            { "action": "add", "name": "asset-care-ml-routeKey", "objectStore": "asset-care-measurement-locations", "keyPath": "routeKey" }
+        ]
+    },
+    {
+        "description": "Rounds Offline Inspections",
+        "version": 4,
+        "objectStores": [
+            { "action": "add", "name": "asset-care-inspection-readings", "options": { "keyPath": "relatedMLKey" }},
+            { "action": "add", "name": "asset-care-inspection-routes", "options": { "keyPath": "routeKey" }}
+        ],
+        "indexes": [
+            { "action": "add", "name": "asset-care-inspection-route-pendingChange", "objectStore": "asset-care-inspection-routes", "keyPath": "pendingChange" },
+            { "action": "add", "name": "asset-care-inspection-reading-route", "objectStore": "asset-care-inspection-readings", "keyPath": "routeKey" },
+            { "action": "add", "name": "asset-care-inspection-reading-tracking", "objectStore": "asset-care-inspection-readings", "keyPath": "tracking" },
+            { "action": "add", "name": "asset-care-inspection-reading-pendingChange", "objectStore": "asset-care-inspection-readings", "keyPath": "pendingChange" }
+        ]
+    },
+    {
+        "description": "Rounds Offline Recommendation",
+        "version": 5,
+        "objectStores": [
+            { "action": "add", "name": "asset-care-inspection-recommendations", "options": { "autoIncrement": true }}
+        ],
+        "indexes": [
+            { "action": "add", "name": "asset-care-inspection-recommendation-relatedml", "objectStore": "asset-care-inspection-recommendations", "keyPath": "relatedMLKey" },
+            { "action": "add", "name": "asset-care-inspection-recommendation-pendingChange", "objectStore": "asset-care-inspection-recommendations", "keyPath": "pendingChange" }
+        ]
+    },
+    {
+        "description": "Rounds Offline Recommendation Options",
+        "version": 6,
+        "objectStores": [
+            { "action": "add", "name": "asset-care-inspection-recommendation-option", "options": { "keyPath": "familyId" }}
+        ]
+    },
+    {
+        "description": "Rounds Subscribed Offline Recommendation",
+        "version": 7,
+        "objectStores": [
+            { "action": "add", "name": "asset-care-inspection-recommendations-subscribed", "options": { "keyPath": "entityKey" }}
+        ],
+        "indexes": [
+            { "action": "add", "name": "asset-care-inspection-recommendations-subscribed-relatedml", "objectStore": "asset-care-inspection-recommendations-subscribed", "keyPath": "relatedMLKey" },
+            { "action": "add", "name": "asset-care-inspection-recommendations-subscribed-routekey", "objectStore": "asset-care-inspection-recommendations-subscribed", "keyPath": "relatedRouteKey" }
+        ]
+    },
+    {
+        "description": "Rounds Barcode Indexes",
+        "version": 8,
+        "indexes": [
+            { "action": "add", "name": "asset-care-routes-barcode", "objectStore": "asset-care-routes", "keyPath": "barCode" },
+            { "action": "add", "name": "asset-care-ml-barcode", "objectStore": "asset-care-measurement-locations", "keyPath": "barCode" }
+        ]
+    },
+    {
+        "description": "Rounds Offline Recommendation",
+        "version": 9,
+        "indexes": [
+            { "action": "add", "name": "asset-care-inspection-recommendation-key", "objectStore": "asset-care-inspection-recommendations", "keyPath": "entityKey" }
+        ]
+    },
+	 {
+        "description": "Offline Forms",
+        "version": 10,
+		 "objectStores": [
+            { "action": "add", "name": "offline-form-struture", "options": { "keyPath": "familyKey" }}
+        ],
+        "indexes": [
+            { "action": "add", "name": "offline-form-struture-formdetails", "objectStore": "offline-form-struture", "keyPath": "familyKey" }
+        ]
+    },
+  {
+    "description": "Offline ACA Analysis",
+    "version": 11,
+    "objectStores": [
+      {
+        "action": "add",
+        "name": "offline-aca-analysis",
+        "options": { "keyPath": "formKey" }
+      }
+    ],
+    "indexes": [
+      {
+        "action": "add",
+        "name": "offline-aca-analysis",
+        "objectStore": "offline-aca-analysis",
+        "keyPath": "formKey"
+      }
+    ]
+  },
+  {
+    "description": "Offline Inspections",
+    "version": 12,
+    "objectStores": [
+      {
+        "action": "add",
+        "name": "offline-inspections",
+        "options": { "keyPath": "formKey" }
+      }
+    ],
+    "indexes": [
+      {
+        "action": "add",
+        "name": "offline-inspections",
+        "objectStore": "offline-inspections",
+        "keyPath": "formKey"
+      }
+    ]
+  },
+  {
+    "description": "Offline Proof Tests",
+    "version": 13,
+    "objectStores": [
+      {
+        "action": "add",
+        "name": "offline-proof-tests",
+        "options": { "keyPath": "formKey" }
+      }
+    ],
+    "indexes": [
+      {
+        "action": "add",
+        "name": "offline-proof-tests",
+        "objectStore": "offline-proof-tests",
+        "keyPath": "formKey"
+      }
+    ]
+  },
+  {
+    "description": "Offline Inspection Picture",
+    "version": 14,
+    "objectStores": [
+      {
+        "action": "add",
+        "name": "offline-inspection-pictures",
+        "options": { "keyPath": "clientId" }
+      }
+    ],
+    "indexes": [
+      {
+        "action": "add",
+        "name": "offline-inspection-pictures",
+        "objectStore": "offline-inspection-pictures",
+        "keyPath": "clientId"
+      }
+    ]
+  }
+]

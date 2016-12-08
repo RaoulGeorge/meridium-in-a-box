@@ -1,0 +1,41 @@
+﻿div.error-accumulator-container{
+	height:500px;
+	overflow:auto;
+
+	div.collipsable-error-title{
+		color:#0055b3;
+		cursor:pointer;
+		font-size:16px;
+		padding:5px;
+
+		i{
+			padding-right:10px;
+		}
+	}
+
+	div.collipsable-error-desc{
+		padding-left:30px;
+	}
+}
+i.error-accumulator-container-close-mark{
+	cursor:pointer;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	padding:10px;
+}
+@media screen and (min-width: 600px) {
+	div.error-accumulator-container{
+		width:450px;
+	}
+}
+@media screen and (min-width: 768px) {
+	div.error-accumulator-container{
+		width:550px;
+	}
+}
+@media screen and (min-width: 1024px) {
+	div.error-accumulator-container{
+		width:700px;
+	}
+}

@@ -1,0 +1,79 @@
+﻿.refdoc-container {
+    div.btn-back {
+        padding-top: 10px;
+    }
+
+    .list-refdocs {
+        mi-tool-bar mi-searchbox {
+            padding-top: 5px;
+        }
+
+
+        .filter-outer-container {
+            display: inline-block;
+            font-size: 30px;
+        }
+
+        .header.block-group {
+            border-top: 1px solid;
+            border-top-style: dotted;
+            font-size: $font-size-small + 3;
+            font-weight: 700;
+            padding: 8px;
+        }
+
+        .content.block-group {
+            border-top: 1px solid;
+            border-top-style: dotted;
+            padding: 8px;
+
+            &.active {
+                background-color: #e9e9e9;
+                border-top-color: black;
+                //color: #669bc9;
+            }
+        }
+
+        .content.block-group:last-child {
+            border-bottom: 1px solid;
+            border-bottom-style: dotted;
+        }
+
+        .section-icon {
+            display: none;
+            color: #8B8787;
+            min-width: 20px;
+            min-height: 20px;
+            height: 20px;
+            font-size: $font-size-base;
+        }
+
+        .col-25 {
+            width: 25%;
+            word-wrap: break-word;
+
+            .icon {
+                padding-right: 5px;
+            }
+        }
+
+        .col-15 {
+            width: 15%;
+            word-wrap: break-word;
+        }
+
+        .col-10 {
+            width: 10%;
+            word-wrap: break-word;
+        }
+
+        .col-5 {
+            width: 5%;
+            word-wrap: break-word;
+        }
+    }
+
+    .single-refdoc {
+        padding-top: 30px;
+    }
+}

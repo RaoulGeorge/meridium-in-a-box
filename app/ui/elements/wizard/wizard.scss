@@ -1,0 +1,88 @@
+$primary-color: $brand-primary;
+$header-height: 42px;
+$footer-height: 66px;
+
+mi-wizard {
+    display: block;
+    width: 99%;
+    height: 99%;
+    padding: 1%;
+
+    .header {
+        width: 100%;
+        height: #{$header-height};
+
+        ul {
+            width: 100%;
+            list-style: none;
+
+            li {
+                display: inline-block;
+                height: 42px;
+                max-width: 24.6%;
+                padding: 0.4%;
+                transform: skew(-25deg);
+                -webkit-transform: skew(-25deg);
+                -moz-transform: skew(-25deg);
+                -o-transform: skew(-25deg);
+                -ms-transform: skew(-25deg);
+
+                div {
+                    display: inline-block;
+                    width: 97%;
+                    text-align: center;
+                    @include text-overflow;
+                    transform: skew(25deg);
+                    -webkit-transform: skew(25deg);
+                    -moz-transform: skew(25deg);
+                    -o-transform: skew(25deg);
+                    -ms-transform: skew(25deg);
+                }
+            }
+
+            li:not(.active) {
+                background-color: #f2f2f2;
+                border-bottom: 3px solid #f2f2f2;
+                border-right: 1px solid #e5e5e5;
+            }
+
+            li.active {
+                background-color: #fff;
+                border-bottom: 3px solid $primary-color;
+                border-right: 3px solid $primary-color;
+            }
+        }
+    }
+
+    .content{
+        width: 100%;
+
+        height: calc(100% - #{($footer-height + $header-height)});
+        @media #{$media-query-only-tablet} {
+            height: calc(100% - #{($footer-height + $header-height)});
+        }
+
+        overflow: auto;
+        padding: 2.5%;
+    }
+
+    .footer {
+        height: #{$footer-height};
+        bottom: 0;
+        right: 20px;
+        padding: 1%;
+
+        button[disabled], button:not([disabled]){
+            margin-left: 10px;
+        }
+
+        button[disabled] {
+            border: 2px #e5e5e5 solid;
+            color: #e5e5e5;
+        }
+
+        .next, .finish, .back {
+            float: right;
+        }
+    }
+}

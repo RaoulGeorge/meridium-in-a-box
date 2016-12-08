@@ -1,0 +1,12 @@
+<div class="dialog-message-box">
+    <div class="message-text-container">
+        <i class="message-icon" data-bind="css:icon"></i>
+        <div class="main-message">
+            <input type=password data-bind="value: password" />
+        </div>
+    </div>
+    <section class="button-align message-box-button-container" data-bind="foreach: buttons">
+        <div class="btn btn-primary two-buttons" data-bind="text: name,
+            click: $parent.buttonClicked.bind($parent, $index())"></div>
+    </section>
+</div>

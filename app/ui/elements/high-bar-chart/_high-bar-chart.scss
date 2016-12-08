@@ -1,0 +1,49 @@
+﻿.bar-stack {
+	$red: #ff3b30;
+    $yellow: #ffcc00;
+    $grey: #999999;
+    $green: #4cd964;
+
+    position: relative;
+	font-size:0;
+	height: 15px;
+
+	.no-indicators-label{
+        @include font-h4;
+		text-align:center;
+		margin: 0;
+	}
+
+	.bar{
+		display: inline-block;
+		width: 25%;
+		height: 15px;
+
+		span{
+            @include font-h4;
+			color: white;
+			text-align:center;
+			margin-top:3px;
+		}
+	}
+
+	.no-readings-bar{
+		@extend .bar;
+		background-color: $grey;
+	}
+
+	.normal-bar{
+		@extend .bar;
+		background-color: $green;
+	}
+
+	.warning-bar{
+		@extend .bar;
+		background-color: $yellow;
+	}
+
+	.alert-bar{
+		@extend .bar;
+		background-color: $red;
+	}
+}

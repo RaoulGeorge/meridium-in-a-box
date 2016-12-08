@@ -1,0 +1,21 @@
+﻿<mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+<div class="user-defaults-screen">
+    <div class="panel-heading block-group user-defaults-header">
+        <div class="heading-title block user-defaults-title">
+            <h1 data-bind="text: translate('USER_DEFAULTS')"></h1>
+        </div>
+        <div class="folder-buttons user-defaults-buttons">
+            <a class="btn btn-icon" data-bind="click: save, visible: isDirty, attr: {title: translate('SAVE') }">
+                <i class="icon-save"></i>
+            </a>
+        </div>
+    </div>
+    <div class="timezone" data-bind="with: defaultTimezone">
+        <div class="panel-body">
+            <div class="form-group">
+                <label class="control-label text-box" data-bind="text: description" />
+                <select class="form-control" data-bind="options: $root.timezones, optionsText: 'name', optionsValue: 'id', value: value,  event: { change: $root.valueChanged.bind($root) }"></select>
+            </div>
+        </div>
+    </div>
+</div>

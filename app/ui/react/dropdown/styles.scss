@@ -1,0 +1,44 @@
+﻿.r-dropdown-popup-container{
+     &:before {
+        content: '';
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        width: 0;
+        height: 0;
+        position: absolute;
+        outline: 0;
+    }
+     &.bottom-right, &.bottom-left {
+        border-top: 2px solid #007aff;
+    }
+
+    &.top-right, &.top-left {
+        border-bottom: 2px solid #0094ff;
+    }
+
+
+    &.bottom-right:before {
+        border-bottom: 10px solid #007aff;
+        bottom: 100%;
+        right: 3px;
+    }
+
+    &.bottom-left:before {
+        border-bottom: 10px solid #007aff;
+        bottom: 100%;
+        left: 11px;
+    }
+
+    &.top-right:before {
+        border-top: 10px solid #007aff;
+        top: 100%;
+        right: 3px;
+    }
+
+    &.top-left:before {
+        border-top: 10px solid #007aff;
+        top: 100%;
+        left: 11px;
+    }
+}
+

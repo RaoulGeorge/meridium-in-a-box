@@ -1,0 +1,100 @@
+﻿.mi-state-trans-container {
+    .btn.mi-state-trans {
+        text-align: right;
+		min-height: 0;
+		min-width: 0;
+		border-color: transparent;
+		background: transparent;
+		padding: 6px 10px;
+        .active-state {
+            color: #{$brand-warning};
+			margin-right: 10px;
+			font-family: open_sanssemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .assigned-user {
+			color: #232323;
+			margin-right: 30px;
+			font-family: open_sansregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+			&.no-assignment {
+				font-style: italic;
+			}
+        }
+
+		&:active, &:focus, &:hover{
+			background-color: #fff;
+			border: 1px solid #d9d9d9;
+			outline: none;
+			box-shadow: none;
+		}
+
+		i{
+            color: #{$brand-primary};
+			padding: 13px 0 0 0;
+			width: 18px;
+        }
+    }
+}
+
+.mi-state.popover {
+    overflow-y: visible;
+    z-index: $popover-z-index;
+	border-top: 2px solid $brand-primary;
+	@include border-radius(2px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+	-moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+
+	.arrow{
+		border-bottom-color: $brand-primary;
+		right: 49%;
+		left: auto;
+		&:after{
+			border-bottom-color: $brand-primary;
+		}
+	}
+    .popover-content {
+        padding: 0;
+
+        .state-transition {
+			
+            .form-group {
+                margin: 0;
+
+                .list-group {
+                    margin: 0;
+					.list-group-item{
+						border-color: rgba(0,0,0,0);
+						background: url(../images/backgrounds/dotted-divider-menu.png) left bottom repeat-x #fff;
+						border-left: 0px solid transparent;
+						&.active, &:active, &:focus, &:hover{
+							font-family: 'open_sanssemibold';
+							color: $brand-primary;
+						}
+					}
+                }
+            }
+        }
+
+        .state-assignment {
+			background-color: #f2f2f2;
+			
+            .assignment-dialog-link {
+                padding: 10px;
+                width: 50%;
+				text-align: left;
+
+                a {
+                    cursor: pointer;
+                }
+            }
+
+            .done-control {
+                padding: 10px 10px 10px 0px;
+                text-align: right;
+                width: 50%;
+            }
+        }
+    }
+}

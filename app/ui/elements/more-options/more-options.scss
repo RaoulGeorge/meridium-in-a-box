@@ -1,0 +1,124 @@
+﻿$no-access-bg: url(../images/backgrounds/hatch20pc.png);
+
+.more-options-outer-container{
+    z-index: $more-options-z-index;
+}
+
+mi-more-options-noko .mi-more-options-icon.btn-text {
+    max-width: 185px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: relative;
+    vertical-align: middle;
+    padding-right: 25px;
+
+    i{
+        right: 8px;
+        position: absolute;
+        vertical-align: middle;
+        top: 12px;
+        transform: rotate(90deg);
+    }
+}
+
+.more-options-content {
+    background-color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    border-radius: 2px;
+    display: block;
+    list-style: none;
+    width: 180px;
+    padding: 0px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    margin: 0;
+    max-height: 287px;
+    overflow-y: auto;
+
+
+    &:before 
+    {
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        bottom: 100%;
+        content: '';
+        position: absolute;
+        right: 0;
+        margin-bottom: 0;
+    }
+
+    &.bottom-right, &.bottom-left{
+        border-top:2px solid $brand-primary;
+
+    }
+
+    &.top-right, &.top-left{
+        border-bottom:2px solid $brand-primary;
+    }
+
+
+    &.bottom-right:before {
+        border-bottom: 10px solid $brand-primary;
+        bottom: 100%;
+        right: 7px;
+        left: auto;
+    }
+
+    &.bottom-left:before {
+        border-bottom: 10px solid $brand-primary;
+        bottom: 100%;
+        left: 10px;
+        right: auto;
+    }
+
+    &.top-right:before {
+        border-top: 10px solid $brand-primary;
+        top: 100%;
+        right: 7px;
+        left: auto;
+    }
+
+    &.top-left:before {
+        border-top: 10px solid $brand-primary;
+        top: 100%;
+        left: 10px;
+        right:auto;
+    }
+
+    li{
+        border-bottom: 1px solid;
+        border-bottom-style: dashed;
+        padding: 10px;
+        cursor: pointer;
+        word-wrap: break-word;
+        //-ms-word-break: break-all;
+
+        span:first-child{
+            &:before{
+                padding-right: 5px;
+            }
+        }
+
+        &:not(.disabled):not(.no-access) {
+            &:hover {
+                color: #669bc9;
+                background-color: #ebebeb;
+            }
+        }
+
+        &.disabled {
+            border-bottom-color: #000;
+            color: #999;
+            cursor: default;
+        }
+
+        &.no-access {
+            cursor: not-allowed;
+            background: $no-access-bg;
+            pointer-events: not-allowed;
+
+        }
+    }
+    li:last-child{
+        border-bottom:none;
+    }
+}

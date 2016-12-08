@@ -1,0 +1,30 @@
+﻿
+.kpi-widget {
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    position: relative;
+
+    .kpi-widget-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: auto;
+        height: auto;
+        /* bring your own prefixes */
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+
+        .gauge {
+            width: auto;
+            height: auto;
+        }
+        /*.current {
+            font-size: 22px;
+            line-height: 0;            
+        }*/
+    }
+}

@@ -1,0 +1,32 @@
+﻿<div id="group-details" class="group-fixed-header">
+    <!-- ko if: selectedGroup -->
+    <div class="folder-header">
+        <div class="folder-title" data-bind="with: selectedGroup">
+            <h2 data-bind="text: caption" />
+        </div>
+        <div class="folder-buttons">
+            <a class="btn btn-icon" data-bind="attr: {title: translate('SAVE')},click: save,visible: canSave"><i class="icon-save"></i></a>
+            <a class="btn btn-icon" data-bind="attr: {title: translate('DELETE')},click: deleteGroup,visible: canDelete"><i class="icon-bin"></i></a>
+        </div>
+    </div>
+    <!-- /ko -->
+    <div class="group-item-group group-scrollable-items" data-bind="visible: hasGroupSelected">
+        <mi-tab-group tabs="2" size="small">
+            <mi-tab value="groupDetails" data-bind="click: showGroupDetails,attr: {text:$root.translate('DETAILS')}" selected="true"></mi-tab>
+            <mi-tab value="groupUsers" data-bind="click: showGroupUsers,attr: {text:$root.translate('USERS')}"></mi-tab>
+            <mi-tab value="groupRoles" data-bind="click: showGroupRoles,attr: {text:$root.translate('ROLES')}"></mi-tab>
+        </mi-tab-group>
+        <div data-bind=" visible: canShowGroupDetails">
+            <div class="group-details-container block">&nbsp;</div>
+        </div>
+        <div data-bind=" visible: canShowGroupUsers">
+            <div class="group-details-users-container block">&nbsp;</div>
+        </div>
+        <div data-bind=" visible: canShowGroupRoles">
+            <div class="group-details-roles-container block">&nbsp;</div>
+        </div>
+    </div>
+
+</div>
+
+  

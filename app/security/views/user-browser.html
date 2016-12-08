@@ -1,0 +1,17 @@
+﻿<div>
+    <section class="form-group">
+        <div>
+            <input type="search" class="form-control"
+                   data-bind="value: userFilter, valueUpdate: 'afterkeydown', attr: { placeholder: translate('SEARCH') }" />
+        </div>
+    </section>
+
+    <nav class="nav-list-group">
+        <ul class="list-group" data-bind="foreach: filteredUsers">
+            <li class="list-group-item"
+                data-bind="text: fullDisplayName, click: $parent.selected.bind($parent), css: { active : $data === $parent.selectedUser() } ">
+            </li>
+        </ul>
+    </nav>
+
+</div>

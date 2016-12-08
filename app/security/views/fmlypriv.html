@@ -1,0 +1,104 @@
+﻿<div id="fmlypriv-screen">
+    <mi-breadcrumb delimiter="\"></mi-breadcrumb>
+    <div class="fmlypriv block-group">
+        <div class="fmlypriv-header">
+            <div class="fmlypriv-header-nav" />
+            <div class="fmlypriv-header-title">
+                <h3 data-bind="text: selectedFmly().caption" />
+            </div>
+            <div class="btn btn-icon fmlypriv-header-buttons">
+                <a data-bind="attr: { title: translate('SAVE') },click: saveItem, visible : canSave">
+                    <i class="icon-save"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="fmly-nav nav-list-group block">
+            <ul class="list-group fmly-list" data-bind="foreach: fmlys">
+                <li class="list-group-item fmly-nav-item"
+                    data-bind="text: caption, click: $parent.fmlySelected.bind($parent), css: { selected : $parent.isSelected($data) } ">
+                </li>
+            </ul>
+        </div>
+
+        <div class="priv-content block-group">
+
+            <div class="priv-group block">
+                <div class="priv-heading">
+                    <div class="header-text">
+                        <h4 class="priv-heading-title"
+                            data-bind="text: $root.translate('GROUPS')"></h4>
+                    </div>
+                    <div class="header-button" >
+                        <a data-bind="attr: { title: $root.translate('ADD') },click: newGroupItem, visible : isFmlySelected()">
+                            <i class="icon-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="priv-panel-group">
+                    <ul class="priv-list list-group" data-bind="foreach: groupprivs">
+                        <li class="priv-item list-group-item">
+                            <div class="form-group priv-form-group">
+                                <select class="form-control" data-bind="options: $root.groups, optionsText: 'caption', optionsValue: 'key', value: groupKey, event: { change:$root.changePriv } "></select>
+                                <label class="priv-label" data-bind="text: $root.translate('VIEW')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: vw,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('INSERT')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: ins,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('UPDATE')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: upd,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('DELETE')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: del,enable:!isDeleted()" />
+                                <!-- <input class="text-box" data-bind="value: privilege" type="text" /> -->
+                                <a data-bind="attr: { title: $root.translate('DELETE') },click: $root.deleteItem,visible: !isDeleted()">
+                                    <i class="icon-bin"></i>
+                                </a>
+                                <a data-bind="attr: { title: $root.translate('UNDO_DELETE') },click: $root.unDeleteItem,visible: isDeleted()">
+                                    <i class="icon-delete-selected"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="priv-group block">
+                <div class="priv-heading">
+                    <div class="header-text">
+                        <h4 class="priv-heading-title"
+                            data-bind="text: translate('USERS')"></h4>
+                    </div>
+                    <div class="header-button">
+                        <a data-bind="attr: { title: $root.translate('ADD') },click: newUserItem, visible : isFmlySelected()">
+                            <i class="icon-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="priv-panel-user">
+                    <ul class="priv-list list-group" data-bind="foreach: userprivs">
+                        <li class="priv-item list-group-item">
+                            <div class="form-group priv-form-group">
+                                <select class="form-control" data-bind="options: $root.users, optionsText: 'displayName', optionsValue: 'key', value: userKey, event: { change:$root.changePriv } "></select>
+                                <label class="priv-label" data-bind="text: $root.translate('VIEW')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: vw,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('INSERT')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: ins,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('UPDATE')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: upd,enable:!isDeleted()" />
+                                <label class="priv-label" data-bind="text: $root.translate('DELETE')"></label>
+                                <input class="priv-checkbox" type="checkbox" data-bind="checked: del,enable:!isDeleted()" />
+                                <!-- <input class="text-box" data-bind="value: privilege" type="text" /> -->
+                                <a data-bind="attr: { title: $root.translate('DELETE') },click: $root.deleteItem,visible: !isDeleted()">
+                                    <i class="icon-bin"></i>
+                                </a>
+                                <a data-bind="attr: { title: $root.translate('UNDO_DELETE') },click: $root.unDeleteItem,visible: isDeleted()">
+                                    <i class="icon-delete-selected"></i>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

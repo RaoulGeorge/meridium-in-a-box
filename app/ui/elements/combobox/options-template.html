@@ -1,0 +1,11 @@
+﻿<div data-bind="visible:isOpen()" class="mi-combobox-options-container">
+    <!-- ko foreach:filteredOptions -->
+    <p class="mi-combobox-option" data-bind="text: $parent.getOptionText($data),
+                                            click: function(data, event) {
+                                                        $parent.selectValue($parent,data,event);
+                                            }, css:{'active': $parent.isActive($data)}">
+        <!-- $parent.getOptionValue($data) === $parent.value() -->
+
+    </p>
+    <!-- /ko -->
+</div>

@@ -1,0 +1,69 @@
+﻿<div class="role-screen block-group">
+    <mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+    <mi-panel class="role-nav block"
+              selctor="none"
+              multiselect="false"
+              key="key"
+              description="caption"
+              page="1"
+              page-size="25"
+              scroll-percent="0.75"
+              custom-filter="false"
+              custom-search="false"
+              allow-add="true"
+              data-bind="attr: { title: translate('ROLES') },
+                         event: {
+                           
+                            selected: onRoleSelected,
+                            'add-item': onRoleAdding
+                         }">
+        <mi-tool-bar>
+            <a class="btn btn-icon"
+                data-bind="attr: {title: translate('ADD')}, click: onRoleAdding, visible: canAdd">
+                <i class="icon-plus"></i>
+            </a>
+            <a class="btn btn-icon"
+                data-bind="attr: {title: translate('DELETE')}, click: onDeleteClick, visible: canDelete">
+                <i class="icon-bin"></i>
+            </a>
+        </mi-tool-bar>
+    </mi-panel>
+   
+    <div class="role-details panel block"
+         data-bind="visible: canDisplayRoleDetails,
+                    css: { 'nav-collapsed': navCollapsed }">
+        <div class="panel-heading block-group">
+            <!-- ko if: selectedRole -->
+            <div class="role-title block">
+                <h1 data-bind="text: selectedRole().caption"></h1>
+            </div>
+            <!-- /ko -->
+            <div class="button-panel pull-right"
+                 data-bind="css: { loading: isLoading }">
+                <div class="loading-med"></div>
+
+                <a class="btn btn-icon"
+                   data-bind="attr: {title: translate('SAVE')},click: save,
+                              visible: canSave">
+                    <i class="icon-save"></i>
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <mi-tab-group tabs="2" size="small">
+                <mi-tab value="roleDetails" data-bind="click: showRoleDetails,attr: {text:$root.translate('DETAILS')}" selected="true"></mi-tab>
+                <mi-tab value="roleGroups" data-bind="click: showRoleGroups,attr: {text:$root.translate('GROUPS')}"></mi-tab>
+                <mi-tab value="roleUsers" data-bind="click: showRoleUsers,attr: {text:$root.translate('USERS')}"></mi-tab>
+            </mi-tab-group>
+            <div data-bind="visible: canShowRoleDetails">
+                <div class="role-detail-container block">&nbsp;</div>
+            </div>
+            <div data-bind="visible: canShowRoleGroups">
+                <div class="role-groups-container block">&nbsp;</div>
+            </div>
+            <div data-bind="visible: canShowRoleUsers">
+                <div class="role-users-container block">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>

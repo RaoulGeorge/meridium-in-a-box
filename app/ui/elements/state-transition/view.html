@@ -1,0 +1,19 @@
+﻿<section class="mi-state-trans-container">
+    <button type="button"
+            class="btn mi-state-trans"
+            data-bind="disable: disable, click: togglePopover">
+        <span class="active-state"
+              data-bind="text: activeState"></span>
+        <i class="icon-arrow pull-right"></i>
+        <br />
+        <!-- ko if: activeAssignmentUser -->
+        <span class="assigned-user"
+              data-bind="text: activeAssignmentUser"></span>
+        <!-- /ko -->
+        <!-- ko ifnot: activeAssignmentUser -->
+        <span class="assigned-user no-assignment"
+              data-bind="text: translate('NOT_ASSIGNED')">
+        </span>
+        <!-- /ko -->
+    </button>
+</section>

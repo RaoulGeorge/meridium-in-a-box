@@ -1,0 +1,97 @@
+﻿.catalog-folder-privileges {
+
+	.title {
+		display: inline-block;
+		width: 80%;
+		margin-top: 10px;
+	}
+
+	.buttons {
+		display: inline-block;
+		float: right;
+
+		i {
+			padding: 5px;
+		}
+	}
+
+  	.permissions-header {
+	  font-family: open_sanssemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	  font-weight: normal;
+	  color: $brand-primary;
+	}
+
+	.td-icon {
+		width: 46px;
+	}
+
+	table > thead > tr > td {
+		border-bottom-width: 1px;
+	}
+
+	.column-header {
+		cursor: pointer;
+
+		.header-sort-img {
+			display: inline-block;
+			float: right;
+			font-size: 9px;
+			margin-top: 6px;
+
+			&.rotate-180 {
+				filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+				-webkit-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				transform: rotate(180deg);
+			}
+		}
+
+        .text-header {
+	 		display: inline-block;
+	 	}
+    }
+
+
+	// .column-header {
+	// 	cursor: pointer;
+	//
+	// 	.img-header {
+	// 		display: inline-block;
+	// 		float: right;
+	// 		padding-top: 5px;
+	// 	}
+	// 	.text-header {
+	// 		display: inline-block;
+	// 	}
+	// }
+
+	.priv-icon {
+	}
+
+	.priv-label {
+		margin: 0px 0px 0px 0px;
+		width: 70px;
+		text-align: right;
+	}
+
+	.priv-filler {
+		width: 88px;
+	}
+
+	.priv-checkbox {
+		margin: 0px 0px 0px 0px;
+		width: 60px;
+	}
+
+	.priv-radio {
+		margin: 0px 0px 0px 0px;
+		width: 15px;
+	}
+
+	.priv-select {
+		width: 60px;
+		font-family: open_sanssemibold, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 10px;
+		font-weight: normal;
+	}
+}

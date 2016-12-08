@@ -1,0 +1,12 @@
+﻿<div class="mi-multi-value-container" data-bind="visible:visible,css:{'disabled':disabled,'open':isOpen,'required': (!value()) && required}">
+    <div data-bind="css:{'active':isOpen},clickBubble: false, hasFocus:textFocus, event:{
+            keyup: handleKeyUpOnTextInput,
+            keydown:handleKeyDownOnTextInput,
+            click:handleKeyUpOnTextInput,
+            mousedown:handleKeyUpOnTextInput
+         }" class="mi-multi-value-selector" tabindex="0">
+        <!--<input type="text" class="mi-multi-value-selected-value-text pull-left" data-bind="value:value" />-->
+        <span class="mi-multi-value-selected-value-text pull-left" data-bind="text:selectedValueText"></span>
+         <i class="icon-arrow pull-right"></i>
+    </div>
+</div>

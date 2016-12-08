@@ -1,0 +1,25 @@
+﻿<label data-bind="text: $root.translate('SEC_ROLE_GROUPS')"></label>
+<mi-list-group class="assigned-group-list"
+               selector="toggle"
+               multiselect="true"
+               key="key"
+               description="caption"
+               page="1"
+               page-size="25"
+               scroll-percent="0.75"
+               custom-filter="false"
+               custom-search="false"
+               allow-add="true"
+               data-bind="event: {'add-item': $root.onAdd,'selected':$root.onSelected}">
+    <mi-tool-bar>
+        <a class="btn btn-icon"
+           data-bind="attr: {title: translator.translate('CHECKALLTEXT')},click: $root.selectAll">
+            <i class="icon-select-all"></i>
+        </a>
+        <a class="btn btn-icon"
+           data-bind="attr: {title: translator.translate('DELETE')},click: $root.delete,
+                              visible: $root.canDelete">
+            <i class="icon-bin"></i>
+        </a>
+    </mi-tool-bar>
+</mi-list-group>

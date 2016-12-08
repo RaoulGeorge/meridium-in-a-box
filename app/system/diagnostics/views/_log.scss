@@ -1,0 +1,138 @@
+﻿$log-settings-height: 95px;
+$log-settings-level-width: 200px;
+$log-settings-level-margin-right: 15px;
+$log-settings-margin-top: 20px;
+$log-settings-buttons-width: calc(100% - #{$log-settings-level-width} - #{$log-settings-level-margin-right});
+
+$message-detail-height: 300px;
+$log-history-height: calc(100% - (#{$log-settings-height} + #{$log-settings-margin-top}));
+
+
+#log-screen {
+    @include padding-default;
+    height: 100%;
+
+    h2 {
+        font-family: 'open_sanssemibold';
+    }
+
+    .form-group {
+        output {
+            padding-top: 0;
+        }
+    }
+
+    section.log-settings {
+        height: $log-settings-height;
+
+        div.level {
+            margin-right: $log-settings-level-margin-right;
+            width: $log-settings-level-width;
+        }
+
+        div.buttons {
+            padding-top: 19px;
+            width: $log-settings-buttons-width;
+        }
+    }
+
+    .log-history-message-container {
+        height: $log-history-height;
+
+        section.log-history {
+            height: 40%;
+            //overflow: auto;
+
+            .block {
+                width: 50%;
+            }
+
+            .block:last-child {
+                text-align: right;
+            }
+
+            .condensed-table-container{
+                height: calc(100% - 40px - 20px);
+                overflow: auto;
+            }
+
+            table {
+                table-layout: fixed;
+            }
+
+            thead {
+                .timestamp {
+                    width: 20%;
+                }
+
+                .level {
+                    width: 10%;
+                }
+
+                .source {
+                    width: 20%;
+                }
+
+                .message {
+                    width: 50%;
+                }
+            }
+
+            tbody {
+                td {
+                    cursor: pointer;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .timestamp {
+                    width: 20%;
+                }
+
+                .level {
+                    width: 10%;
+                }
+
+                .source {
+                    width: 20%;
+                }
+
+                .message {
+                    width: 50%;
+                }
+            }
+        }
+
+        section.message-detail {
+            height: 60%;
+            margin-bottom: 0;
+            overflow: auto;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            -o-user-select: text;
+            user-select: text;
+
+            div.timestamp.block {
+                width: 35%;
+            }
+
+            div.level.block {
+                width: 15%;
+            }
+
+            div.source.block {
+                width: 50%;
+            }
+
+            div.message.block {
+                margin-bottom: 0;
+
+                output {
+                    white-space: pre;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+$group-root-height: 70px;
+$group-nav-width: 240px;
+
+mi-collapsible {
+    section.expanded {
+        width: $group-nav-width; // fixes bug in IE
+
+        i.icon-collapse {
+        }
+        .title{
+            background: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        div.list-group-item.group-root {
+            background-color: #dedede;
+            height: $group-root-height;
+            padding: 20px 15px;
+            font-size: 18px;
+            font-family: $font-family-light;
+            background: $nav-list-group-bg;
+            @include box-shadow(inset -10px 0px 15px -5px rgba(0,0,0,0.15));
+            border: none;
+
+            &.active {
+                background: #f8f8f8;
+                @include box-shadow(inset -10px 0px 15px -5px rgba(0,0,0,0));
+            }
+        }
+    }
+    mi-tree {
+        height: calc(100% - #{$group-root-height});
+    }
+}

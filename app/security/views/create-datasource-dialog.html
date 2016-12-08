@@ -1,0 +1,91 @@
+﻿<div class="create-datasource block-group">
+    <section class="entry-form-column block">
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_ID')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().id,attr:{'readOnly': (isNew()==true? false :true)}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DESCRIPTION')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().description" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_HOST')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().hostName" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DB_TYPE')">
+            </label>
+            <select class="form-control select" data-bind="textInput: datasource().databaseType, event: { change: selectedType } ">
+                <option value="0">Oracle</option>
+                <option value="1">SQL Server</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DB_USER_NAME')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().userId" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('PASSWORD')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().password" type="password" />
+        </div>
+        <div class="checkbox">
+            <label class="control-label">
+                <input data-bind="checked: datasource().preloadcache" type="checkbox" />
+                <span data-bind="text: translate('SEC_DATASOURCE_DB_PRELOAD_CACHE')" />
+            </label>
+        </div>
+    </section>
+    <section class="entry-form-column block">
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DB_SERVER')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().serverName, attr:{'readOnly': isOracle}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DB_NAME')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().databaseName, attr:{'readOnly': !isSqlServer()}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_DB_ALIAS')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().alias, attr:{'readOnly': !isOracle()}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_ORACLE_HOST')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().oraclehost, attr:{'readOnly': !isOracle()}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_ORACLE_PORT')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().oracleport, attr:{'readOnly': !isOracle()}" type="text" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"
+                   data-bind="text: translate('SEC_DATASOURCE_ORACLE_SERVICE')">
+            </label>
+            <input class="form-control text-box" data-bind="textInput: datasource().oracleservice, attr:{'readOnly': !isOracle()}" type="text" />
+        </div>
+    </section>
+</div>
+<div class="create-datasource-dialog-controls pull-right">
+    <button type="button" class="btn btn-primary" data-bind="click: saveItem, text: translate('SAVE')" />
+    <button type="button" class="btn btn-default" data-bind="click: cancel, text: translate('CANCEL')" />
+</div>

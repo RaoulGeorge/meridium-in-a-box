@@ -1,0 +1,114 @@
+﻿<div class="metrics-widget" data-bind="loading:isBusy">
+    <div class="block-group toolbar">
+        <ol class="block breadcrumb" data-bind="foreach:drillDownHistory">
+            <li><a class="clickable text-primary" data-bind="text:caption,click:$component.drillUp.bind($component,$index())"></a></li>
+        </ol>
+        <div class="block toogle-buttons">
+            <button class="btn btn-icon" data-bind="attr: {title: translator.translate('METRIC_VIEW_BUTTON_CHART_VIEW')}, css : { active :  chartView() === true },click : function(data) { data.chartView(true) },visible:!chartView()"><i class="icon-graph"></i></button>
+            <button class="btn btn-icon" data-bind="attr: {title: translator.translate('METRIC_VIEW_BUTTON_TABULAR_VIEW')}, css : { active :  chartView() === false },click : function(data) { data.chartView(false) }, visible:chartView()"><i class="icon-table-view"></i></button>
+        </div>
+    </div>    
+    <!-- ko if : chartView() === true -->
+    <div class="chart-container">        
+        <div class="chart-clicked-actions">
+            <div class="text-right" id="actionItems" data-bind="with: selectedPoint">
+                <!-- ko foreach : members -->
+                <!--ko if: childCount !== "0" -->
+                <button class="btn btn-text" data-bind="text: $component.translator.translate('METRIC_VIEW_DRILL_DOWN') , click: $component.drillDown.bind($component,$data)"></button>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!--ko if: series.members.length > 0 -->
+                <!-- ko if : series.measure.memberType === 'Measure'-->
+                <button class="btn btn-text" data-bind="text: $component.translator.translate('METRIC_VIEW_DRILL_THROUGH'),click: $component.drillThrough.bind($component,series,members)"></button>
+                <!--/ko-->
+                <!-- /ko -->
+            </div>
+            <div class="text-right" id="legendActions" data-bind="with: selectedLegend">
+                <!-- ko foreach : members -->
+                <!--ko if: childCount !== "0" -->
+                <button class="btn btn-text" data-bind="text: $component.translator.translate('METRIC_VIEW_DRILL_DOWN'), click: $component.drillDown.bind($component,$data)"></button>
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+        </div>
+        <!--ko if : highchartValue-->
+        <div class="chart" data-bind="highcharts: highchartValue"></div>
+        <!--/ko-->
+        <!--ko if : highchartValue_PiePyramid() && highchartValue_PiePyramid().length > 0-->
+        <div class="chart" data-bind="foreach: highchartValue_PiePyramid">
+            <div class="block" data-bind="style:{ width: $parent.chartWidth , height: chart.customHeight }, highcharts:$data"></div>
+        </div>
+        <!--/ko-->
+    </div>
+    <!-- /ko -->
+    <!-- ko if : chartView() === false -->
+    <div class="table-container">
+        <table class="table-condensed table-bordered" data-bind="with:queryResult">
+            <thead>
+                <tr>
+                    <!-- ko if : categories && categories.length > 0 -->
+                    <th data-bind="attr:{'colspan': categories[0].members.length}"></th>
+                    <!-- /ko -->
+                    <!-- ko foreach : measureCaptions -->
+                    <th class="text-center" data-bind="text:$data, attr:{'colspan': $parents[0].noOfDimensionMembers  }"></th>
+                    <!-- /ko -->
+                </tr>
+                <!-- ko if : noOfDimensionMembers > 0 -->
+                <tr>
+                    <!-- ko if : categories && categories.length > 0 && series[0].dimensionMembers.length > 0-->
+                    <th data-bind="attr:{'colspan': categories[0].members.length}"></th>
+                    <!-- /ko -->
+                    <!-- ko foreach : series -->
+                        <!-- ko if: dimensionMembers.length > 0-->
+                            <th class="text-center">
+                                <!-- ko foreach : dimensionMembers -->
+                                <div>
+                                    <a data-bind="text:caption, click:$component.drillDown.bind($component)"></a>
+                                </div>
+                                <!-- /ko -->
+                            </th>
+                        <!-- /ko -->
+                    <!-- /ko -->
+                </tr>
+                <!-- /ko -->
+            </thead>
+            <tbody>
+                <!-- ko if : categories && categories.length > 0 -->
+                <!-- ko foreach : { data : categories, as: 'row' } -->
+                <tr>
+                    <!-- ko foreach : members -->
+                    <td class="text-left" data-bind="click:$component.drillDown.bind($component)"><b><a data-bind="text:caption"></a></b></td>
+                    <!-- /ko -->
+                    <!-- ko foreach : $parents[0].series -->
+                    <!-- ko if : measure.memberType === 'Measure' -->
+                    <td class="text-right" data-bind="click:$component.drillThrough.bind($component,$data,row.members)"><a data-bind="text: cells[$parentContext.$index()].formattedValue"></a></td>
+                    <!-- /ko -->
+                    <!-- ko if : measure.memberType === 'Formula' -->
+                    <td class="text-right"><span data-bind="text:cells[$parentContext.$index()].formattedValue"></span></td>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </tr>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko ifnot : (categories && categories.length > 0) -->
+                <tr data-bind="foreach : { data: series, as: 'row' }">
+
+                    <!-- ko if : measure.memberType === 'Measure' -->
+                    <!-- ko foreach : cells -->
+                    <td class="text-right" data-bind="click:$component.drillThrough.bind($component,row,[])"><a data-bind="text: formattedValue"></a></td>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                    <!-- ko if : measure.memberType === 'Formula' -->
+                    <!-- ko foreach : cells -->
+                    <td class="text-right"><span data-bind="text: formattedValue"></span></td>
+                    <!-- /ko -->
+                    <!-- /ko -->
+
+                </tr>
+                <!-- /ko -->
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /ko -->
+</div>

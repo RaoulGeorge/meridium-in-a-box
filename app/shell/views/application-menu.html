@@ -1,0 +1,46 @@
+﻿<div class="top-nav-right-icons">
+    <span class="right-top-icon-zero"
+          data-bind="click: toggleAddRecord, clickBubble: false, css: {active: isAddRecordVisible }">
+        <a class="add-record-icon" data-bind="css: { selected: isAddRecordVisible }, attr: {title: translator.translate('CREATE_NEW_RECORD')}">
+            <i class="icon-add-record"></i>
+        </a>
+    </span>
+    <span class="right-top-icon-two"
+          data-bind="click: toggleSearch, clickBubble: false, css: { active: isSearchVisible }">
+        <a class="search-icon" data-bind="css: { selected: isSearchVisible }, attr: {title: translator.translate('SEARCH_TOOLTIP')}">
+            <i class="icon-global-search"></i>
+        </a>
+    </span>
+    <span class="right-top-icon-three" data-bind="click: openHelp, clickBubble: false">
+        <a data-bind="attr: {title: translator.translate('APPLICATION_HELP')}">
+            <i class="icon-help"></i>
+        </a>
+    </span>
+    <span class="right-top-icon-four"
+          data-bind="click: toggleThemeSettings, clickBubble: false, css: { active: isThemeSettingsVisible }">
+        <a class="search-icon" data-bind="css: { selected: isSearchVisible }, attr: {title: translator.translate('SEARCH_TOOLTIP')}">
+            <i class="icon-settings"></i>
+        </a>
+    </span>
+</div>
+
+<div class="search-overlay" data-bind="visible:isSearchVisible"></div>
+<div class="add-record-overlay" data-bind="visible:isAddRecordVisible"></div>
+<div class="themeSettings-overlay" data-bind="visible:isThemeSettingsVisible">
+    <section class="themeSettings-block">
+        <div class="layout-switch">
+            <span><h4>Layout</h4></span>
+            <div class="block radio-placeholder">
+                <div>
+                    <input type="radio" id="radio01" name="radio" />
+                    <label for="radio01"><span></span>Tight</label>
+                </div>
+                <div>
+                    <input type="radio" id="radio02" name="radio" checked />
+                    <label for="radio02"><span></span>Spacious</label>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

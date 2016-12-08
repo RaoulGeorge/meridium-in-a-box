@@ -1,0 +1,12 @@
+﻿@import "container-view";
+@import "thumbnail-view";
+@import "path-dialog";
+
+$no-access-bg: url(../images/backgrounds/hatch20pc.png) #232323;
+
+.ref-no-access {
+	background: $no-access-bg;
+	background-color: #f2f2f2;
+	pointer-events: none;
+	cursor: not-allowed;
+}

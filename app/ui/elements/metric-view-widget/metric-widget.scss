@@ -1,0 +1,53 @@
+﻿
+.metrics-widget {
+    width: 100%;
+    height: 100%;    
+    
+    
+    .toolbar {
+
+    }
+
+    ol.breadcrumb {        
+        margin: 0;
+        padding: 0;
+        width:calc(100% - 36px);
+    }
+
+    ol > li > a {
+        color: $brand-primary;
+    }
+
+    .toogle-buttons {
+        width: 36px;
+    }
+
+
+    .chart-container {        
+        width: 100%;
+        height: calc(100% - 36px);        
+        padding-top:5px;
+        .chart-clicked-actions{           
+            min-height:37px;     
+        }        
+
+        .chart {
+            width: 100%;
+            height: calc(100% - 37px);            
+        }
+        
+    }
+
+    .table-container {
+        width: 100%;
+        height: calc(100% - 36px);
+        overflow: auto;
+
+        table {
+
+            a {
+                cursor: pointer;
+            }
+        }
+    }
+}

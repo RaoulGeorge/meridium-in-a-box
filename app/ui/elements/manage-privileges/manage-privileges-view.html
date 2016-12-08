@@ -1,0 +1,55 @@
+﻿<div class="manage-privileges">
+   
+        <table class="table-condensed">
+            <thead>
+                <tr>
+                    <th data-bind="text: $root.translator.translate('PRIVILEGES_USER_OR_GROUP')"></th>
+                    <th data-bind="text: $root.translator.translate('VIEW'),visible: selectedUserViewPrivilege" class="text-center"></th>
+                    <th data-bind="text: $root.translator.translate('UPDATE'),visible: selectedUserUpdatePrivilege" class="text-center"></th>
+                    <th data-bind="text: $root.translator.translate('DELETE'),visible: selectedUserDeletePrivilege" class="text-center"></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- ko foreach : privileges -->                
+                <tr>
+                    
+                    <td><i data-bind="attr :{class : isGroupPrivilege() === true ? 'icon-users' : 'icon-user'}" style="padding-right:5px;"></i><span data-bind="text:name"></span></td>
+                    <td class="text-center" data-bind="visible: $parent.selectedUserViewPrivilege">                        
+                        <mi-checkbox data-bind=" miCheckboxProperty: {
+                             checked: canView,
+                             disable: true,
+                             value: canView } ">
+                        </mi-checkbox>
+                    </td>
+                    <td class="text-center" data-bind="visible: $parent.selectedUserUpdatePrivilege">
+                        <mi-checkbox data-bind=" miCheckboxProperty: {
+                             checked: canUpdate,
+                             disable: $data.canDelete() || $data.isSuperUser(),
+                             value: canUpdate } ">
+                        </mi-checkbox>
+                    </td>
+                    <td class="text-center" data-bind="visible: $parent.selectedUserDeletePrivilege">
+                        <mi-checkbox data-bind=" miCheckboxProperty: {
+                             checked: canDelete,
+                             disable: isSuperUser,
+                             value: canDelete } ">
+                        </mi-checkbox>
+                    </td>
+                    <td>                        
+                        <button class="btn btn-icon" data-bind="attr: {title: $root.translator.translate('MANAGE_PRIVILEGES_DELETE')},click: $parent.remove.bind($root,$parent,$data), disable: $data.key() === $parent.currentUserKey() && $parent.selectedUserUpdatePrivilege && $parent.selectedUserDeletePrivilege"><i class="icon-bin"></i></button>                                      
+                    </td>
+                </tr>
+                <!-- /ko -->
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5">
+                        <a data-bind="attr: {title: $root.translator.translate('MANAGE_PRIVILEGES_ADD')},click: add"><span data-bind="text:'+ ' + $root.translator.translate('PRIVILEGES_USER_OR_GROUP')"></span> </a>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    
+</div>

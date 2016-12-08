@@ -1,0 +1,31 @@
+﻿
+.refdoc-thumb-container {
+    .refdoc-thumbnail-list{
+    }
+
+    .refdoc-thumbnail{
+        width: 100% !important;
+        border-style:none;
+        background-color:transparent;
+    }
+    @media(min-width:768px){
+        .refdoc-thumbnail{
+            width: 50% !important;
+        }
+    }
+    @media(min-width:960px){
+        .refdoc-thumbnail{
+            width: 20% !important;
+        }
+    }
+
+    .refdoc-link{
+        display: block;
+        text-align: center;
+    }
+    .refdoc-icon{
+        display: block;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}

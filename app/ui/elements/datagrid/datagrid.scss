@@ -1,0 +1,68 @@
+﻿mi-datagrid {
+    .dg-header {
+        //display: none;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .dg-filter {
+            display: none;
+        }
+
+        .dg-pager {
+            //display: none;
+            white-space: nowrap;
+        }
+
+        mi-select {
+            //display: none;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            float: left;
+        }
+
+        .totalCount {
+            //display: none;
+            padding: 12px 0px;
+
+            div {
+                float: left;
+                padding-left: 5px;
+            }
+        }
+    }
+
+    .dg-footer {
+        .dg-controls:empty {
+            display: none;
+        }
+    }
+
+    .hide-dg-footer {
+        display: none;
+    }
+
+    .hide-edit-controls {
+        .dx-datagrid-header-panel {
+            display: none !important;
+        }
+    }
+
+    .dx-datagrid {
+        .dx-loadpanel-wrapper {
+            z-index: 101 !important;
+        }
+
+        .disable-cursor {
+            cursor: default !important;
+        }
+    }
+}
+
+.dx-selectbox-popup-wrapper .dx-list {
+    background-color: #ffffff;
+}
+
+.dx-scrollable-scrollbar.dx-widget.dx-scrollbar-horizontal.dx-scrollbar-hoverable {
+    background-color: #f8f8f8;
+}

@@ -1,0 +1,37 @@
+<mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+<div class="email-settings">
+    <div class="panel-heading block-group">
+        <div class="heading-title block">
+            <mi-title data-bind="attr : {title : translate('EMAIL_SETTINGS')}"></mi-title>
+        </div>
+        <div class="button-panel block">
+            <div class="buttons pull-right">
+                <a class="btn btn-icon"
+                   data-bind="click: save, visible: canSave , attr: {title: translate('SAVE')}">
+                    <i class="icon-save"></i>
+                </a>
+        </div>
+        </div>
+    </div>
+    <div class="panel-body" data-bind="with: emailSettings">
+        <div class="form-group">
+            <input type="checkbox" id="chkuseDropFolder" data-bind="checked: useDropFolder" />&nbsp;&nbsp;<label data-bind="text : $root.translate('EMAIL_SETTINGS_USE_DROP_FOLDER')" for="chkuseDropFolder"></label>
+        </div>
+        <!-- ko if: useDropFolder -->
+        <div class="form-group">
+            <label class="control-label" data-bind="text: $root.translate('EMAIL_SETTINGS_SPECIFIC_FOLDER')"></label>
+            <input type="text" class="form-control" data-bind="value: specificFolder" />
+        </div>
+        <!-- /ko -->
+        <!-- ko ifnot: useDropFolder -->
+        <div class="form-group">
+            <label class="control-label" data-bind="text: $root.translate('EMAIL_SETTINGS_SMTP_HOST')"></label>
+            <input type="text" class="form-control" data-bind="textInput: emailHost" />
+        </div>
+        <!-- /ko -->
+        <div class="form-group">
+            <label class="control-label" data-bind="text: $root.translate('FROM')"></label>
+            <input type="text" class="form-control" data-bind="value: defaultFrom" />
+        </div>
+    </div>
+</div>﻿

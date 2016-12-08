@@ -1,0 +1,21 @@
+﻿<div data-bind="visible:isOpen()" class="mi-multi-value-options-container">
+    <p class="mi-multi-value-option mi-multi-value-input" data-bind="event:{mousedown:inputMouseDown}">
+        <input type="text" data-bind="attr:{ placeholder: addCaptionText}, value:addValue,event:{'keydown':addValueUpdate}" />
+    </p>
+
+   <!-- ko if:optionsCaption -->
+    <p class="mi-multi-value-option mi-multi-value-caption" data-bind="visible:optionsCaption,text:optionsCaption,
+                                    event:{mousedown:function(data,event){selectValue($root,null,event);}},
+                                "></p>
+    <!-- /ko -->
+    <!-- ko foreach:options -->
+    <p class="mi-multi-value-option" data-bind="text:$parent.getOptionText($data),
+                                            event:{mousedown:function(data,event){$parent.selectValue($parent,data,event);}},
+                                            css:{'active':$parent.isActive($data)}">
+
+    </p>
+    <!-- /ko -->
+
+  
+
+</div>

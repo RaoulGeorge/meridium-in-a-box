@@ -1,0 +1,34 @@
+$permissions-nav-width: 240px;
+$permissions-nav-width-collapsed: 40px;
+$breadcrumb-height: 40px;
+$footer-height: 25px;
+
+.permissions {
+    height: calc(100% - #{$footer-height});
+
+    .nav-container {
+        height: calc(100% - #{$breadcrumb-height});
+        width: $permissions-nav-width;
+
+        &.collapsed {
+            width: $permissions-nav-width-collapsed;
+        }
+
+        @import "permissions-nav";
+    }
+
+    .details-container {
+        height: calc(100% - #{$breadcrumb-height});
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 14px;
+        width: calc(100% - #{$permissions-nav-width});
+
+        &.collapsed-nav {
+            width: calc(100% - #{$permissions-nav-width-collapsed})
+        }
+
+        @import "permissions-nav-detail";
+        @import "permissions-details";
+    }
+}

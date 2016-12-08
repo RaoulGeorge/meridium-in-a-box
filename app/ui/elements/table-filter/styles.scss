@@ -1,0 +1,51 @@
+﻿
+.mi-table-filter-container{
+    position:relative;
+	border: 1px solid #dedede;
+    border-radius: 2px;
+    //padding: 5px 10px;
+    //height:35px;
+    font-size:13px;
+	background-color:#fff;
+	min-width:100px;
+	overflow:auto;
+	&.disabled{
+		background-color:#e8e8e8;
+		color:#d3d3d3;
+	}
+	&.required{
+		border-color:red;
+		color:red;
+	}
+
+	.mi-table-filter-handler{
+		overflow:auto;
+	}   
+}
+
+.mi-table-filter-options-container {
+        width:100%;
+		 border-top:2px solid $brand-primary;
+		 background-color:#eee;
+		 z-index:1;
+		 max-height:200px;
+		 overflow-y:auto;
+		 overflow-x:hidden;
+		 text-overflow:ellipsis;
+		 white-space:nowrap;
+		 padding:10px;
+		 margin-top:11px;
+
+		  &:before{
+				content:'';
+				width: 0; 
+				height: 0; 
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;	
+				border-bottom: 10px solid $brand-primary;
+				position: absolute;
+				bottom: 100%;
+				right: 10px;
+			 }
+
+	}

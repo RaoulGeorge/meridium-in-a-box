@@ -1,0 +1,59 @@
+﻿<div class="teammember-role-container">
+    <button class="btn btn-default back"><i class="icon-back-arrow"></i> </button>
+
+    <div class="list-members">
+        <mi-tool-bar>
+            <button class="btn btn-icon rg-filter0" title="Filter">
+                <i class="icon-search"></i>
+            </button>
+            <button class="btn btn-icon existing" title='Edit Team Members'>
+                <i class="icon-edit">
+                </i>
+            </button>
+        </mi-tool-bar>
+        <script id="gridPhoto" type="text/html">
+            <div class="thumbnailPhoto">
+                <img src="<%= photoURL %>" />
+            </div>
+        </script>        
+        <div id="gridContainer0" class="gridContainer"></div>
+    </div>
+
+    <div class="single-member"></div>
+
+    <div class="two-lists-members">
+
+        <section class="list-group list-members-hr">
+            <mi-tool-bar>
+                <button class="btn btn-icon rg-filter2" title="Filter">
+                    <i class="icon-search"></i>
+                </button>
+                <button class="btn btn-icon prev" title='Previous Page'>
+                    <i class="icon-back-arrow"></i>
+                </button>
+                <button class="btn btn-icon link pull-right" data-action="link" title="Add to Team">
+                    <i class="icon-team-member-shift-right"></i>
+                </button>
+            </mi-tool-bar>
+
+            <div id="gridContainer2" class="gridContainer"></div>
+        </section>
+
+        <section class="list-group list-members-tm">
+            <mi-tool-bar>
+                <button class="btn btn-icon rg-filter1" title="Filter">
+                    <i class="icon-search"></i>
+                </button>
+                <button class="btn btn-icon add" title='Add New Team Member'>
+                    <i class="icon-plus"></i>
+                </button>
+                <button class="btn btn-icon unlink  pull-right" data-action="unlink" title="Remove from Team">
+                    <i class="icon-team-member-shift-left"></i>
+                </button>
+            </mi-tool-bar>
+            <div id="gridContainer1" class="gridContainer"></div>
+        </section>
+
+    </div>
+</div>
+

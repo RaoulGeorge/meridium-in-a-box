@@ -1,0 +1,30 @@
+﻿<div data-bind="visible:isOpen(),event:{mousedown:$root.handleMouseDown}" class="mi-select-options-container">
+
+    <p class="mi-select-caption" data-bind="visible:optionsCaption() && optionsCaption().trim(),text:optionsCaption,event:{
+                                    click:function(data,event){selectValue($root,null,event);}},
+                                    css:{'mi-select-option':optionsCaption}
+                                "></p>
+
+    <!-- ko ifnot:optionsGroup -->
+    <!-- ko foreach:filteredOptions -->
+    <p class="mi-select-option" data-bind="html:$parent.wrapOptionText($data),event:{
+                                                    click:function(data,event){$parent.selectValue($parent,data,event);}},
+                                                    css:{'active':$parent.isActive($data)},
+                                                    attr:{'data-index':$index()}">
+    </p>
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- ko if:optionsGroup -->
+    <!-- ko foreach:Object.keys(filteredOptions()) -->
+
+    <strong class="mi-select-group-title" data-bind="text:$data,visible:$data !== 'undefined',click:$root.handleMouseDown"></strong>
+    <!-- ko foreach:$root.filteredOptions()[$data] -->
+    <p class="mi-select-option" data-bind="html:$root.wrapOptionText($data),event:{
+                                                                            click:function(data,event){$root.selectValue($root,data,event);}},
+                                                                            css:{'active':$root.isActive($data)},
+                                                                            attr:{'data-index':$index()}">
+    </p>
+    <!-- /ko -->
+    <!-- /ko -->
+    <!-- /ko -->
+</div>

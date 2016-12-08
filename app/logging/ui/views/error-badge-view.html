@@ -1,0 +1,11 @@
+﻿<section class="global-search">
+    <div class="error-notofication-header"><h2>Error</h2></div>
+    <ul data-bind="foreach: errorslog" class="nav nav-pills nav-stacked global-search-results">
+        <li>
+            <span data-bind="text: number   + '. '+ errorCode +' '+ errorMessage "></span>
+            <span><a data-bind="click:function() { $root.tabHandler($data, '#errorlog/'); }">View Details</a></span>
+        </li>
+    </ul>
+    
+</section>
+

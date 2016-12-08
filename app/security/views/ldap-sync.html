@@ -1,0 +1,90 @@
+﻿<div class="ldap block-group">
+    <mi-breadcrumb delimiter="\" showfulltext></mi-breadcrumb>
+    <div class="ldap-nav-container block">
+        <mi-panel class="ldap-list block"
+                  selctor="none"
+                  multiselect="false"
+                  key="key"
+                  description="domainName"
+                  page="1"
+                  page-size="25"
+                  scroll-percent="0.75"
+                  custom-filter="false"
+                  custom-search="false"
+                  allow-add="true"
+                  data-bind="attr: { title: translate('LDAP') },
+                         event: {
+                            selected: onDomainSelected
+                         }">
+            <mi-tool-bar>
+                <a class="btn btn-icon"
+                   data-bind="click: onDomainAdding, visible: canAdd, attr: {title: translator.translate('ADD')}">
+                    <i class="icon-plus"></i>
+                </a>
+               
+                <a class="btn btn-icon"
+                   data-bind="click: onViewSettings, visible: canViewSettings, attr: {title: translator.translate('VIEW_LDAP_SETTINGS')}">
+                    <i class="icon-settings"></i>
+                </a>
+                
+            </mi-tool-bar>
+        </mi-panel>
+        </div>
+        <div class="ldap-details-container panel block">
+            <!-- ko if: canViewLdapSettings() -->
+            <div class="panel-heading block-group">
+                <div class="ldap-title block">
+                    <h2> <span data-bind="text: $root.translate('LDAP_MANAGE_SETTINGS')"></span></h2>
+                </div>
+                <div class="button-panel pull-right" data-bind="css: { loading: isLoading }">
+                    <div class="loading-med"></div>
+                    <a class="btn btn-icon"
+                       data-bind="click: onSettingsSave, visible: canSave, attr: {title: translator.translate('SAVE')}">
+                        <i class="icon-save"></i>
+                    </a>
+                   </div>
+
+                </div>
+            <div class="ldap-indented" data-bind="with: ldapSettings">
+                <div class="checkbox">
+                    <label class="control-label">
+                        <input data-bind="checked: enableLdapIntegration, event: { change:$root.changeLdapIntegration }" type="checkbox" id="chkldapintegration" />
+                        <span data-bind="text: $root.translate('ENABLE_LDAP_INTEGRATION')"></span>
+                    </label>
+                </div>
+                <!--<div class="checkbox">
+                    <label class="control-label">
+                        <input data-bind="checked: createUsersWithoutDomain, enable: enableLdapIntegration, event: { change:$root.changeUsersDomain }" type="checkbox" id="chkcreateUsersWithoutDomain" />
+                        <span data-bind="text: $root.translate('CREATE_USERS_WITHOUT_DOMAIN')"></span>
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label class="control-label">
+                        <input data-bind="checked: enableInterfaceLog, enable: enableLdapIntegration, event: { change:$root.changeLogging }" type="checkbox" id="chkenableInterfaceLog" />
+                        <span data-bind="text: $root.translate('ENABLE_INTERFACE_LOG')"></span>
+                    </label>
+                </div>-->
+                <div class="checkbox">
+                    <label class="control-label">
+                        <input data-bind="checked: enableInformationalMessage, enable: enableLdapIntegration, event: { change:$root.changeMessage }" type="checkbox" id="chkenableInformationalMessage" />
+                        <span data-bind="text: $root.translate('ENABLE_INFORMATIONAL_MESSAAGES')"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-text" data-bind="click: $root.onLdapSync, enable: $root.canSync,attr: {title: $root.translator.translate('RUN_LDAP_SYNC')}"><span data-bind="text: $root.translate('RUN_LDAP_SYNC')"></span></button>
+            <!--<button class="btn btn-text" data-bind="click: $root.scheduleLdapSync, enable: $root.canSync,attr: {title: $root.translator.translate('CONFIGURE_LDAP_SYNC')}">Configure LDAP Sync</button>-->
+            <div>
+                <h1><span data-bind="text: $root.translate('LDAP_JOB_SCHEDULE')"></span></h1>
+            </div>
+            <hr />
+            <div class="clearfix">
+                <mi-schedule-summary params="schedule: cronExpression">
+                </mi-schedule-summary>
+                <button class="btn btn-icon" data-bind="click : showEditorDialog,attr: {title: $root.translator.translate('EDIT_SCHEDULE')}"><i class="icon-edit"></i></button>
+                <button class="btn btn-icon" data-bind="click: schedule,enable:canSaveSchedule,attr: {title: $root.translator.translate('SAVE')}"><i class="icon-save"></i></button>
+                <button class="btn btn-icon" data-bind="click: unschedule,enable:canDeleteSchedule,attr: {title: $root.translator.translate('DELETE')}"><i class="icon-bin"></i></button>
+            </div>   
+            <!-- /ko -->
+            <div class="ldap-domain-container block">&nbsp;</div>
+        </div>
+</div>

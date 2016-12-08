@@ -1,0 +1,4 @@
+Changes 7-20-16:
+Changed calls using http to use either http or https depending on what the server is using
+
+http://roatfs13:8080/tfs/Meridium/APM/_workitems/edit/244108

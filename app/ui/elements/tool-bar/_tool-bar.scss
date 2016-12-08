@@ -1,0 +1,102 @@
+$toolbar-padding-fix: 10px;
+
+mi-tool-bar {
+    position:static;
+	display: block;
+	padding: 6px 0;
+	white-space: nowrap;
+    overflow: hidden;
+    height:46px;
+    padding-right: 45px;
+
+	.more-options-icon {
+		position: absolute;
+		display: inline-block;
+		visibility: hidden;
+	}
+
+	.overflow {
+        display:none;
+	}
+
+    .default-buttons-left{
+        float:left;
+    }
+
+    .default-buttons-right{
+        float:right;
+        padding-right:10px;
+    }
+
+    .delete-list-item-icon{
+        @include list-item-delete-icon;
+    }
+
+    .copy-list-item-icon{
+        @include list-item-copy-icon;
+    }
+
+    .edit-list-item-icon{
+        @include list-item-edit-icon;
+    }
+
+}
+
+.popover-content.tool-bar-overflow {
+	padding: 0px;
+	min-width: 158px;
+
+	.overflow {
+	display: block;
+		border: none;
+	border-bottom: 1px solid;
+	border-bottom-style: dashed;
+		padding: 0px 10px;
+	cursor: pointer;
+    width: 100%;
+    text-align: left;
+		font-family: 'open_sansregular';
+		color: #333333;
+		font-size: $font-size-base;
+		@include border-radius(0px);
+
+		&:last-child{
+		padding-right: 5px;
+			border-bottom: none !important;
+	}
+
+	&:hover {
+		color: #669bc9;
+		background-color: #ebebeb;
+			@include box-shadow(inset 0 4px 8px rgba(0, 0, 0, 0));
+		}
+	}
+}
+
+.overview {
+    mi-page-filter {
+        mi-tile-group {
+            .resultgrid-placeholder {
+                mi-tool-bar {
+                    padding-right: $toolbar-padding-fix;
+                }
+            }
+        }
+    }
+}
+
+div.strategy-toolbar-right-item {
+    mi-tool-bar {
+        padding-right: $toolbar-padding-fix;
+    }
+}
+
+mi-resultgrid {
+    div.rg-header {
+        div {
+            mi-tool-bar {
+                padding-right: $toolbar-padding-fix;
+            }
+        }
+    }
+}

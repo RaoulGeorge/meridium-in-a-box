@@ -1,0 +1,60 @@
+﻿.error-handler {
+    padding: 3px 15px 4px 15px;
+    font-size: 14px;
+    font-family: $font-family-semi-bold;    
+    display: none;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline-block;
+        }
+    }
+
+    i {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        top: 2px;
+    }
+
+    .link-txt {
+        color: $brand-primary;
+        cursor: pointer;
+        @include font-semi-bold;
+    }
+
+    .vert-line {
+        background: url(../images/backgrounds/vert_dot_line.png) repeat-y right 0 transparent;
+        display: inline-block;
+        width: 1px;
+        height: 17px;
+        margin: 0px 15px -4px 15px
+    }
+
+    .current-error {
+        margin-right: 45px;
+        display: inline-block;
+    }
+    
+    &.info {
+        background-color: rgba($info-primary, 0.15);
+        border: 1px solid $info-border;
+        color: $info-banner-text-color;
+    }
+
+    &.warning {
+        background-color: rgba($warning-primary, 0.15);
+        border: 1px solid $warning-border;
+        color: $warning-banner-text-color;
+    }
+    
+    &.error {
+        background-color: rgba($error-primary, 0.15);
+        border: 1px solid $error-border;
+        color: $error-banner-text-color;
+    }
+}

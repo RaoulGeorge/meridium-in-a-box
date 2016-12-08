@@ -1,0 +1,12 @@
+﻿<i class="icon-close-popup error-accumulator-container-close-mark" data-bind="click:closePopup"></i>
+<div class="error-accumulator-container" data-bind="foreach:errorArray">
+    <div class="collipsable-error-container">
+        <div class="collipsable-error-title" data-bind="click:$root.toggleTitleClick.bind(this,$root)">
+            <i data-bind="css:{'icon-right-arrow':!expand(),'icon-arrow':expand()}"></i>
+            <span data-bind="text:($index()+1)"></span>. 
+            <span data-bind="text:errorMessage"></span>
+        </div>
+        <div class="collipsable-error-desc" data-bind="html:errorDetail,visible:expand()"></div>
+    </div>
+    <hr />
+</div>

@@ -1,0 +1,54 @@
+﻿mi-health-status {
+    $red: #ff3b30;
+    $yellow: #ffcc00;
+    $grey: #999999;
+    $green: #4cd964;
+    $pale: 0.3;
+
+    i.status-icon{
+        font-size: 20px;
+        cursor: default;
+		vertical-align:middle;
+    }
+    i.icon-alert {
+        @extend .icon-health-alert;
+        color: $red;
+    }
+    i.icon-alert-out-of-sync {
+        @extend .icon-health-alert;
+        color: $red;
+        opacity: $pale;
+    }
+    i.icon-warning {
+        @extend .icon-health-warning;
+        color: $yellow;
+    }
+    i.icon-warning-out-of-sync {
+        @extend .icon-health-warning;
+        color: $yellow;
+        opacity: $pale;
+    }
+    i.icon-no-data {
+        @extend .icon-health-no-data;
+        color: $grey;
+    }
+    i.icon-no-data-out-of-sync {
+        @extend .icon-health-no-data;
+        color: $grey;
+        opacity: $pale;
+    }
+    i.icon-normal {
+        @extend .icon-health-normal;
+        color: $green;
+    }
+    i.icon-normal-out-of-sync {
+        @extend .icon-health-normal;
+        color: $green;
+        opacity: $pale;
+    }
+    i.icon-no-health {
+        @extend .icon-health-alert;
+        color: transparent;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,49 @@
+﻿mi-column {
+	display: block;
+	position: relative;
+    float:left;
+
+    section.header{
+        @include grid-block-group;
+
+        section.title{
+            @include grid-block;
+            width:85%;
+
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+
+            span{
+                font-size: 18px;
+                padding-left: 20px;
+            }
+        }
+
+        section.add-button{
+            @include grid-block;
+            width:15%;
+
+            button{
+                color: $color-tag-selected;
+            }
+
+           .button-placement{
+                min-width: 20%;
+                float: right;
+            }
+
+            button:hover{
+                color: $color-tag-selected;
+            }
+        }
+    }
+
+    section.list .list-group .list-group-item.active{
+        border-left: 6px solid #5688bd;
+    }
+
+    section.list{
+        height:160px;
+    }
+}

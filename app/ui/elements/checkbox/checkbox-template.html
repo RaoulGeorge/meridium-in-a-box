@@ -1,0 +1,9 @@
+﻿<script id="mi-checkbox-tmpl" type="text/html">
+    <div class="checkbox-container">
+        <input type="checkbox" data-bind="checked: $root.checked,disable: $root.disable,value:$root.value, attr:{id:$data.id, required: $root.required}, checkedValue: $root.checkedValue " />
+        <label data-bind="attr:{for:$data.id}">
+            <span class="checkbox-label" ></span>
+            <span class="chkbox-text" data-bind="text:$root.text"></span>
+        </label>       
+    </div>
+</script>

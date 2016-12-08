@@ -1,0 +1,15 @@
+﻿.title-container{
+	padding-bottom: 6px;
+	//width: calc(60% - 40px);
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	h1{
+		margin: 0px;
+		font-family: open_sansregular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 21px;
+	}
+}

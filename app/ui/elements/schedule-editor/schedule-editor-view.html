@@ -1,0 +1,167 @@
+﻿
+
+<div class="form block-group mi-schedule-editor" data-bind="validationOptions: { insertMessages: false, messagesOnModified : false }">
+
+        <div class="form-group block mi-schedule-field field-schedule-type">
+            <mi-radio data-bind="miRadioProperty: {
+                           checked: schedule.scheduleType,
+                           name:'scheduleType',
+                           value: 'OneTime',
+                           text: translator.translate('ONE_TIME'),
+                           disable : disableParameter
+                          }">
+            </mi-radio>
+            <mi-radio data-bind="miRadioProperty: {
+                           checked: schedule.scheduleType,
+                           name:'scheduleType',
+                           value: 'Recurring',
+                           text: translator.translate('RECURRING'),
+                    disable : disableParameter
+                          }">
+            </mi-radio>
+            <div>
+                <span class="customMessage" data-bind="validationMessage: schedule.scheduleType"></span>
+            </div>
+        </div>
+        <div class="block" data-bind="visible : !options.hideTimeZone">
+            <hr />
+            <div class="form-group block mi-schedule-field field-time-zone">
+                <label data-bind="text:translator.translate('TIME_ZONE')"></label>
+                <mi-select data-bind="miproperty:{
+                    options:timeZoneList,
+                    optionsText:'name',
+                    optionsValue:'id',
+                    value: schedule.timeZone,
+                    disabled : disableParameter }">
+                </mi-select>
+            </div>
+        </div>
+        <div class="block">
+            <hr />
+            <div class="form-group block mi-schedule-field field-start-date">
+                <label data-bind="text:translator.translate('STARTTIME')"></label>
+                <mi-date-time data-bind="value: schedule.startDate, attr: {disabled: disableParameter}, valueUpdate: 'updateValueOnClose'" update-on-close="true"></mi-date-time>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage: schedule.startDate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="block" data-bind="visible : schedule.scheduleType() === 'Recurring'">
+            <hr />
+            <div class="form-group block mi-schedule-field field-recurence">
+                <label data-bind="text:translator.translate('EVERY')"></label>
+                <div class="block">
+                    <input class="form-control field-interval" type="text" maxlength="5" data-bind="value: schedule.interval, valueUpdate: 'input',disable : disableParameter" />
+                    <div class="field-interval-unit">
+                        <mi-select data-bind="miproperty:{
+                    options:intervalUnitList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    value: schedule.intervalUnit,
+                    disabled : disableParameter }">
+                        </mi-select>
+                    </div>
+                </div>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage: schedule.interval"></span>
+                    <span class="customMessage" data-bind="validationMessage: schedule.intervalUnit"></span>
+                </div>
+            </div>
+            <div class="form-group block mi-schedule-field field-executeon-option">
+                <label>&nbsp;</label>
+                <mi-select data-bind="miproperty:{
+                    options: executeOnOptionList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    value: schedule.executeOnOption,
+                    disabled : disableParameter }">
+                </mi-select>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage: schedule.executeOnOption"></span>
+                </div>
+            </div>
+            <div class="form-group block mi-schedule-field field-months" data-bind="visible : schedule.intervalUnit() === 'Year' && (schedule.executeOnOption() === 'SelectedDaysOfMonth' || schedule.executeOnOption() === 'SelectedWeekDays')">
+                <label data-bind="text:translator.translate('MONTHS')"></label>
+                <mi-select data-bind="miproperty:{
+                    options:monthList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    multiple: true,
+                    selectedOptions: schedule.selectedMonths,
+                    disabled : disableParameter }">
+                </mi-select>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage:schedule.selectedMonths"></span>
+                </div>
+            </div>
+            <div class="form-group block mi-schedule-field field-days-of-month" data-bind="visible : (schedule.intervalUnit() === 'Year' ||  schedule.intervalUnit() === 'Month') && schedule.executeOnOption() === 'SelectedDaysOfMonth'">
+                <label data-bind="text:translator.translate('DAYS')"></label>
+                <mi-select data-bind="miproperty:{
+                    options:dayOfMonthList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    multiple: true,
+                    selectedOptions: schedule.selectedDaysOfMonth,
+                    disabled : disableParameter }">
+                </mi-select>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage:schedule.selectedDaysOfMonth"></span>
+                </div>
+            </div>
+            <div class="form-group block mi-schedule-field field-weekdays" data-bind="visible : (schedule.intervalUnit() === 'Year' ||  schedule.intervalUnit() === 'Month' ||  schedule.intervalUnit() === 'Week') && schedule.executeOnOption() === 'SelectedWeekDays'">
+                <label data-bind="text:translator.translate('DAYS')"></label>
+                <mi-select class="field-weekNumber" data-bind="miproperty:{
+                    options:weekNumberList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    value: schedule.selectedWeekNumber,
+                    disabled : disableParameter },visible :  schedule.intervalUnit() !== 'Week'">
+                </mi-select>
+                <mi-select data-bind="miproperty:{
+                    options:weekdayList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    multiple: true,
+                    selectedOptions: schedule.selectedWeekDays,
+                    disabled : disableParameter }">
+                </mi-select>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage:schedule.selectedWeekNumber"></span>
+                    <span class="customMessage" data-bind="validationMessage:schedule.selectedWeekDays"></span>
+                </div>
+            </div>
+        </div>
+        <div class="block" data-bind="visible : !options.hideEndTime && schedule.scheduleType() === 'Recurring'">
+            <hr />
+            <div class="form-group block mi-schedule-field field-endon-option">
+                <label data-bind="text:translator.translate('ENDTIME')"></label>
+                <mi-select data-bind="miproperty:{
+                    options: endOnOptionList,
+                    optionsText:'name',
+                    optionsValue:'value',
+                    value: schedule.endOnOption,
+                    disabled : disableParameter }">
+                </mi-select>
+            </div>
+            <div class="form-group block mi-schedule-field field-endtime" data-bind="visible : schedule.endOnOption() === 'EndTime'">
+                <label>&nbsp;</label>
+                <mi-date-time data-bind="value: schedule.endDate, disable : disableParameter"></mi-date-time>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage:schedule.endDate"></span>
+                </div>
+            </div>
+            <div class="form-group block mi-schedule-field  field-occurences" data-bind="visible :  schedule.endOnOption() === 'Occurrence'">
+                <label>&nbsp;</label>
+                <div>
+                    <input type="text" class="form-control" data-bind="value: schedule.endAfterOccurrence,disable : disableParameter" />
+                    <span>&nbsp;</span><span data-bind="text:translator.translate('OCCURRENCES')"></span>
+                </div>
+                <div>
+                    <span class="customMessage" data-bind="validationMessage:schedule.endAfterOccurrence"></span>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+

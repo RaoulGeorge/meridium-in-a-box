@@ -1,0 +1,61 @@
+<div class="mi-health-bar">
+    <div class="health-bar-container" data-bind="css: healthBarClass" >
+        <div class="block-group">
+            <div class="block indicator-zone twenty" data-bind="css: lowerAlertZoneClass"></div>
+            <div class="block indicator-zone fifteen" data-bind="css: lowerWarningZoneClass"></div>
+            <div class="block indicator-zone thirty" data-bind="css: normalZoneClass"></div>
+            <div class="block indicator-zone fifteen" data-bind="css: upperWarningZoneClass"></div>
+            <div class="block indicator-zone twenty" data-bind="css: upperAlertZoneClass"></div>
+        </div>
+
+        <div class="limits-container">
+            <div class="limit-label block alert-zone lower text-center">
+                <h4 class="limit-label-value" data-bind="text: lowerLevel2"></h4>
+            </div>
+            <div class="limit-label block warning-zone lower text-center">
+                <h4 class="limit-label-value" data-bind="text: lowerLevel1"></h4>
+            </div>
+            <div class="limit-label block warning-zone upper text-center">
+                <h4 class="limit-label-value" data-bind="text: upperLevel1"></h4>
+            </div>
+            <div class="limit-label block alert-zone upper text-center">
+                <h4 class="limit-label-value" data-bind="text: upperLevel2"></h4>
+            </div>
+        </div>
+
+        <!-- ko ifnot: noValueSet -->
+        <div data-bind="ifnot: valueIsOutOfBounds">
+            <div class="latest-value" data-bind="style: { left: 'calc(' + valuePosition() + 'px - 100px)' }">
+                <h4 data-bind="text: latestValue"></h4>
+            </div>
+
+            <div class="latest-value-pointer" data-bind="style: { left: valuePosition() + 'px' }">
+                <div class="arrow-up"></div>
+            </div>
+        </div>
+        <!-- /ko -->
+
+        <div class="bar-foundation-line"></div>
+
+        <div class="no-readings-label" data-bind="visible: noValueSet">
+            <label data-bind="text: translator.translate('NO_READINGS')"></label>
+        </div>
+    </div>
+
+    <div class="arrow-container" data-bind="
+            visible: valueIsOutOfBounds,
+            css: {
+                'left': valueIsOutOfBoundsLow(),
+                'right': valueIsOutOfBoundsHigh()
+            }">
+        <div class="out-of-bounds-arrow"></div>
+    </div>
+    <span class="latest-value-off-the-edge" data-bind="
+            visible: valueIsOutOfBounds,
+            css: {
+                'low': valueIsOutOfBoundsLow(),
+                'high': valueIsOutOfBoundsHigh()
+            }">
+        <label data-bind="text: latestValue"></label>
+    </span>
+</div>

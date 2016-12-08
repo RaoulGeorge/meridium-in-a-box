@@ -1,0 +1,34 @@
+﻿<label data-bind="text: $root.translate('SITES')"></label>
+
+<div class="usersite">
+    <div class="usersite-toolbar">
+        <button class="btn btn-default btn-icon" data-bind="attr: {title: translator.translate('NEWITEM')}, click: onAddClick">
+            <i class="icon-plus" />
+        </button>
+        <a class="btn btn-icon" data-bind="attr: {title: translator.translate('CHECKALLTEXT')}, click: $root.onSelectAllClick" title="Select All">
+            <i class="icon-select-all" />
+        </a>
+        <a class="btn btn-icon" data-bind="attr: {title: translator.translate('DELETE')}, 
+                                           click: $root.onDeleteClick,
+                                           visible: $root.canDelete" title="Delete">
+            <i class="icon-bin" />
+        </a>
+    </div>
+
+    <div>
+        <div data-bind="foreach: userSites">
+            <div class="usersite-tr">
+                <div class="usersite-td">
+                    <span class="custom-checkbox" data-bind="css: { customcheckboxchecked : selected }, event: { click: $root.onSelectClick } "></span>
+                    <label class="usersite-description" data-bind="text: siteName" />
+
+                    <!--<span class="custom-checkbox" data-bind="css: { customcheckboxchecked : viewOnly }, event: { click: $root.onViewOnlyClick }"></span>
+                    <label class="usersite-label" data-bind="text: $root.translate('SEC_SITE_VIEW_ONLY')" />-->
+
+                    <span class="custom-checkbox" data-bind="css: { customcheckboxchecked : defaultSite }, event: { click: $root.onDefaultSiteClick } "></span>
+                    <label class="usersite-label" data-bind="text: $root.translate('DEFAULT')" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

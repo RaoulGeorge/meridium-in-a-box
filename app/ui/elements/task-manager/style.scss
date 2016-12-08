@@ -1,0 +1,28 @@
+﻿.filter-grid-container{
+	background-color: #ffffff;
+	border-top: 2px solid $brand-primary;
+	padding: 10px;
+	
+	&:before
+	{
+		border-bottom: 10px solid $brand-primary;
+		bottom: 100%;
+		right: 120px;
+		content: '';
+		border-left: 8px solid rgba(0, 0, 0, 0);
+		border-right: 8px solid rgba(0, 0, 0, 0);
+		width: 0;
+		height: 0;
+		position: absolute;
+		outline: 0;
+		top: 41px;
+	}
+
+	.form-item{
+		padding-bottom: 10px;
+
+		.filter-select{
+			padding-right: 10px;
+		}
+	}
+}

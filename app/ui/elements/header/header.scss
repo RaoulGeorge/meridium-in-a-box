@@ -1,0 +1,46 @@
+﻿.header-container{
+	background-color: #F7F7F7;
+	height: 72px;
+	padding: 0 10px 0 0;
+	border-bottom: 1px solid #bcbdc1;
+	.breadcrumb-group-container{
+		min-height: 24px;
+		width: calc(60% - 40px);
+		white-space: nowrap;
+		.breadcrumb-group{
+			float: left;
+			width: calc(60% - 40px);
+			padding-left: 10px;
+			.mi-more-options-icon{
+				min-height: 20px;
+				min-width: 20px;
+				height: 20px;
+				width: 20px;
+				margin-right: 5px;
+				position: relative;
+				i{
+					position: absolute;
+					display: block;
+					left: 2px;
+					top: 2px;
+				}
+			}
+		
+		}
+	}
+}
+
+//tight layout changes here
+body.tight{
+    mi-header{
+    .header-container{
+        height: 50px;
+            .breadcrumb-group-container{
+                min-height: 6px;
+            }
+            .title-container{
+                padding-bottom: 0;
+            }
+        }
+    }
+}

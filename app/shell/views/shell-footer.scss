@@ -1,0 +1,38 @@
+nav.status-bar {
+    background-color: $shell-menu-bg-color;
+    height: $height-status-bar;
+    line-height: $height-status-bar;
+    padding-right: 3px;
+    text-align: right;
+    width: 100%;
+    float: right;
+
+    span {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    span.left-footer {
+        float: left;
+        margin-left: $leftnav-width;
+
+        .offline-indicator {
+            float: left;
+            background-color: rgb(255, 59, 48);
+            box-shadow: inset 0 3px 7px 0 rgba(106, 7, 7, 0.35);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-top: 7px;
+            margin-right: 5px;
+        }
+
+        .offline-caption {
+            margin-left: 5px;
+        }
+    }
+    
+    span.right-footer {
+        clear: both;
+    }
+}

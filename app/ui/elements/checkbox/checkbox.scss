@@ -1,0 +1,164 @@
+﻿mi-checkbox div:first-child {
+   
+}
+
+.checkbox-container {
+ height: 30px; 
+    margin: 0px auto;
+    position: relative;
+	display:inline-block;
+	padding:5px 0px;
+
+    .chkbox-text{
+        cursor: pointer;
+        padding-left:25px;
+    }
+
+    input[type=checkbox] { 
+        display: none;
+    }
+
+    .checkbox-label {
+        border: 1px solid #b3b3af;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: $font-family-semi-bold;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        width: 20px;
+		margin:5px auto;
+    }
+
+    .checkbox-label:after {
+        background: transparent;
+        border: 2px solid $brand-primary;
+        border-top: none;
+        border-right: none;
+        content: '';
+        height: 7px;
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        opacity: 0;
+        transform: rotate(-45deg);
+        width: 11px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+    }
+
+    label:hover .checkbox-label {
+        border: 1px solid $brand-primary;
+    }
+
+    label:disabled .checkbox-label {
+        border: 1px solid #999;
+    }
+
+    input[type=checkbox]:checked + label>.checkbox-label:after {
+        opacity: 1;
+    }
+
+    input[type=checkbox]:required + label>.checkbox-label {
+        border: 1px solid #ff3b30;
+        opacity: 1;
+    }
+
+    input[type=checkbox]:checked + label>.checkbox-label {
+        border: 1px solid $brand-primary;
+        opacity: 1;
+    }   
+
+    input[type=checkbox]:disabled:checked + label>.checkbox-label  {
+        border: 1px solid #999;
+        opacity: 1;
+		cursor: not-allowed;
+    }
+     input[type=checkbox]:disabled + label > span.chkbox-text, input[type=checkbox]:disabled:checked + label > span.chkbox-text {
+        opacity: 1;
+		cursor: not-allowed;
+    }
+    input[type=checkbox]:disabled + label>.checkbox-label, input[type=checkbox]:disabled + label>.checkbox-label:hover, input[type=checkbox]:disabled:checked + label>.checkbox-label:after {
+        border-color: #999;
+		cursor: not-allowed;
+    }
+}
+
+
+.checkbox-noko-container { 
+    margin: 5px auto;
+    position: relative;
+	display:inline-block;
+
+    .chkbox-text{
+        cursor: pointer;
+        padding-left:25px;
+    }
+
+    input[type=checkbox] { 
+        display: none;
+    }
+
+    .checkbox-label {
+        border: 1px solid #b3b3af;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: $font-family-semi-bold;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        width: 20px;
+    }
+
+    .checkbox-label:after {
+        background: transparent;
+        border: 2px solid $brand-primary;
+        border-top: none;
+        border-right: none;
+        content: '';
+        height: 7px;
+        left: 4px;
+        position: absolute;
+        top: 4px;
+        opacity: 0;
+        transform: rotate(-45deg);
+        width: 11px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+    }
+
+    .checkbox-label:hover {
+        border: 1px solid $brand-primary;
+    }
+
+    label:disabled .checkbox-label {
+        border: 1px solid #999;
+    }
+
+    input[type=checkbox]:checked + label>.checkbox-label:after {
+        opacity: 1;
+    }
+
+    input[type=checkbox]:checked + label>.checkbox-label {
+        border: 1px solid $brand-primary;
+        opacity: 1;
+    }
+    
+    input[type=checkbox]:disabled:checked + label>.checkbox-label  {
+        border: 1px solid #999;
+        opacity: 1;
+		cursor: not-allowed;
+    }
+     input[type=checkbox]:disabled + label > .chkbox-text, input[type=checkbox]:disabled:checked + label > .chkbox-text {
+        opacity: 1;
+		cursor: not-allowed;
+    }
+    input[type=checkbox]:disabled + label>.checkbox-label, input[type=checkbox]:disabled + label:hover>.checkbox-label, input[type=checkbox]:disabled:checked + label>.checkbox-label:after {
+        border-color: #999;
+		cursor: not-allowed;
+    }
+}

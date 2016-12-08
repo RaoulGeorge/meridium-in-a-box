@@ -1,0 +1,151 @@
+﻿.mi-combobox-container{
+    position:relative;
+	border: 1px solid #dedede;
+    border-radius: 2px;
+    padding: 0;
+    height:35px;
+    font-size:13px;
+	background-color:#fff;
+	min-width:60px;
+
+	&.disabled{
+		background-color:#e8e8e8;
+		color:#d3d3d3;
+	}
+	&.required{
+		border-color:red;
+		color:red;
+	}
+	
+    input {        
+        padding: 6px;
+        font-family: open_sansregular, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: $font-size-base;
+    }
+
+    input:focus{
+        outline:none;
+    }
+
+    .icon-arrow {
+        position: relative;
+        top: 9px;
+        right: 4px;
+    }
+
+    .mi-combobox-selector {
+        width: 100%;
+		text-overflow: ellipsis;
+		overflow: hidden;            
+
+		&.active{
+			border-color:$brand-primary;
+			color:$brand-primary;
+		}
+		.mi-combobox-value-text{
+			width: calc(100% - 20px);
+			overflow: hidden;
+			white-space:nowrap;
+            border: 0;
+		}
+		.fa{
+		    color:inherit;
+		    line-height:16px;
+		}
+    }
+}
+
+.mi-combobox-options-container {
+    box-shadow: 0 1px 3px #555;
+	top:50px;
+	width:100%;
+	
+	background-color:#eeeeee;
+	z-index:1;
+	max-height:216px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+
+    &:before{
+        content:'';
+        border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		width: 0; 
+		height: 0;
+        position: absolute; 
+    }
+
+    &.bottom-right, &.bottom-left{
+        border-top:2px solid $brand-primary;
+
+    }
+
+    &.top-right, &.top-left{
+        border-bottom:2px solid $brand-primary;
+    }
+
+
+	&.bottom-right:before {
+		border-bottom: 10px solid $brand-primary;		
+		bottom: 100%;
+		right: 10px;
+	}
+
+    &.bottom-left:before {		
+		border-bottom: 10px solid $brand-primary;		
+		bottom: 100%;
+		left: 10px;
+	}
+
+    &.top-right:before {	
+		border-top: 10px solid $brand-primary;
+		top: 100%;
+		right: 10px;
+	}
+
+    &.top-left:before {
+		border-top: 10px solid $brand-primary;		
+		top: 100%;
+		left: 10px;
+	}
+
+    .mi-combobox-option {
+        padding: 5px 10px;
+        margin: 0;
+        height:30px;
+		font-size:13px;
+		background-image: linear-gradient(to right, #232323 20%, rgba(255,255,255,0) 0%);
+		background-position: bottom;
+		background-size: 4px 1px;
+		background-repeat: repeat-x;
+
+		-webkit-transition: 0.5s ease;
+		-moz-transition: 0.5s ease;
+		-ms-transition: 0.5s ease;
+		-o-transition: 0.5s ease;
+		transition: 0.5s ease;
+        border-left-width:2px;
+		border-left-style:solid;
+		border-left-color: rgba(0, 0, 0, 0);
+			
+		overflow:hidden;
+		white-space:nowrap;
+
+		&:hover{
+			background-color:#f2f2f2;
+			opacity: 1;
+			color:#2676ac;
+		}
+
+		&.active{
+			border-left:2px solid $brand-primary;
+		}
+
+		&:last-child{
+			background-image:none;
+		}
+	}
+
+}
