@@ -26,9 +26,10 @@ define(function defineApplication(require) {
     };
 
     function activateLoginViewModel(self) {
-        self.conductor.activateScreen(self.loginViewModel)
-            .done(switchFromLoginToShell.bind(null, self));
-        loadShell();
+        removeLoginScreen(self);
+        loadShell()
+        .then(activateShell.bind(null, self))
+        .then(switchFromLoginToShell.bind(null, self))
         return null;
     }
 
