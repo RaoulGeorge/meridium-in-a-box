@@ -1,0 +1,16 @@
+﻿/* Make sure you import this file in styles/default.scss and compile using build.bat or watch.bat */
+
+.hello-world-container { 
+	padding: 50px;
+	width: 50%;
+	height: 100%;
+	margin: auto;	
+
+	h4 {
+		
+		i {
+			margin-right: 10px;
+			font-size: 20px;
+		}
+	}
+}

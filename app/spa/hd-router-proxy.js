@@ -78,7 +78,7 @@ define(function (require, exports, module) {
 
     function isSmallScreenAllowed(event) {
         assertRouteMatchedEvent(event);
-        return !!event.config['allow-small-screen'];
+        return event;
     }
 
     function isTinyScreenAllowed(event) {

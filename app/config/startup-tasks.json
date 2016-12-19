@@ -1,17 +1,25 @@
 {
     "pre-login": {
-        "tasks": []
+        "tasks": [
+                        { "module": "application/tasks/register-events-task" }
+        ]
     },
 
     "post-login" :{
-        "tasks": []
+        "tasks": [
+        ]
     },
 
     "dom-events": {
-        "tasks": []
+        "tasks": [
+            { "module": "application/tasks/keep-alive-task", "events": "mousedown,keydown,touchstart" },
+            { "module": "application/tasks/content-navigation-task", "events": "click" },
+            { "module": "application/tasks/window-unload-isdirty-task", "events": "beforeunload", "target": "window" }
+        ]
     },
 
     "scheduled": {
-        "tasks": []
+        "tasks": [
+        ]
     }
 }
