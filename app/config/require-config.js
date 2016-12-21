@@ -113,7 +113,8 @@
             'react': '../lib/fb/react-15.2.1',
             'react-dom': '../lib/fb/react-dom-15.2.1',
             'immutable': '../lib/fb/immutable-3.8.1',
-            'bluebird': '../lib/bluebird-3.4.1'
+            'bluebird': '../lib/bluebird-3.4.1',
+            'angular':'../lib/angular.min'
         },
         shim: {
             'backbone': {
@@ -293,6 +294,10 @@
             },
             sjcl: {
                 exports: 'sjcl'
+            },
+            'angular': {
+                deps:['bootstrap'],
+                exports: 'angular'
             }
         },
         map: {

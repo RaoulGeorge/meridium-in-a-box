@@ -5,8 +5,13 @@
     "allow-small-screen": true
   },
    {
-    "url": "hello",
+    "url": "hello-ko",
     "module": "hello/ui/hello-world-view-model",
+    "allow-small-screen": true
+  },
+  {
+    "url": "hello-angular",
+    "module": "hello-angular/hello-angular",
     "allow-small-screen": true
   }
 ]

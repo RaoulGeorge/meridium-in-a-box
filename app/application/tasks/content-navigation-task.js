@@ -41,7 +41,6 @@ define(function (require) {
     var shouldHandle = R.cond([[R.isNil, R.F], [hasHashTag, R.T], [hasBang, R.T], [R.T, R.F]]);
 
    function navigate (tag) {
-    debugger
        var openTab = R.compose(navigationViewModel.openTab.bind(navigationViewModel, hasBang(tag)), getHrefNoHash),
            changeTab = R.compose(navigationViewModel.changeTab.bind(navigationViewModel, hasBang(tag)), getHrefNoHash), 
            updateTabs = R.cond([[openNewTab, openTab], [R.T, changeTab]]);

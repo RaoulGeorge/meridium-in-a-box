@@ -8,7 +8,6 @@ define(function (require) {
         view = require('text!./views/hello-world-view.html');
 
     function HelloWorld(appEvents) {
-        debugger
         base.call(this, view);
 
         this.name = null;

@@ -35,7 +35,6 @@ define(function (require) {
 
     NavigationViewModel.prototype.attach = function (region) {
         getVm(this).attach();
-        debugger
         m.mount(region.element, { controller: R.partial(getVm, [this]), view: TabBarView });
         this.urlManager.routesChanged.add(locationChanged, this, this);
         this.urlManager.activate();
