@@ -2,8 +2,11 @@
   {
     "url": "",
     "module": "default-screen",
-    "allow-small-screen": true,
-    "available-offline": true,
-    "allow-tiny-screen": true
+    "allow-small-screen": true
+  },
+   {
+    "url": "hello",
+    "module": "hello/ui/hello-world-view-model",
+    "allow-small-screen": true
   }
 ]

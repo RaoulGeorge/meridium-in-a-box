@@ -35,6 +35,7 @@ define(function (require) {
 
     NavigationViewModel.prototype.attach = function (region) {
         getVm(this).attach();
+        debugger
         m.mount(region.element, { controller: R.partial(getVm, [this]), view: TabBarView });
         this.urlManager.routesChanged.add(locationChanged, this, this);
         this.urlManager.activate();
@@ -90,15 +91,15 @@ define(function (require) {
     function checkForDefaultTabs (self, routes) {
         var route, queryString;
 
-        if (isScreenTooSmallForAllPages(self)) {
+        /*if (isScreenTooSmallForAllPages(self)) {
             if (routes.routes.length === 1 && routes.routes[0]==='') {
                 routes = { routes: ['rounds/dashboard/user'] };
                 replaceHash(self, routes, routes.routes[0], '');
             }
             return true;
-        }
+        }*/
 
-        if (routes.routes.length === 1) {
+        /*if (routes.routes.length === 1) {
             route = routes.routes[0];
             routes.query = routes.query || {};
             delete routes.query.__isQueryString__;
@@ -109,7 +110,7 @@ define(function (require) {
             }
             replaceHash(self, routes, route, queryString);
             return false;
-        }
+        }*/
         routes.routes[0] = ApplicationContext.homeRoute;
         return true;
     }

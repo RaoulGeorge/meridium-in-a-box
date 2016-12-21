@@ -95,6 +95,7 @@ define(function (require) {
     };
 
     Router.prototype.badRouteHandler = function () {
+        debugger
         this.routeMatchedHandler(buildBadRouteEvent());
     };
 

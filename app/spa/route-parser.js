@@ -26,6 +26,7 @@ define(function (require, exports, module) {
     }
 
     RouteParser.prototype.dispatch = function (url, query) {
+        debugger
         if (logger.isTraceEnabled()) { logger.trace('dispatch url ', url); }
         var match = this.match(url);
         if (match === undefined) {

@@ -39,7 +39,7 @@ define(function (require) {
     }
 
     function homeTab (vm) {
-        var myTab = vm.getHomeTab();
+        /*var myTab = vm.getHomeTab();
         if (R.isNil(myTab)) {
             return '';
         }
@@ -49,11 +49,11 @@ define(function (require) {
             class: vm.isActiveTab(myTab) ? 'active' : ''
         }, [
             m('a.top-left-nav-icon-group test', m('i.icon-dashboard icon-dashboard-style'))
-        ]);
+        ]);*/
     }
 
     function assetHierarchy (vm) {
-        var myTab = vm.getAssetHierarchyTab();
+        /*var myTab = vm.getAssetHierarchyTab();
         if (R.isNil(myTab)) {
             return '';
         }
@@ -63,7 +63,7 @@ define(function (require) {
             class: vm.isActiveTab(myTab) ? 'active' : ''
         }, [
             m('a.top-left-nav-icon-group test', m('i.ds ds-assethierachy icon-dashboard-style'))
-        ]);
+        ]);*/
     }
 
     function variableTabs (vm) {
