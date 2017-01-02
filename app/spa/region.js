@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery"], function (require, exports, $) {
+define(["require", "exports", "jquery","angular"], function (require, exports, $) {
     "use strict";
     var COMMENT_NODE = 8;
     var Region = (function () {
@@ -20,6 +20,12 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
             this.activeContainer = createActiveContainer();
             appendContentToActiveContainer(this, element);
             appendActiveContainerToRegionElement(this);
+        };
+        Region.prototype.angularAttach = function (element) {
+            this.clear();
+            this.activeContainer = createActiveContainer();
+            appendContentToActiveContainer(this, element);
+            appendActiveContainerToRegionElementAndCompile(this);
         };
         Region.prototype.clear = function () {
             if (!this.activeContainer) {
@@ -78,6 +84,10 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
     function appendContentToActiveContainer(region, element) {
         $(region.activeContainer).append(element);
     }
+    function appendContentToActiveContainerAndCompile(region, element) {
+        $(region.activeContainer).append($compile(element)(scope));
+        scope.$apply(); 
+    }
     function appendActiveContainerToRegionElement(region) {
         if (isComment(region.element)) {
             if (!region.$element) {
@@ -90,6 +100,22 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
                 throw new Error('region.element is null');
             }
             region.element.appendChild(region.activeContainer);
+        }
+    }
+    function appendActiveContainerToRegionElementAndCompile(region) {
+        if (isComment(region.element)) {
+            if (!region.$element) {
+                throw new Error('region.$element is null');
+            }
+            region.$element.after(region.activeContainer);
+        }
+        else {
+            if (!region.element) {
+                throw new Error('region.element is null');
+            }
+            region.element.appendChild(region.activeContainer);
+            
+            
         }
     }
     function isComment(element) {

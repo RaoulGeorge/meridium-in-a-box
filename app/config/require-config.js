@@ -114,7 +114,8 @@
             'react-dom': '../lib/fb/react-dom-15.2.1',
             'immutable': '../lib/fb/immutable-3.8.1',
             'bluebird': '../lib/bluebird-3.4.1',
-            'angular':'../lib/angular.min'
+            'angular':'../lib/angular',
+            'angular-route':'../lib/angular-route'
         },
         shim: {
             'backbone': {
@@ -298,7 +299,11 @@
             'angular': {
                 deps:['bootstrap'],
                 exports: 'angular'
-            }
+            },
+            'angular-route': {
+              exports: 'ngRoute',
+              deps: ['angular']
+            } 
         },
         map: {
             '*': {
